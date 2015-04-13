@@ -111,6 +111,50 @@ Text with citations \cite{RefB} and \cite{RefJ}.
 
 \subsection{Hardware Setup}
 
+% For one-column wide figures use
+\begin{figure}
+  \includegraphics[width=9cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
+\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in mm.  In the center is the color camera, and its optical center defines the world coordinate system.  On the right is the depth camera.  Its points are projected into the world coordinate system.  On the left is the fluorescent and IR camera.}
+\label{fig:CameraConfiguration} 
+\end{figure}
+
+\subsection{Image Accusation}
+
+\subsection{Image Calibration}
+
+\subsection{Creative Senz3D}
+
+The depth and color images were collected using a Creative Senz3D sensor.  This section describes characterizes the data from this sensor, particularly the depth data.  The sensor contains both a $1280 \times 720$ color camera directed parallel to, and separated by roughly 25 mm from, a depth camera which has resolution of $320\times240$ pixels.  The depth sensor uses a flash near IR illuminator and measures the time-of-flight of the beam at each pixel to obtain dense depth estimates along with an IR reflectance at each pixel.    
+
+There are a number of limitations to the depth sensor including sources of depth error.  The primary measurement limit on the range-to-target is the strength of the reflected beam. Hence dark, matt surfaces are measured reliably only at close range on the order of 20 or 30cm.  Highly reflective surfaces also pose problems with direct reflections leading to saturation and highly unreliable depths.  In addition reflective surfaces at grazing angles are less reliably measured as little signal is reflected.  Hence in our data portions of the chamber floor visible in Fig.~\ref{fig:CameraConfiguration} are highly reflective and have incorrect depths.  Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian reflections of IR CITE{}.  Thus For these reasons the non-leaf depth pixels in the 3D data are unreliable and should be ignored.  Another limitation is that the IR illuminator is slightly offset on the left of the sensor and this results in shadows to the right of some objects, as well as mixed pixels on depth discontinuities.  Both of these can be readily detected as large standard deviations in the depth image.
+
+\subsubsection{Sensor Calibration}
+
+A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method CITE{} to calculate the intrinsic parameters including a 2-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as 3D points in the world coordinate system.  Hence it is straight forward to project these points onto any of the three camera images.
+
+\subsubsection{Depth Bias and Noise Characterization}
+\label{sec:bias}
+
+We characterized both the bias and the variance of the depth cameras as follows.  A flat printed checkerboard with a surrounding white board was positioned at a large number of poses [How many?] in front of the sensor.  The pose of the checkerboard is calculated in each case using the color and IR reflectance images.  This defines a plane relative to the depth camera which we use to calculate the ground truth depths for each pixel in the depth camera.  At each pose we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
+
+Next we sought to model the depth bias as a linear function of depth.  Two parameters were fit for each pixel (a linear coefficient and an offset).  The results are summarized in Fig.~\ref{fig:Bias}.  [Need more summary here.]
+
+\begin{figure}
+  %\includegraphics[]{Figures/}
+\caption{Noise and Bias model}
+\label{fig:Bias} 
+\end{figure}
+
+
+In the recorded 3D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth variance for our data is $1/5$ of the the variances shown in Fig.~\ref{fig:Bias}, and the bias is zero.
+
+Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in a bias shift of [how much?].  We removed this bias shift from the depth data.   
+
+\subsubsection{Data Description}
+
+The data consist of 5 images per hour taken within 10 minutes of each other.  These include the fluorescent image, the IR reflectance image with the same camera, the color image, the 3D-depth and a confidence image.  The 3D-depth image is built from the depth sensor by transforming the points into world coordinates and is expressed in mm.  The confidence image is the standard deviation of the depths pixels.  This is useful for identifying pixels at depth discontinuities which are unreliably detected and result in large standard deviations.  In addition pixels with no response and saturated pixels are marked as high standard deviation. [Got to check this].
+
+
 \subsection{Image Accusation}
 
 \subsection{Image Calibration}
