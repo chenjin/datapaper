@@ -3,7 +3,8 @@ The style file: springer.bst
 Database file #1: abbrev_brief.bib
 Database file #2: xl-literature.bib
 Warning--string name "address_icip14" is undefined
---line 4619 of file xl-literature.bib
+--line 4626 of file xl-literature.bib
 Warning--I didn't find a database entry for ""
 Warning--empty institution in scharr2014annotated
-(There were 3 warnings)
+Warning--empty publisher in soderkvist2001computer
+(There were 4 warnings)

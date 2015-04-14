@@ -19,6 +19,13 @@ Huang, Gary~B., Manu Ramesh, Tamara Berg, \& Erik Learned-Miller 2007.
   in Unconstrained Environments.
 \newblock Technical Report 07-49, University of Massachusetts, Amherst.
 
+\bibitem[Kumar et~al., 2012]{kumar2012leafsnap}
+Kumar, Neeraj, Peter~N. Belhumeur, Arijit Biswas, David~W. Jacobs, W.~John
+  Kress, Ida~C. Lopez, \& Jo{\~a}o~VB. Soares 2012.
+\newblock Leafsnap: A computer vision system for automatic plant species
+  identification.
+\newblock In ECCV, pages 502--516. Springer.
+
 \bibitem[Phillips et~al., 2000]{Phillips2000}
 Phillips, P.~J., H.~Moon, P.~J. Rauss, \& S.~Rizvi 2000.
 \newblock The {FERET} evaluation methodology for face recognition algorithms.
@@ -29,6 +36,19 @@ Scharr, Hanno, Massimo Minervini, Andreas Fischbach, \& Sotirios~A Tsaftaris
   2014.
 \newblock Annotated image datasets of rosette plants.
 \newblock Technical Report FZJ-2014-03837.
+
+\bibitem[S{\"o}derkvist, 2001]{soderkvist2001computer}
+S{\"o}derkvist, Oskar 2001.
+\newblock Computer vision classification of leaves from swedish trees.
+\newblock Master thesis, Link{\"o}ping University.
+
+\bibitem[Wu et~al., 2007]{wu2007leaf}
+Wu, Stephen~Gang, Forrest~Sheng Bao, Eric~You Xu, Yu-Xuan Wang, Yi-Fan Chang,
+  \& Qiao-Liang Xiang 2007.
+\newblock A leaf recognition algorithm for plant classification using
+  probabilistic neural network.
+\newblock In Signal Processing and Information Technology, 2007 IEEE
+  International Symposium on, pages 11--16. IEEE.
 
 \bibitem[Yin et~al., 2014a]{yin2014a}
 Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014a.
