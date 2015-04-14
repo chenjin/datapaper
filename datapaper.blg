@@ -1,4 +1,9 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: datapaper.aux
-I found no \bibdata command---while reading file datapaper.aux
-I found no \bibstyle command---while reading file datapaper.aux
-(There were 2 error messages)
+The style file: springer.bst
+Database file #1: abbrev_brief.bib
+Database file #2: xl-literature.bib
+Warning--string name "address_icip14" is undefined
+--line 4619 of file xl-literature.bib
+Warning--I didn't find a database entry for ""
+Warning--empty institution in scharr2014annotated
+(There were 3 warnings)
