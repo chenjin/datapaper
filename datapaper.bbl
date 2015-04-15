@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[Chelle, 2006]{Chelle2006219}
+Chelle, Michaël 2006.
+\newblock Could plant leaves be treated as Lambertian surfaces in dense crop
+  canopies to estimate light absorption?
+\newblock Ecological Modelling, 198(1–2):219 -- 228.
+
 \bibitem[Fei-Fei et~al., 2004]{Fei-Fei2004}
 Fei-Fei, L., R.~Fergus, \& P.~Perona 2004.
 \newblock Learning generative visual models from few training examples: an
@@ -59,5 +65,11 @@ Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014a.
 Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014b.
 \newblock MULTI-LEAF TRACKING FROM FLUORESCENCE PLANT VIDEOS.
 \newblock In ICIP.
+
+\bibitem[Zhang, 2000]{Zhang2000}
+Zhang, Zhengyou 2000.
+\newblock A flexible new technique for camera calibration.
+\newblock Pattern Analysis and Machine Intelligence, IEEE Transactions on,
+  22(11):1330--1334.
 
 \end{thebibliography}
