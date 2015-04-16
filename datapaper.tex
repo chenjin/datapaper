@@ -122,12 +122,12 @@ subject classification numbers as needed.
 
 % For one-column wide figures use
 \begin{figure}
-  \includegraphics[width=9cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
-\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in mm.  In the center is the color camera, and its optical center defines the world coordinate system.  On the right is the depth camera.  Its points are projected into the world coordinate system.  On the left is the fluorescent and IR camera.}
+  \includegraphics[width=11cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
+\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in mm.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
 \label{fig:CameraConfiguration}
 \end{figure}
 
-\subsection{Image Accusation}
+\subsection{Image Acquisition}
 
 \subsection{Image Calibration}
 
@@ -147,24 +147,28 @@ A checkerboard pattern was used to calibrate all three cameras to obtain both in
 \subsubsection{Depth Bias and Noise Characterization}
 \label{sec:bias}
 
-We characterized both the bias and the variance of the depth cameras as follows.  A flat printed checkerboard with a surrounding white board was positioned at a large number of poses [How many?] in front of the sensor.  The pose of the checkerboard is calculated in each case using the color and IR reflectance images.  This defines a plane relative to the depth camera which we use to calculate the ground truth depths for each pixel in the depth camera.  At each pose we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
+We characterized both the bias and the variance of the depth cameras as follows.  A flat printed checkerboard with a surrounding white board was positioned at a large number of poses in front of the sensor.  The pose of the checkerboard is calculated in each case using the color and IR reflectance images.  This defines a plane relative to the depth camera which we use to calculate the ground truth depths for each pixel in the depth camera.  At each pose we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
 
-Next we sought to model the depth bias as a linear function of depth.  Two parameters were fit for each pixel (a linear coefficient and an offset).  The results are summarized in Fig.~\ref{fig:Bias}.  [Need more summary here.]
+Next we sought to model the depth bias as a linear function of depth.  Two parameters were fit for each pixel (a linear coefficient and an offset).  We found that the bias was close to constant as a function of depth, although it varied across the depth image as shown in Fig.~\ref{fig:Bias}.  The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.  Estimates of the noise is shown in Fig.~\ref{fig:Bias}.
 
 \begin{figure}
-  %\includegraphics[]{Figures/}
-\caption{Noise and Bias model}
+\begin{tabular}{ c c }
+  \includegraphics[width=5.5cm,trim=160 260 170 260,clip]{Figures/BiasError} &
+  \includegraphics[width=7.5cm,trim=110 240 50 240,clip]{Figures/SigmaRadius} \\
+  (\emph{a}) & (\emph{b}) \\
+\end{tabular}
+\caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of 200 pixels corresponds to the corners of the depth camera which can be seen to have large noise. }
 \label{fig:Bias}
 \end{figure}
 
 
-In the recorded 3D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth variance for our data is $1/5$ of the the variances shown in Fig.~\ref{fig:Bias}, and the bias is zero.
+In the recorded 3D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the the standard deviations shown in Fig.~\ref{fig:Bias} and the bias is zero.
 
-Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in a bias shift of [how much?].  We removed this bias shift from the depth data.
+Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data.
 
 \subsubsection{Data Description}
 
-The data consist of 5 images per hour taken within 10 minutes of each other.  These include the fluorescent image, the IR reflectance image with the same camera, the color image, the 3D-depth and a confidence image.  The 3D-depth image is built from the depth sensor by transforming the points into world coordinates and is expressed in mm.  The confidence image is the standard deviation of the depths pixels.  This is useful for identifying pixels at depth discontinuities which are unreliably detected and result in large standard deviations.  In addition pixels with no response and saturated pixels are marked as high standard deviation. [Got to check this].
+The data consist of 5 images per hour taken within 10 minutes of each other.  These include the fluorescent image, the IR reflectance image with the same camera, the color image, the 3D-depth and a confidence image.  The 3D-depth image is built from the depth sensor by transforming the points into world coordinates and is expressed in mm.  The confidence image is the standard deviation of the depths pixels.  This is useful for identifying pixels at depth discontinuities which are unreliably detected and result in large standard deviations.  In addition pixels with no response and saturated pixels are given the maximum standard deviation, and should be filtered out.
 
 
 \subsection{Image Accusation}
