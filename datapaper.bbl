@@ -17,7 +17,8 @@ Fei-Fei, L., R.~Fergus, \& P.~Perona 2004.
 Haug, Sebastian, \& J{\"o}rn Ostermann 2014.
 \newblock A Crop/Weed Field Image Dataset for the Evaluation of Computer Vision
   Based Precision Agriculture Tasks.
-\newblock In ECCVW, pages 105--116. Springer.
+\newblock In Proc. European Conf. Computer Vision Workshops (ECCVW), pages
+  105--116. Springer.
 
 \bibitem[Huang et~al., 2007]{LFW}
 Huang, Gary~B., Manu Ramesh, Tamara Berg, \& Erik Learned-Miller 2007.
@@ -30,12 +31,13 @@ Kumar, Neeraj, Peter~N. Belhumeur, Arijit Biswas, David~W. Jacobs, W.~John
   Kress, Ida~C. Lopez, \& Jo{\~a}o~VB. Soares 2012.
 \newblock Leafsnap: A computer vision system for automatic plant species
   identification.
-\newblock In ECCV, pages 502--516. Springer.
+\newblock In Proc. European Conf. Computer Vision (ECCV), pages 502--516.
+  Springer.
 
 \bibitem[Phillips et~al., 2000]{Phillips2000}
 Phillips, P.~J., H.~Moon, P.~J. Rauss, \& S.~Rizvi 2000.
 \newblock The {FERET} evaluation methodology for face recognition algorithms.
-\newblock IEEE T-PAMI, 22(10):1090--1104.
+\newblock IEEE Trans. Pattern Anal. Mach. Intell., 22(10):1090--1104.
 
 \bibitem[Scharr et~al., 2014]{scharr2014annotated}
 Scharr, Hanno, Massimo Minervini, Andreas Fischbach, \& Sotirios~A Tsaftaris
@@ -59,12 +61,13 @@ Wu, Stephen~Gang, Forrest~Sheng Bao, Eric~You Xu, Yu-Xuan Wang, Yi-Fan Chang,
 \bibitem[Yin et~al., 2014a]{yin2014a}
 Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014a.
 \newblock Multi-leaf Alignment from Fluorescence Plant Images.
-\newblock In WACV.
+\newblock In IEEE Winter Conf. on Applications of Computer Vision (WACV),
+  Steamboat Springs CO.
 
 \bibitem[Yin et~al., 2014b]{yin2014b}
 Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014b.
 \newblock MULTI-LEAF TRACKING FROM FLUORESCENCE PLANT VIDEOS.
-\newblock In ICIP.
+\newblock In Proc. Int. Conf. Image Processing (ICIP), Paris, France.
 
 \bibitem[Zhang, 2000]{Zhang2000}
 Zhang, Zhengyou 2000.
