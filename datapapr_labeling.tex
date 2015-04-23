@@ -1,20 +1,21 @@
 \section{Image Labeling}
 
 Part of the dataset is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency overtime.
-Tip locations are saved in a TXT file for each frame. 
+Tip locations are saved in a TXT file for each frame.
 Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
 The same color is used to represent the same leaf over a sequence of frames.
 
-%We use RGB images for labeling because of better visualization.
-All plants are cropped out from the background and saved as JPG files.
+We use Fluorescence images for labeling because of clear background. 
+%All plants are cropped out from the background and saved as JPG files.
 For Arabidopsis images, we label four frames each day.
 While for bean images, we label seven frames each day because of faster leaf movement.
 We develop a Matlab GUI interface for leaf labeling, as shown in Fig~\ref{fig:label}.
 A user can open an image to label the two tips and annotate each leaf.
 The results will be automatically saved once a user goes to label the next image.
-This GUI is used to annotate leaves in each frame.
-For consistent annotation of the same leaf over time, we use the labeled results of each frame to find the correspondence according to leaf centers.
-Incorrect correspondence will be manually corrected.
+For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame. 
+%This GUI is used to annotate leaves in each frame.
+%For consistent annotation of the same leaf over time, we use the labeled results of each frame to find the correspondence according to leaf centers.
+%Incorrect correspondence will be manually corrected.
 
 \begin{figure}[h]
 \centering
@@ -23,15 +24,47 @@ Incorrect correspondence will be manually corrected.
 \label{fig:label}
 \end{figure}
 
+
 Tip label is implemented by clicking pairs of points on the image.
 The outer tip is always clicked before the inner tip.
 A line connecting each pair of tips will be shown immediately for visualization.
-Inaccurate labels can be deleted by clicking the right button of the mouse and relabeled by clicking the left button again.
+Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again.
 
-Leaf label is implemented by clicking the boundary of one leaf at each time. 
+Leaf label is implemented by clicking the boundary of one leaf at each time.
 The leaf boundary is overlaid on the image for better visualization to guide the next action.
+Incorrect label can be deleted right after the labeling. 
 This process continues until all leaves have been annotated.
+After the labeling of one plant, we visually go through the results and correct inaccurate labels. 
+One example of leaf label result for one plant is shown in Fig.~\ref{fig:LabelExample}, where one color is used to represent one leaf.  
+As we can see, there is leaf showing up and cover up the leaf underneath, which will not be annotated later (transition between day $4$ and day $5$). 
 
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=.98\textwidth]{Figures/labelExamples}\\
+%\caption{Leaf label results for one Arabidopsis plant over nine days with one image per day. }
+%\label{fig:LabelExample}
+%\end{figure}
+
+
+\begin{figure}[h]
+\begin{centering}
+\begin{tabular}{@{}c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
+%\begin{tabular}{lllllllll}
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_1_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_2_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_3_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_4_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_5_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_6_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_7_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_8_num_13.png}&
+\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_9_num_13.png}\\
+  day 1 & day 2 & day 3 & day 4 & day 5 & day 6 & day 7 & day 8 & day 9 \\
+\end{tabular}
+\caption{Leaf label results for one Arabidopsis plant over nine days with one image per day. }
+\label{fig:LabelExample}
+\end{centering}
+\end{figure}
 
 
 %For leaf annotation, we use the idea of merging and splitting super pixels.
