@@ -1,9 +1,7 @@
 {\it Arabidopsis thaliana} (ecotype Col-0) plants were grown at $20^{\circ}C$, under a 16 hr:8 hr day night cycle with daylight intensity set at $100~\mu mol~photons~m^{-2} s^{-1}$.
 %
-Black bean plants ({\it Phaseolus vulgaris L.}) of the cultivar Jaguar, were grown under a 14 hr:10 hr day night cycle with night and day temperatures of  $18^{\circ}C$ and $24^{\circ}C$, and daylight intensity set at $200~\mu mol~photons~m^{-2} s^{-1}$.
+Black bean plants ({\it Phaseolus vulgaris L.}), of the cultivar Jaguar, were grown under a 14 hr:10 hr day night cycle with daylight intensity set at $200 \mu mol~photons~m^{-2} s^{-1}$ and night and day temperatures of  $18^{\circ}C$ and $24^{\circ}C$.
 %
-Note that the bean plants were watered with half-strength Hoagland’s solution 3 times per week. 
-
-In all cases, seeds were planted in soil covered with a black foam mask to minimize fluorescence background from algal growth.
+Bean plants were watered with half-strength Hoagland’s solution 3 times per week.  In all cases, seeds were planted in soil covered with a black foam mask to minimize fluorescence background from algal growth.
 %
 Two-week-old plants ({\it Arabidopsis} or bean) were transferred to imaging chambers and allowed to acclimate for 24 hours to the LED lighting before the start of the experiments. Growth conditions as described above were maintained for each set of plants for the duration of image collection.

@@ -2,13 +2,13 @@
 title = "Could plant leaves be treated as Lambertian surfaces in dense crop canopies to estimate light absorption? ",
 journal = "Ecological Modelling ",
 volume = "198",
-number = "1",
+number = "1–2",
 pages = "219 - 228",
 year = "2006",
 issn = "0304-3800",
 doi = "http://dx.doi.org/10.1016/j.ecolmodel.2006.04.010",
 url = "http://www.sciencedirect.com/science/article/pii/S0304380006001797",
-author = "Michael Chelle",
+author = "Michaël Chelle",
 keywords = "Light microclimate",
 keywords = "\{BRDF\}",
 keywords = "Optical properties",
@@ -40,49 +40,4 @@ keywords = "Crop canopy"
   pages={303--311},
   year={2002},
   publisher={Elsevier}
-}
-
-@article{houle2010phenomics,
-  title={Phenomics: the next challenge},
-  author={Houle, D and Govindaraju, DR and Omholt, S},
-  Journal={Nature Review Genetics},
-  volume={11},
-  number={12},
-  pages={855--866},
-  year={2010}
-}
-
-@article{walter2015plant,
-  title={Plant phenotyping: from bean weighing to image analysis},
-  author={Walter, Achim and Liebisch, Frank and Hund, Andreas},
-  journal={Plant methods},
-  volume={11},
-  number={1},
-  pages={14},
-  year={2015},
-  publisher={BioMed Central Ltd}
-}
-
-@article{Erblichkeit1903,
-  title={Populationen und reinen Linien},
-  author={Johannsen W. Erblichkeit},
-  journal={Gustav Fischer Verlag},
-  year={1903}
-}
-
-@article{cruz2015depi,
-    title = {Dynamic Environmental Photosynthetic Imaging (DEPI) Reveals Emergent Phenotypes Related to the Environmental Responses of Photosynthesis},
-    author = {Cruz, J A and Savage, L J and Zegarac, R and Kovac, W and Hall, C and Chen, J and Kramer, D M},
-    year = {2015},
-    journal = {Nature Biotechnology},
-    volume = {in revision}
-}
-
-@inproceedings{nguyen2015vietnamese,
-  title={Vietnamese sign language reader using Intel Creative Senz3D},
-  author={Nguyen, VD and Chew, MT and Demidenko, S},
-  booktitle={Automation, Robotics and Applications (ICARA), 2015 6th International Conference on},
-  pages={77--82},
-  year={2015},
-  organization={IEEE}
 }

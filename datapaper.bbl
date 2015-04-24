@@ -1,10 +1,26 @@
 \begin{thebibliography}{}
 
 \bibitem[Chelle, 2006]{Chelle2006219}
-Chelle, Michaël 2006.
+Chelle, Michael 2006.
 \newblock Could plant leaves be treated as Lambertian surfaces in dense crop
   canopies to estimate light absorption?
-\newblock Ecological Modelling, 198(1–2):219 -- 228.
+\newblock Ecological Modelling, 198(1):219 -- 228.
+
+\bibitem[Cruz et~al., 2015]{cruz2015depi}
+Cruz, J~A, L~J Savage, R~Zegarac, W~Kovac, C~Hall, J~Chen, \& D~M Kramer 2015.
+\newblock Dynamic Environmental Photosynthetic Imaging (DEPI) Reveals Emergent
+  Phenotypes Related to the Environmental Responses of Photosynthesis.
+\newblock Nature Biotechnology, in revision.
+
+\bibitem[D{\"o}{\"o}s, 2002]{doos2002population}
+D{\"o}{\"o}s, Bo~R 2002.
+\newblock Population growth and loss of arable land.
+\newblock Global Environmental Change, 12(4):303--311.
+
+\bibitem[Erblichkeit, 1903]{Erblichkeit1903}
+Erblichkeit, Johannsen~W. 1903.
+\newblock Populationen und reinen Linien.
+\newblock Gustav Fischer Verlag.
 
 \bibitem[Fei-Fei et~al., 2004]{Fei-Fei2004}
 Fei-Fei, L., R.~Fergus, \& P.~Perona 2004.
@@ -20,6 +36,11 @@ Haug, Sebastian, \& J{\"o}rn Ostermann 2014.
 \newblock In Proc. European Conf. Computer Vision Workshops (ECCVW), pages
   105--116. Springer.
 
+\bibitem[Houle et~al., 2010]{houle2010phenomics}
+Houle, D, DR~Govindaraju, \& S~Omholt 2010.
+\newblock Phenomics: the next challenge.
+\newblock Nature Review Genetics, 11(12):855--866.
+
 \bibitem[Huang et~al., 2007]{LFW}
 Huang, Gary~B., Manu Ramesh, Tamara Berg, \& Erik Learned-Miller 2007.
 \newblock Labeled Faces in the Wild: A Database for Studying Face Recognition
@@ -33,6 +54,12 @@ Kumar, Neeraj, Peter~N. Belhumeur, Arijit Biswas, David~W. Jacobs, W.~John
   identification.
 \newblock In Proc. European Conf. Computer Vision (ECCV), pages 502--516.
   Springer.
+
+\bibitem[Nguyen et~al., 2015]{nguyen2015vietnamese}
+Nguyen, VD, MT~Chew, \& S~Demidenko 2015.
+\newblock Vietnamese sign language reader using Intel Creative Senz3D.
+\newblock In Automation, Robotics and Applications (ICARA), 2015 6th
+  International Conference on, pages 77--82. IEEE.
 
 \bibitem[Phillips et~al., 2000]{Phillips2000}
 Phillips, P.~J., H.~Moon, P.~J. Rauss, \& S.~Rizvi 2000.
@@ -50,6 +77,11 @@ S{\"o}derkvist, Oskar 2001.
 \newblock Computer vision classification of leaves from swedish trees.
 \newblock Master thesis, Link{\"o}ping University.
 
+\bibitem[Walter et~al., 2015]{walter2015plant}
+Walter, Achim, Frank Liebisch, \& Andreas Hund 2015.
+\newblock Plant phenotyping: from bean weighing to image analysis.
+\newblock Plant methods, 11(1):14.
+
 \bibitem[Wu et~al., 2007]{wu2007leaf}
 Wu, Stephen~Gang, Forrest~Sheng Bao, Eric~You Xu, Yu-Xuan Wang, Yi-Fan Chang,
   \& Qiao-Liang Xiang 2007.
@@ -66,7 +98,7 @@ Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014a.
 
 \bibitem[Yin et~al., 2014b]{yin2014b}
 Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014b.
-\newblock MULTI-LEAF TRACKING FROM FLUORESCENCE PLANT VIDEOS.
+\newblock Multi-Leaf Tracking from Fluorescence Plant Videos.
 \newblock In Proc. Int. Conf. Image Processing (ICIP), Paris, France.
 
 \bibitem[Zhang, 2000]{Zhang2000}

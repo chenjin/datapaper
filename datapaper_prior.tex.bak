@@ -1,0 +1,50 @@
+\section{Prior Work}
+\label{sec:prior}
+
+Databases drive computer vision research.
+Hence, it is always important to develop and promopt properly captured databases in the vision community.
+While there is a clear desire to apply computer vision to plant imagery, the lack of databases is an obstacle for the further study and development.
+
+
+We summarize all existing publicly available databases that are related to plant imagery in Table~\ref{tab:database}.
+In terms of potential applications of the databases, they can be categorized into two types.
+The first type is for the general purpose of recognizing a particular species of tree or plant.
+The Swedish leaf database~\cite{soderkvist2001computer} is probably the first leaf database even though the images are captured by scanners.
+The Flavia database~\cite{wu2007leaf} is considerably larger and a neural network is used to train a leaf classifier.
+The most recent leafsnap project is an impressive effort that includes a very large dataset of $184$ tree types~\cite{kumar2012leafsnap}.
+A mobilephone app is also developed to make the leaf classification system portable.
+Finally, the crop/weed image database~\cite{haug2014crop} is captured by a robot in the real field, and used for classifying crop vs.~weed.
+Note that in this type of databases, normally only a single leaf is imaged and as a result, the challenging problem of leaf segmentation has been bypassed.
+
+
+The second type of databases is for plant phenotyping where it is important to keep the plant live while imaged.
+Thus, no destructive action is taken and an entire plant is imaged.
+The LSC database~\cite{scharr2014annotated} is the most similar one to our database.
+It captures a large set of RGB images for the Arabidopsis and Tobacco plants.
+The provided manual labels allow the evaluation of leaf segmentation and leaf counting.
+In comparison, our MSU-PID database utilizes four sensing modalities in the data capturing, each providing different aspects of plant appearance.
+Our manual label also enable us to develop algorithm on additional applications such as leaf tracking and alignment.
+
+\begin{table}[t!]
+	\centering
+	\caption{Plant image databases, where the abbreviation in ``Applications'' column is defined as Leaf Classification (LC), Leaf Segmentation (LS), Leaf Counting (LO), Leaf Alignment (LA), and Leaf Tracking (LT).}
+	\resizebox{12cm}{!} {
+	%\begin{tabular}{|l@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|}
+	\begin{tabular}{l|c|c|c|c|c|c}
+		\hline
+		\multirow{2}{*}{Database}&  \multirow{2}{*}{Modality}  & Appli-& Plant & Subject/ &Total  &  Labeled   \\ 						
+			&         & cations &            Type         &       Classe \#         &  Image \#    & Image \# \\ \hline
+		
+Swedish leaf &  Scaned leaf & LC& Swedish trees & $15$ & $1,125$ & $1,125$ \\ \hline
+Flavia& RGB  & LC& Leaves & $32$  & $2,120$ & $2,120$ \\ \hline
+Leafsnap  & RGB & LC& USA trees & $184$ & $29,107$  &  $29,107$ \\ \hline
+Crop/weed &  RGB &Weed det. & Crop/Weed & $2$  & $60$ & $60$ \\ \hline
+\multirow{2}{*}{LSC} & \multirow{2}{*}{RGB}  & \multirow{2}{*}{LS, LO} & Arabidopsis &  $43$ & $6287$ & $201$ \\ \cline{4-7}
+							    &  & & Tobacco & $80$ & $165,120$ & $83$ \\ \hline
+\multirow{2}{*}{MSU-PID}  & Fluorescence,  & LS, LO, & Arabidopsis &  $20$ & $XXX$ & $XXX$ \\ \cline{4-7}
+							    & IR, RGB, Depth & LA, LT & Bean & $5$ & $XXX$ & $XXX$ \\ \hline
+	       \hline
+	\end{tabular}
+	}
+	\label{tab:database}
+\end{table}

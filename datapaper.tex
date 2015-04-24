@@ -128,20 +128,9 @@ subject classification numbers as needed.
 \label{fig:CameraConfiguration}
 \end{figure}
 
-\subsection{Image Acquisition}
+%\subsection{Image Acquisition}
 
-\subsection{Image Calibration}
-
-\subsection{Creative Senz3D}
-
-The depth and color images were collected using a Creative Senz3D sensor.
-This section describes characterizes the data from this sensor, particularly the depth data.
-The sensor contains both a $1280 \times 720$ color camera directed parallel to, and separated by roughly 25 mm from, a depth camera which has resolution of $320\times240$ pixels.
-The depth sensor uses a flash near IR illuminator and measures the time-of-flight of the beam at each pixel to obtain dense depth estimates along with an IR reflectance at each pixel.
-
-There are a number of limitations to the depth sensor including sources of depth error.  The primary measurement limit on the range-to-target is the strength of the reflected beam. Hence dark, matt surfaces are measured reliably only at close range on the order of 20 or 30cm.  Highly reflective surfaces also pose problems with direct reflections leading to saturation and highly unreliable depths.  In addition reflective surfaces at grazing angles are less reliably measured as little signal is reflected.  Hence in our data portions of the chamber floor visible in Fig.~\ref{fig:CameraConfiguration} are highly reflective and have incorrect depths.  Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian reflections of IR~\cite{Chelle2006219}.  Thus For these reasons the non-leaf depth pixels in the 3D data are unreliable and should be ignored.  Another limitation is that the IR illuminator is slightly offset on the left of the sensor and this results in shadows to the right of some objects, as well as mixed pixels on depth discontinuities.  Both of these can be readily detected as large standard deviations in the depth image.
-
-\subsubsection{Sensor Calibration}
+\subsection{Sensor Calibration}
 
 A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a 2-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as 3D points in the world coordinate system.  Hence it is straight forward to project these points onto any of the three camera images.
 
@@ -167,14 +156,14 @@ In the recorded 3D data we subtracted our estimated bias, and averaged five dept
 
 Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data.
 
-\subsubsection{Data Description}
-
-The data consist of 5 images per hour taken within 10 minutes of each other.  These include the fluorescent image, the IR reflectance image with the same camera, the color image, the 3D-depth and a confidence image.  The 3D-depth image is built from the depth sensor by transforming the points into world coordinates and is expressed in mm.  The confidence image is the standard deviation of the depths pixels.  This is useful for identifying pixels at depth discontinuities which are unreliably detected and result in large standard deviations.  In addition pixels with no response and saturated pixels are given the maximum standard deviation, and should be filtered out.
+%\subsubsection{Data Description}
 
 
-\subsection{Image Accusation}
 
-\subsection{Image Calibration}
+
+%\subsection{Image Accusation}
+
+%\subsection{Image Calibration}
 
 %\section{Image Labeling}
 \input{datapapr_labeling}
