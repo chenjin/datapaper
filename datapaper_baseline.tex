@@ -1,18 +1,18 @@
 \section{Baseline Method and Performance Evaluation}
 \label{sec:baseline}
 \subsection{Our framework}
-We apply our automatic multi-leaf alignment, segmentation, and tracking framework~\cite{yin2014a,yin2014b} to the testing set of Arabidopsis fluorescence imagery to provide a baseline for future comparison.
+We apply our automatic multi-leaf segmentation and tracking framework~\cite{yin2014a,yin2014b} to the testing set of Arabidopsis fluorescence imagery to provide a baseline for future comparison.
 Leaf segmentation aims at finding the correct number of leaves and the corresponding boundary of each leaf in each image.
 Leaf alignment is to align the two tips of each leaf.
 Leaf tracking is designed to track each leaf over time.
 
 
-\begin{figure}[h]
+\begin{figure*}
 \centering
 \includegraphics[width=.98\textwidth]{Figures/overview}\\
 \caption{Overview of the baseline method.}
 \label{fig:methodOverview}
-\end{figure}
+\end{figure*}
 
 As shown in Fig~\ref{fig:methodOverview}, the input of this framework is a plant video and a set of predefined templates with various shapes, scales, and orientations.
 To generate the template set, we first select $10$ templates with different aspect ratios from the labeled images in the training set together with the corresponding tip locations.
@@ -67,12 +67,12 @@ The instruction on how to use the evaluation functions are included within the f
 The results of our algorithm by varying $\tau$ from 0 to 1 is shown in Fig.~.
 And the {\it{SBD}} score is $0.51$ by averaging over all plants.
 
-\begin{figure}[h]
+\begin{figure*}
 \centering
 \includegraphics[width=.98\textwidth]{Figures/performance}\\
 \caption{Performance of the baseline method.}
 \label{fig:performance}
-\end{figure}
+\end{figure*}
 
 
 

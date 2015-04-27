@@ -6,7 +6,7 @@ The images were acquired every hour.
 As there is no light at night, plants can not be captured in fluorescence and RGB color images while IR and depth cameras can still capture plants.
 Therefore, in order to make it consistent, we release images captured only in day time, which are $16$ images per day for Arabidopsis and $14$ for bean for all four sensors.
 
-\begin{table}[h]
+\begin{table*}
 \begin{center}
 \caption{Summary of Arabidopsis and Bean databases.}
 \label{tab:stat}
@@ -21,7 +21,7 @@ Therefore, in order to make it consistent, we release images captured only in da
       \hline
 \end{tabular}
 \end{center}
-\end{table}
+\end{table*}
 
 The two databases differs in plant resolutions.
 As shown in Fig~\ref{fig:rawIm},  we grow a single bean plant while a whole tray of Arabidopsis are grown at the same time.
@@ -29,7 +29,7 @@ Therefore, the resolution of each Arabidopsis plant is much lower than that of a
 We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors.
 Table~\ref{tab:resolution} summaries the resolution of each plant in all four channels.
 
-\begin{figure}[h]
+\begin{figure*}
 \begin{centering}
 \begin{tabular}{c c}
 %\begin{tabular}{@{}c@{} c@{}}
@@ -41,9 +41,9 @@ Table~\ref{tab:resolution} summaries the resolution of each plant in all four ch
 \caption{Color images of Arabidopsis and bean plants. }
 \label{fig:rawIm}
 \end{centering}
-\end{figure}
+\end{figure*}
 
-\begin{table}[h]
+\begin{table*}
 \begin{center}
 \caption{Plant resolution of Arabidopsis and Bean databases.}
 \label{tab:resolution}
@@ -58,7 +58,7 @@ Table~\ref{tab:resolution} summaries the resolution of each plant in all four ch
       \hline
 \end{tabular}
 \end{center}
-\end{table}
+\end{table*}
 
 
 As shown in Tab.~\ref{tab:database}, MSU-PID can be used for leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
@@ -88,12 +88,12 @@ For consistent annotation of the same leaf over time, we show a number on the ce
 %For consistent annotation of the same leaf over time, we use the labeled results of each frame to find the correspondence according to leaf centers.
 %Incorrect correspondence will be manually corrected.
 
-\begin{figure}[h]
+\begin{figure*}
 \centering
 \includegraphics[width=.98\textwidth]{Figures/labeling}\\
 \caption{Leaf labeling process, including tip labels and leaf annotation.}
 \label{fig:label}
-\end{figure}
+\end{figure*}
 
 Tip label is implemented by clicking pairs of points on the image.
 The outer tip is always clicked before the inner tip.
@@ -116,7 +116,7 @@ As we can see, there is leaf showing up and cover up the leaf underneath, which 
 %\end{figure}
 
 
-\begin{figure}[h]
+\begin{figure*}
 \begin{centering}
 \begin{tabular}{@{}c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
 %\begin{tabular}{lllllllll}
@@ -134,7 +134,7 @@ As we can see, there is leaf showing up and cover up the leaf underneath, which 
 \caption{Leaf label results for one Arabidopsis plant over nine days with one image per day. }
 \label{fig:LabelExample}
 \end{centering}
-\end{figure}
+\end{figure*}
 
 
 

@@ -40,8 +40,8 @@ grestore
 %
 %\documentclass{svjour3}                     % onecolumn (standard format)
 %\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
-\documentclass[smallextended]{svjour3}       % onecolumn (second format)
-%\documentclass[twocolumn]{svjour3}          % twocolumn
+%\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+\documentclass[twocolumn]{svjour3}          % twocolumn
 %
 \smartqed  % flush right qed marks, e.g. at end of proof
 %
@@ -124,7 +124,7 @@ subject classification numbers as needed.
 
 % For one-column wide figures use
 \begin{figure}
-  \includegraphics[width=11cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
+  \includegraphics[width=8.5cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
 \caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in mm.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
 \label{fig:CameraConfiguration}
 \end{figure}
@@ -142,7 +142,8 @@ We characterized both the bias and the variance of the depth cameras as follows.
 
 Next we sought to model the depth bias as a linear function of depth.  Two parameters were fit for each pixel (a linear coefficient and an offset).  We found that the bias was close to constant as a function of depth, although it varied across the depth image as shown in Fig.~\ref{fig:Bias}.  The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.  Estimates of the noise is shown in Fig.~\ref{fig:Bias}.
 
-\begin{figure}
+\begin{figure*}
+\centering
 \begin{tabular}{ c c }
   \includegraphics[width=5.5cm,trim=160 260 170 260,clip]{Figures/BiasError} &
   \includegraphics[width=7.5cm,trim=110 240 50 240,clip]{Figures/SigmaRadius} \\
@@ -150,7 +151,7 @@ Next we sought to model the depth bias as a linear function of depth.  Two param
 \end{tabular}
 \caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of 200 pixels corresponds to the corners of the depth camera which can be seen to have large noise. }
 \label{fig:Bias}
-\end{figure}
+\end{figure*}
 
 
 In the recorded 3D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the the standard deviations shown in Fig.~\ref{fig:Bias} and the bias is zero.
