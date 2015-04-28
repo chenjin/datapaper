@@ -1,5 +1,16 @@
 \begin{thebibliography}{}
 
+\bibitem[Barbosa et~al., 2012]{Barbosa:reid12}
+Barbosa, B.~I., M.~Cristani, A.~Del~Bue, L.~Bazzani, \& V.~Murino 2012.
+\newblock Re-identification with RGB-D sensors.
+\newblock In First International Workshop on Re-Identification.
+
+\bibitem[Barrow et~al., 1977]{barrow1977parametric}
+Barrow, Harry~G., Jay~M. Tenenbaum, Robert~C. Bolles, \& Helen~C. Wolf 1977.
+\newblock Parametric correspondence and {C}hamfer matching: Two new techniques
+  for image matching.
+\newblock Technical report, DTIC Document.
+
 \bibitem[Chelle, 2006]{Chelle2006219}
 Chelle, Michael 2006.
 \newblock Could plant leaves be treated as Lambertian surfaces in dense crop
@@ -21,13 +32,6 @@ D{\"o}{\"o}s, Bo~R 2002.
 Erblichkeit, Johannsen~W. 1903.
 \newblock Populationen und reinen Linien.
 \newblock Gustav Fischer Verlag.
-
-\bibitem[Fei-Fei et~al., 2004]{Fei-Fei2004}
-Fei-Fei, L., R.~Fergus, \& P.~Perona 2004.
-\newblock Learning generative visual models from few training examples: an
-  incremental {B}ayesian approach tested on 101 object categories.
-\newblock In Proc. of the CVPR 2004 Workshop on Generative-Model Based Vision,
-  pages 178--178.
 
 \bibitem[Haug \& Ostermann, 2014]{haug2014crop}
 Haug, Sebastian, \& J{\"o}rn Ostermann 2014.
@@ -55,6 +59,17 @@ Kumar, Neeraj, Peter~N. Belhumeur, Arijit Biswas, David~W. Jacobs, W.~John
 \newblock In Proc. European Conf. Computer Vision (ECCV), pages 502--516.
   Springer.
 
+\bibitem[Lai et~al., 2011]{Lai2011}
+Lai, K., Liefeng Bo, Xiaofeng Ren, \& D.~Fox 2011.
+\newblock A large-scale hierarchical multi-view RGB-D object dataset.
+\newblock In Robotics and Automation (ICRA), 2011 IEEE International Conference
+  on, pages 1817--1824.
+
+\bibitem[Minervini et~al., 2015]{Minervini2015}
+Minervini, Massimo, Hanno Scharr, \& Sotirios~A. Tsaftaris 2015.
+\newblock Image analysis: the new bottleneck in plant phenotyping.
+\newblock To appear in: IEEE Signal Processing Magazine.
+
 \bibitem[Nguyen et~al., 2015]{nguyen2015vietnamese}
 Nguyen, VD, MT~Chew, \& S~Demidenko 2015.
 \newblock Vietnamese sign language reader using Intel Creative Senz3D.
@@ -72,10 +87,27 @@ Scharr, Hanno, Massimo Minervini, Andreas Fischbach, \& Sotirios~A Tsaftaris
 \newblock Annotated image datasets of rosette plants.
 \newblock Technical Report FZJ-2014-03837.
 
+\bibitem[Silberman \& Fergus, 2011]{Silberman2011}
+Silberman, N., \& R.~Fergus 2011.
+\newblock Indoor scene segmentation using a structured light sensor.
+\newblock In Computer Vision Workshops (ICCV Workshops), 2011 IEEE
+  International Conference on, pages 601--608.
+
 \bibitem[S{\"o}derkvist, 2001]{soderkvist2001computer}
 S{\"o}derkvist, Oskar 2001.
 \newblock Computer vision classification of leaves from swedish trees.
 \newblock Master thesis, Link{\"o}ping University.
+
+\bibitem[Sturm et~al., 2012]{sturm12iros}
+Sturm, J., N.~Engelhard, F.~Endres, W.~Burgard, \& D.~Cremers 2012.
+\newblock A Benchmark for the Evaluation of RGB-D SLAM Systems.
+\newblock In Proc. of the International Conference on Intelligent Robot Systems
+  (IROS).
+
+\bibitem[Sung et~al., 2011]{Sung2011}
+Sung, Jaeyong, Colin Ponce, Bart Selman, \& Ashutosh Saxena 2011.
+\newblock Human Activity Detection from {RGBD} Images.
+\newblock CoRR, abs/1107.0169.
 
 \bibitem[Walter et~al., 2015]{walter2015plant}
 Walter, Achim, Frank Liebisch, \& Andreas Hund 2015.
@@ -98,7 +130,7 @@ Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014a.
 
 \bibitem[Yin et~al., 2014b]{yin2014b}
 Yin, Xi, Xiaoming Liu, Jin Chen, \& David~M Kramer 2014b.
-\newblock Multi-Leaf Tracking from Fluorescence Plant Videos.
+\newblock MULTI-LEAF TRACKING FROM FLUORESCENCE PLANT VIDEOS.
 \newblock In Proc. Int. Conf. Image Processing (ICIP), Paris, France.
 
 \bibitem[Zhang, 2000]{Zhang2000}

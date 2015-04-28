@@ -2,12 +2,8 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: datapaper.aux
 The style file: springer.bst
 Database file #1: abbrev.bib
 Database file #2: xl-literature.bib
-I was expecting a `,' or a `}'---line 4633 of file xl-literature.bib
- :   year={2015}
- :              .
-I'm skipping whatever remains of this entry
 Database file #3: science.bib
 Warning--I didn't find a database entry for ""
 Warning--empty institution in scharr2014annotated
 Warning--empty publisher in soderkvist2001computer
-(There was 1 error message)
+(There were 3 warnings)
