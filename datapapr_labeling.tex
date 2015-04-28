@@ -1,21 +1,6 @@
 \section{Annotation, Files and Protocol}
 
-\begin{table*}
-\begin{center}
-\caption{Summary of Arabidopsis and Bean databases.}
-\label{tab:stat}
-\begin{tabular}{c|c|c|c|c|c}
-      \hline
-      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-      Plants     & Subjects & Days & Images/Day & Total Images & Annotated Images \\
-      \hline
-      Arabidopsis &  $16$      &  $9$   &     $16$     &     $2304\times 4$     &       $576\times 4$     \\
-      \hline
-      Bean        &   $5$      &  $5$   &     $14$     &     $350\times 4$       &       $175\times 4$  \\
-      \hline
-\end{tabular}
-\end{center}
-\end{table*}
+
 
 \subsection{Data statistics}
 MSU-PID includes two subsets, one for each plant type: Arabidopsis and Bean.
@@ -24,19 +9,7 @@ The images were acquired every hour.
 As there is no light at night hours, plants can not be imaged by the fluorescence and RGB color sensors while IR and depth cameras can still perform the capturing in the night.
 In order to make sure that all four modalities present at each imaging opportunity, we release the part of images captured only in the day time, which are $16$ images per day for Arabidopsis and $14$ for bean for all four modalities.
 
-\begin{figure*}
-\begin{centering}
-\begin{tabular}{c c}
-%\begin{tabular}{@{}c@{} c@{}}
-%\begin{tabular}{lllllllll}
-\includegraphics[width=.47\textwidth]{Figures/rawImages/a.png}&
-\includegraphics[width=.47\textwidth]{Figures/rawImages/b.png}\\
-  Arabidopsis & Bean \\
-\end{tabular}
-\caption{GRB color images of Arabidopsis and bean plants. }
-\label{fig:rawIm}
-\end{centering}
-\end{figure*}
+
 
 The two subsets differs in plant image resolutions.
 As shown in Figure~\ref{fig:rawIm},  we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time.
@@ -46,22 +19,7 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 
 
 
-\begin{table*}
-\begin{center}
-\caption{Plant image resolution of Arabidopsis and Bean databases.}
-\label{tab:resolution}
-\begin{tabular}{c|c|c|c|c}
-      \hline
-      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-      Plants     & Fluorescence       & IR        & RGB      & Depth     \\
-      \hline
-      Arabidopsis &  $\sim$$240\times240$ &  $\sim$$240\times240$  & $\sim$$120\times120$  & NA  \\
-      %\hline
-      Bean        & $1360\times1024$ & $1360\times1024$ & $1280\times720$ & $320\times240$    \\
-      \hline
-\end{tabular}
-\end{center}
-\end{table*}
+
 
 
 
@@ -178,6 +136,13 @@ We will provide training and testing data in different folders.
 For fair comparison, both supervised learning and unsupervised learning methods should evaluate the performance on the training and testing sets separately.
 The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 
+\begin{figure*}[t!]
+\centering
+\includegraphics[width=.98\textwidth]{Figures/overview}\\
+\caption{Overview of the baseline method.}
+\label{fig:methodOverview}
+\end{figure*}
+
 \paragraph{Performance metric}
 To evaluate the performance of leaf segmentation, alignment, and tracking, we use four criteria and provide the Matlab implementations.
 Three of them are based on tip-based error, which is defined as average distance of a pair of estimated leaf tips $\hat{\bm{t}}_{1,2}$ with a pair of labeled leaf tips $ \bm{t}_{1,2}$ normalized by the labeled leaf length:
@@ -219,3 +184,5 @@ The instruction on how to use the evaluation functions are included within the f
 %Since the top part of the super pixel covers some of the background and the bottom part covers another small leaf, two lines are drawn on this super pixel to split it.
 %The leaf boundary is overlaid on the image for better visualization to guide the next action.
 %This process continues until all leaves have been annotated.
+
+

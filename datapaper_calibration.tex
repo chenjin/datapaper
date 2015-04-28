@@ -1,17 +1,11 @@
 
-% For one-column wide figures use
-\begin{figure}
-  \includegraphics[width=\linewidth,trim=50 230 45 300,clip]{Figures/CameraConfiguration}
-\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in $mm$.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
-\label{fig:CameraConfiguration}
-\end{figure}
-
-%\subsection{Image Acquisition}
 
 \subsection{Sensor Calibration}
 
 A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a $2$-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as $3$D points in the world coordinate system.   
 Therefore it is straight forward to project these points onto any of the three camera images.
+
+
 
 \subsubsection{Depth Bias and Noise Characterization}
 \label{sec:bias}
@@ -28,18 +22,57 @@ We found that the bias was close to a constant as a function of depth, although 
 The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.  
 Estimates of the noise are shown in Figure~\ref{fig:Bias}.
 
-\begin{figure*}
-\centering
-\begin{tabular}{ c c }
-  \includegraphics[height=5.2cm,trim=160 300 170 310,clip]{Figures/BiasError} &
-  \includegraphics[height=5.2cm,trim=110 240 50 260,clip]{Figures/SigmaRadius} \\
-  (\emph{a}) & (\emph{b}) \\
-\end{tabular}
-\caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have large noise. }
-\label{fig:Bias}
-\end{figure*}
-
 
 In the recorded $3$D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the standard deviations shown in Figure~\ref{fig:Bias} (b) and the bias is zero.
 
 Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data. % FIXME
+
+\begin{figure}
+\begin{centering}
+\begin{tabular}{c }
+\includegraphics[width=.47\textwidth]{Figures/rawImages/a.png}\\
+Arabidopsis \\
+\includegraphics[width=.47\textwidth]{Figures/rawImages/b.png}\\
+   Bean \\
+\end{tabular}
+\caption{GRB color images of Arabidopsis and bean plants. }
+\label{fig:rawIm}
+\end{centering}
+\end{figure}
+
+
+\begin{table*}[t!]
+\begin{center}
+\caption{Summary of Arabidopsis and Bean databases.}
+\label{tab:stat}
+\begin{tabular}{c|c|c|c|c|c}
+      \hline
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      Plants     & Subjects & Days & Images/Day & Total Images & Annotated Images \\
+      \hline
+      Arabidopsis &  $16$      &  $9$   &     $16$     &     $2304\times 4$     &       $576\times 4$     \\
+      \hline
+      Bean        &   $5$      &  $5$   &     $14$     &     $350\times 4$       &       $175\times 4$  \\
+      \hline
+\end{tabular}
+\end{center}
+\end{table*}
+
+
+
+\begin{table*}
+\begin{center}
+\caption{Plant image resolution of Arabidopsis and Bean databases.}
+\label{tab:resolution}
+\begin{tabular}{c|c|c|c|c}
+      \hline
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      Plants     & Fluorescence       & IR        & RGB      & Depth     \\
+      \hline
+      Arabidopsis &  $\sim$$240\times240$ &  $\sim$$240\times240$  & $\sim$$120\times120$  & NA  \\
+      %\hline
+      Bean        & $1360\times1024$ & $1360\times1024$ & $1280\times720$ & $320\times240$    \\
+      \hline
+\end{tabular}
+\end{center}
+\end{table*}
