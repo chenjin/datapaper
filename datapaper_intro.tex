@@ -25,7 +25,7 @@ In this interdisciplinary field, scientists employ various imaging sensors to ca
 Swedish leaf &  Scaned leaf & LC& Swedish trees & $15$ & $1,125$ & $1,125$ \\ \hline
 Flavia& RGB  & LC& Leaves & $32$  & $2,120$ & $2,120$ \\ \hline
 Leafsnap  & RGB & LC& USA trees & $184$ & $29,107$  &  $29,107$ \\ \hline
-Crop/weed &  RGB &Weed det. & Crop/weed & $2$  & $60$ & $60$ \\ \hline
+Crop/weed &  RGB &Weed detection & Crop/weed & $2$  & $60$ & $60$ \\ \hline
 \multirow{2}{*}{LSC} & \multirow{2}{*}{RGB}  & \multirow{2}{*}{LS, LO} & Arabidopsis &  $43$ & $6287$ & $201$ \\ \cline{4-7}
 							    &  & & Tobacco & $80$ & $165,120$ & $83$ \\ \hline
 \multirow{2}{*}{MSU-PID}  & Fluorescence,  & LS, LO, & Arabidopsis &  $20$ & $XXX$ & $XXX$ \\ \cline{4-7}
@@ -43,8 +43,8 @@ However, the publicly available database for plant phenotyping is still very lim
 
 
 
-To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality plant imagery database at Michigan State University (MSU), termed ``MSU-PID''. The MSU-PID includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of sensors, i.e., Fluorescence, infrared (IR), RGB color, and depth.
-All four sensors are synchronized and are programmed to periodically capture data for multiple consecutive days. Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities. 
+To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a new multi-modality plant imagery database collected at Michigan State University (MSU), termed ``MSU-PID''. The MSU-PID includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., Fluorescence, infrared (IR), RGB color, and depth.
+All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days. Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities. 
 For a subset of the database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips and leaf segments. 
 To provide a performance baseline for future research and comparison, we apply our automatic leaf segmentation framework~\cite{yin2014a,yin2014b} to the Arabidopsis imagery and demonstrate the unique challenge of image analysis on this database.
 
@@ -55,7 +55,7 @@ To provide a performance baseline for future research and comparison, we apply o
 In summary, this paper and our database have made the following main contributions.
 \begin{itemize}
 \item MSU-PID is the first {\it multi-modality} plant image database. This allows researchers to study the strength and weakness of individual modality, as well as their various combinations in plant image analysis.
-\item Our imaging setup and the variety of manual labels make MSU-PID an ideal candidate for evaluating a diverse set of plant image analysis applications, including leaf segmentation, leaf counting, leaf alignment, leaf tracking, and leaf growth prediction.
+\item Our unique imaging setup and the variety of manual labels make MSU-PID an ideal candidate for evaluating a diverse set of plant image analysis applications, including leaf segmentation, leaf counting, leaf alignment, leaf tracking, and potentially leaf growth prediction and $3$D leaf reconstruction.
 \end{itemize}
 
 

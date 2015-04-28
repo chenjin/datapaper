@@ -1,8 +1,8 @@
 
 % For one-column wide figures use
 \begin{figure}
-  \includegraphics[width=8.5cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
-\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in mm.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
+  \includegraphics[width=\linewidth,trim=50 230 45 300,clip]{Figures/CameraConfiguration}
+\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in $mm$.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
 \label{fig:CameraConfiguration}
 \end{figure}
 
@@ -10,27 +10,36 @@
 
 \subsection{Sensor Calibration}
 
-A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a 2-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as 3D points in the world coordinate system.  Hence it is straight forward to project these points onto any of the three camera images.
+A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a $2$-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as $3$D points in the world coordinate system.   
+Therefore it is straight forward to project these points onto any of the three camera images.
 
 \subsubsection{Depth Bias and Noise Characterization}
 \label{sec:bias}
 
-We characterized both the bias and the variance of the depth cameras as follows.  A flat printed checkerboard with a surrounding white board was positioned at a large number of poses in front of the sensor.  The pose of the checkerboard is calculated in each case using the color and IR reflectance images.  This defines a plane relative to the depth camera which we use to calculate the ground truth depths for each pixel in the depth camera.  At each pose we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
+We characterized both the bias and the variance of the depth cameras as follows.  
+A flat printed checkerboard with a surrounding white board was positioned at a large number of poses in front of the sensor.  
+The pose of the checkerboard is calculated in each case using the color and IR reflectance images.  
+This defines a plane relative to the depth camera, which we use to calculate the ground truth depths for each pixel in the depth camera.  
+At each pose, we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
 
-Next we sought to model the depth bias as a linear function of depth.  Two parameters were fit for each pixel (a linear coefficient and an offset).  We found that the bias was close to constant as a function of depth, although it varied across the depth image as shown in Fig.~\ref{fig:Bias}.  The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.  Estimates of the noise is shown in Fig.~\ref{fig:Bias}.
+Next we sought to model the depth bias as a linear function of depth.  
+Two parameters were fit for each pixel (a linear coefficient and an offset).  
+We found that the bias was close to a constant as a function of depth, although it varied across the depth image as shown in Figure~\ref{fig:Bias}.  
+The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.  
+Estimates of the noise are shown in Figure~\ref{fig:Bias}.
 
 \begin{figure*}
 \centering
 \begin{tabular}{ c c }
-  \includegraphics[width=5.5cm,trim=160 260 170 260,clip]{Figures/BiasError} &
-  \includegraphics[width=7.5cm,trim=110 240 50 240,clip]{Figures/SigmaRadius} \\
+  \includegraphics[height=5.2cm,trim=160 300 170 310,clip]{Figures/BiasError} &
+  \includegraphics[height=5.2cm,trim=110 240 50 260,clip]{Figures/SigmaRadius} \\
   (\emph{a}) & (\emph{b}) \\
 \end{tabular}
-\caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of 200 pixels corresponds to the corners of the depth camera which can be seen to have large noise. }
+\caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have large noise. }
 \label{fig:Bias}
 \end{figure*}
 
 
-In the recorded 3D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the the standard deviations shown in Fig.~\ref{fig:Bias} and the bias is zero.
+In the recorded $3$D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the the standard deviations shown in Figure~\ref{fig:Bias} (b) and the bias is zero.
 
-Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data.
+Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data. % FIXME
