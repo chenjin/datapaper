@@ -1,0 +1,37 @@
+\section{Introduction}
+\label{sec:intro}
+
+As the growing of population in the world and the reduction of arable land, there is an increasing desire to improve the yield and quality of various crops, where the understanding of the underlying mechanism to control plant growth is a key enabler.
+%
+For this purpose, plant biologists make various genetic mutant strains of plants, grow them in either growth chambers with simulated environments or the field, visually observe them during the growth period, and finally discover plant morphological patterns that tightly associate key growth factors~\cite{}.
+%
+While many factors in this research line can be assessed quantitatively, which is necessary in order to perform high-throughput study, one of the bottleneck is plant visual phenotyping.
+
+Plant visual phenotyping aims to analyze and categorize the visual appearance of plants~\cite{}.
+This is typically conducted via manual visual observation.
+With the increasing lower cost of imaging sensors and advances of computer vision technologies, image-based automatic plant visual phenotyping is growing into a desirable and viable solution~\cite{}.
+In this interdisciplinary field, scientists employ various imaging sensors to capture plants and design advanced algorithms to automatically analyze the captured plant imagery, with the goal of solving the aforementioned problems.
+
+Plant image analysis is a non-trivial computer vision task, due to diverse variations of leaf appearance, overlapping and dynamics.
+In order to develop advanced algorithms, image databases that are well representative of this application domain is highly important.
+In fact, computer vision research lives on and advances with databases, as evidenced by the successful databases in the field (e.g., FERET~\cite{Phillips2000}, LFW~\cite{LFW}, Caltech$101$~\cite{Fei-Fei2004}).
+However, the publicly available database for plant phenotyping is very limited, with the only exception of LSC database~\cite{scharr2014annotated}.
+The LSC database has the limitations in that it only captures RGB images, and are suitable for a small set of applications.
+
+To facilite future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality plant imagery database, termed ``MSU-PID''.
+The MSU-PID includes the imagery of two types of plants (Arabidopsis and bean) captured by four types of sensors, Fluorescence, IR, RGB color, and depth.
+All four sensors are synchonized to perform the data capturing periodically for multiple days.
+Checkerboard-based camera calibration is perform between the multiple sensors, which results in the explicit correspondence between the pixels of any two modalities.
+For a subset of the database, we manually label the ground truth on the leaf identification number, leaf tip locations and leaf segments, using our labeling tool.
+To provide a performance baseline for future comparison, we apply our automatic leaf segmentation approach~\cite{yin2014a,yin2014b} to the Arabidopsis imagery and demonstrate the challenge of image analysis on this database.
+
+In summary, this paper and our database have made the following main contribution.
+\begin{itemize}
+\item MSU-PID is the first {\it multi-modality} plant image database.
+This allows researchers to study the strength and weakness of individual modality, as well as their fusion in plant image analysis.
+\item Our imaging setup and the variety of manu labele make MSU-PID an ideal candidate for evaluating a diverse set of plant image analysis tasks, including leaf segementation, leaf counting, leaf alignment, leaf tracking, leaf growth prediction, etc.
+\end{itemize}
+
+
+
+

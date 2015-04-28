@@ -1,0 +1,43 @@
+@article{Chelle2006219,
+title = "Could plant leaves be treated as Lambertian surfaces in dense crop canopies to estimate light absorption? ",
+journal = "Ecological Modelling ",
+volume = "198",
+number = "1–2",
+pages = "219 - 228",
+year = "2006",
+issn = "0304-3800",
+doi = "http://dx.doi.org/10.1016/j.ecolmodel.2006.04.010",
+url = "http://www.sciencedirect.com/science/article/pii/S0304380006001797",
+author = "Michaël Chelle",
+keywords = "Light microclimate",
+keywords = "\{BRDF\}",
+keywords = "Optical properties",
+keywords = "Lambert law",
+keywords = "Ray tracing",
+keywords = "Crop canopy"
+}
+
+@ARTICLE{Zhang2000,
+ author={Zhengyou Zhang},
+ journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+ title={A flexible new technique for camera calibration},
+ year={2000},
+ month={Nov},
+ volume={22},
+ number={11},
+ pages={1330-1334},
+ keywords={calibration;computer vision;geometry;image sensors;matrix algebra;maximum likelihood estimation;optimisation;3D computer vision;camera calibration;flexible technique;maximum likelihood criterion;planar pattern;radial lens distortion;Calibration;Cameras;Closed-form solution;Computer simulation;Computer vision;Layout;Lenses;Maximum likelihood estimation;Nonlinear distortion;Testing},
+ doi={10.1109/34.888718},
+ ISSN={0162-8828}
+}
+
+@article{doos2002population,
+  title={Population growth and loss of arable land},
+  author={D{\"o}{\"o}s, Bo R},
+  journal={Global Environmental Change},
+  volume={12},
+  number={4},
+  pages={303--311},
+  year={2002},
+  publisher={Elsevier}
+}
