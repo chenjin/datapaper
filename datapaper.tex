@@ -51,6 +51,10 @@ grestore
 \usepackage{color}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage[misc,geometry]{ifsym}
+
+
+
 %\usepackage{paralist}
 %
 % \usepackage{mathptmx}      % use Times fonts if available on your TeX system
@@ -65,33 +69,34 @@ grestore
 % Insert the name of "your journal" with
 % \journalname{myjournal}
 %
-\begin{document}
+\begin{document}\sloppy
 
 
-\title{Multi-modality Imagery Database for Plant Phenotyping %\thanks{Grants or other notes
-%about the article that should go on the front page should be
-%placed here. General acknowledgments should be placed at the end of the article.}
+\title{Multi-modality Imagery Database for Plant Phenotyping \thanks{$^\star$ denotes equal contribution by the authors. This research was supported by Chemical Sciences, Geosciences and Biosciences Division, Office of Basic Energy Sciences, Office of Science, U.S. Department of Energy (award number DE-FG02-91ER20021), and by Center for Advanced Algal and Plant Phenotyping (CAAPP), Michigan State University.
+}
 }
 %\subtitle{Do you have a subtitle?\\ If so, write it here}
 
 %\titlerunning{Short form of title}        % if too long for running head
 
-\author{Jeffrey A Cruz$^\star$ \and Xi Yin\footnote{Equal contributor}  \and Xiaoming Liu\footnote{Contact author. \email{liuxm@cse.msu.edu}} \and Saif M Imran \and Daniel D Morris \and David M Kramer    \and Jin Chen}
+\author{Jeffrey A Cruz$^\star$ \and Xi Yin\footnote{Equal contributor}  \and Xiaoming Liu \and Saif M Imran \and Daniel~D~Morris \and David M Kramer    \and Jin Chen}
 
 \authorrunning{Cruz {\it et al}} % if too long for running head
 
-\institute{Jeffrey A Cruz, Jin Chen, David M Kramer \at
-              Department of Energy Plant Research Laboratory, Michigan State University\\
-              East Lansing, MI 48824, USA
+\institute{Jeffrey A Cruz $\cdot$ Jin Chen$\cdot$ David M Kramer \at
+              Department of Energy Plant Research Laboratory, Michigan State University, East Lansing, MI 48824, USA  \\
+		E-mail: \{cruzj,jinchen,kramerd8\}@msu.edu		
 %             \emph{Present address:} of F. Author  %  if needed
            \and
-           Xi Yin, Xiaoming Liu \at
-              Department of Computer Science and Engineering, Michigan State University\\
-              East Lansing, MI 48824, USA           %  \\
+           Xi Yin$\cdot$ Xiaoming Liu (\Letter)\at
+              Department of Computer Science and Engineering, Michigan State University,  East Lansing, MI 48824, USA  \\
+		E-mail: \{yinxi1,liuxm\}@cse.msu.edu
+                      %  \\
               \and
-           Saif Imran, Daniel Morris \at
-              Department of Electrical and Computer Engineering, Michigan State University\\
-              East Lansing, MI 48824, USA\\
+           Saif Imran$\cdot$Daniel D Morris \at
+              Department of Electrical and Computer Engineering, Michigan State University,
+              East Lansing, MI 48824, USA\\  
+		E-mail: \{imransai,dmorris\}@msu.edu
 }
 
 \date{Received: date / Accepted: date}
@@ -103,6 +108,23 @@ grestore
 \begin{abstract}
 Insert your abstract here. Include keywords, PACS and mathematical
 subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+Insert your abstract here. Include keywords, PACS and mathematical
+subject classification numbers as needed.
+
 \keywords{Plant Phenotyping  \and Computer Vision \and Plant image \and Leaf segmentation \and Leaf tracking\and Multiple sensors \and Arabidopsis \and Bean}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
@@ -112,69 +134,17 @@ subject classification numbers as needed.
 
 \input{datapaper_prior.tex}
 
-\section{Data Collection}\label{sec:2}
-
-\subsection{Plants}
-
 \input{datapaper_plants.tex}
-
-\subsection{Hardware Setup}
 
 \input{datapaper_hardware.tex}
 
-% For one-column wide figures use
-\begin{figure}
-  \includegraphics[width=8.5cm,trim=20 240 20 300,clip]{Figures/CameraConfiguration}
-\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in mm.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
-\label{fig:CameraConfiguration}
-\end{figure}
+\input{datapaper_calibration.tex}
 
-%\subsection{Image Acquisition}
+\input{datapapr_labeling.tex}
 
-\subsection{Sensor Calibration}
+\input{datapaper_baseline.tex}
 
-A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a 2-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as 3D points in the world coordinate system.  Hence it is straight forward to project these points onto any of the three camera images.
-
-\subsubsection{Depth Bias and Noise Characterization}
-\label{sec:bias}
-
-We characterized both the bias and the variance of the depth cameras as follows.  A flat printed checkerboard with a surrounding white board was positioned at a large number of poses in front of the sensor.  The pose of the checkerboard is calculated in each case using the color and IR reflectance images.  This defines a plane relative to the depth camera which we use to calculate the ground truth depths for each pixel in the depth camera.  At each pose we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
-
-Next we sought to model the depth bias as a linear function of depth.  Two parameters were fit for each pixel (a linear coefficient and an offset).  We found that the bias was close to constant as a function of depth, although it varied across the depth image as shown in Fig.~\ref{fig:Bias}.  The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.  Estimates of the noise is shown in Fig.~\ref{fig:Bias}.
-
-\begin{figure*}
-\centering
-\begin{tabular}{ c c }
-  \includegraphics[width=5.5cm,trim=160 260 170 260,clip]{Figures/BiasError} &
-  \includegraphics[width=7.5cm,trim=110 240 50 240,clip]{Figures/SigmaRadius} \\
-  (\emph{a}) & (\emph{b}) \\
-\end{tabular}
-\caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of 200 pixels corresponds to the corners of the depth camera which can be seen to have large noise. }
-\label{fig:Bias}
-\end{figure*}
-
-
-In the recorded 3D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the the standard deviations shown in Fig.~\ref{fig:Bias} and the bias is zero.
-
-Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data.
-
-%\subsubsection{Data Description}
-
-
-
-
-%\subsection{Image Accusation}
-
-%\subsection{Image Calibration}
-
-%\section{Image Labeling}
-\input{datapapr_labeling}
-
-%\section{Baseline Performance}
-\input{datapaper_baseline}
-
-
-\section{Conclusion}
+\input{datapaper_conclusion.tex}
 
 %\paragraph{Paragraph headings} Use paragraph headings as needed.
 %\begin{equation}
@@ -231,7 +201,7 @@ Now we noticed that the chamber light shades blocked some of the depth camera fi
 
 
 
-{\small
+{%\small
 \bibliographystyle{springer}
 %\bibliography{/Sharefolder/Dropbox/Bibliographies/abbrev_brief,/Sharefolder/Dropbox/Bibliographies/xl-literature}
 \bibliography{abbrev,xl-literature,science}
