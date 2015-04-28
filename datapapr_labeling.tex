@@ -1,10 +1,4 @@
-\section{Database and Annotation}
-\subsection{Statistics and protocols}
-MSU-PID includes two plant databases: Arabidopsis and Bean.
-The statistic information of these two databases are summarised in Tab.~\ref{tab:stat}.
-The images were acquired every hour.
-As there is no light at night, plants can not be captured in fluorescence and RGB color images while IR and depth cameras can still capture plants.
-Therefore, in order to make it consistent, we release images captured only in day time, which are $16$ images per day for Arabidopsis and $14$ for bean for all four sensors.
+\section{Annotation, Files and Protocol}
 
 \begin{table*}
 \begin{center}
@@ -13,61 +7,63 @@ Therefore, in order to make it consistent, we release images captured only in da
 \begin{tabular}{c|c|c|c|c|c}
       \hline
       % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-      Database     & Subjects & Days & Images/Day & Total Images & Annotated Images \\
+      Plants     & Subjects & Days & Images/Day & Total Images & Annotated Images \\
       \hline
-      Arabidopsis &  16      &  9   &     16     &     2304     &       576    \\
-      %\hline
-      Bean        &   5      &  5   &     14     &     350      &       175 \\
+      Arabidopsis &  $16$      &  $9$   &     $16$     &     $2304\times 4$     &       $576\times 4$     \\
+      \hline
+      Bean        &   $5$      &  $5$   &     $14$     &     $350\times 4$       &       $175\times 4$  \\
       \hline
 \end{tabular}
 \end{center}
 \end{table*}
 
-The two databases differs in plant resolutions.
-As shown in Fig~\ref{fig:rawIm},  we grow a single bean plant while a whole tray of Arabidopsis are grown at the same time.
-Therefore, the resolution of each Arabidopsis plant is much lower than that of a bean plant.
-We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors.
-Table~\ref{tab:resolution} summaries the resolution of each plant in all four channels.
+\subsection{Data statistics}
+MSU-PID includes two subsets, one for each plant type: Arabidopsis and Bean.
+The statistic information of these two subsets are summarised in Table~\ref{tab:stat}.
+The images were acquired every hour.
+As there is no light at night hours, plants can not be imaged by the fluorescence and RGB color sensors while IR and depth cameras can still perform the capturing in the night.
+In order to make sure that all four modalities present at each imaging opportunity, we release the part of images captured only in the day time, which are $16$ images per day for Arabidopsis and $14$ for bean for all four modalities.
 
 \begin{figure*}
 \begin{centering}
 \begin{tabular}{c c}
 %\begin{tabular}{@{}c@{} c@{}}
 %\begin{tabular}{lllllllll}
-\includegraphics[width=.45\textwidth]{Figures/rawImages/a.png}&
-\includegraphics[width=.45\textwidth]{Figures/rawImages/b.png}\\
+\includegraphics[width=.47\textwidth]{Figures/rawImages/a.png}&
+\includegraphics[width=.47\textwidth]{Figures/rawImages/b.png}\\
   Arabidopsis & Bean \\
 \end{tabular}
-\caption{Color images of Arabidopsis and bean plants. }
+\caption{GRB color images of Arabidopsis and bean plants. }
 \label{fig:rawIm}
 \end{centering}
 \end{figure*}
 
+The two subsets differs in plant image resolutions.
+As shown in Figure~\ref{fig:rawIm},  we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time.
+Therefore, the resolution of a Arabidopsis plant is much lower than that of a bean plant.
+We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors simultaneously.
+Table~\ref{tab:resolution} summaries the image resolution of each plant in all four modalities.
+
+
+
 \begin{table*}
 \begin{center}
-\caption{Plant resolution of Arabidopsis and Bean databases.}
+\caption{Plant image resolution of Arabidopsis and Bean databases.}
 \label{tab:resolution}
 \begin{tabular}{c|c|c|c|c}
       \hline
       % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-      Database     & Fluorescence       & IR        & RGB      & Depth     \\
+      Plants     & Fluorescence       & IR        & RGB      & Depth     \\
       \hline
-      Arabidopsis &  ~240$\times$240 &  ~240$\times$240 & ~120$\times$120  & NA  \\
+      Arabidopsis &  $\sim$$240\times240$ &  $\sim$$240\times240$  & $\sim$$120\times120$  & NA  \\
       %\hline
-      Bean        & 1360$\times$1024 & 1360$\times$1024 & 1280$\times$720 & 320$\times$240    \\
+      Bean        & $1360\times1024$ & $1360\times1024$ & $1280\times720$ & $320\times240$    \\
       \hline
 \end{tabular}
 \end{center}
 \end{table*}
 
 
-As shown in Tab.~\ref{tab:database}, MSU-PID can be used for leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
-To facilitate future research, we separate the database into training set and testing set.
-$40\%$ of the data is used for training and $60\%$ for testing.
-Specifically, $6$ plants of Arabidopisis and $2$ plants of bean are selected for training.
-We will provide training and testing data in different folders.
-For fair comparison, both supervised learning and unsupervised learning methods should evaluate the performance on the training and testing sets separately.
-The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 
 
 
@@ -77,12 +73,12 @@ Tip locations are saved in a TXT file for each frame.
 Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
 The same color is used to represent the same leaf over a sequence of frames.
 
-We use Fluorescence images for labeling because of clear background.
+We use fluorescence images for labeling because of their simple background.
 For Arabidopsis images, we label $4$ frames each day.
-While for bean images, we label $7$ frames each day because of faster leaf movement.
-A Matlab GUI interface is developed for leaf labeling, as shown in Fig~\ref{fig:label}.
-A user can open an image to label the two tips and annotate each leaf.
-The results will be automatically saved once a user goes to label the next image.
+While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
+A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}.
+A user can open a plant image to label the two tips and annotate each leaf segment.
+The results will be automatically saved once a user moves onto the next image for labeling.
 For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
 %This GUI is used to annotate leaves in each frame.
 %For consistent annotation of the same leaf over time, we use the labeled results of each frame to find the correspondence according to leaf centers.
@@ -91,22 +87,24 @@ For consistent annotation of the same leaf over time, we show a number on the ce
 \begin{figure*}
 \centering
 \includegraphics[width=.98\textwidth]{Figures/labeling}\\
-\caption{Leaf labeling process, including tip labels and leaf annotation.}
+\caption{Leaf labeling process, including tip labels and leaf segmentation annotation.}
 \label{fig:label}
 \end{figure*}
 
-Tip label is implemented by clicking pairs of points on the image.
-The outer tip is always clicked before the inner tip.
-A line connecting each pair of tips will be shown immediately for visualization.
+The labeling of leaf tips is implemented by clicking pairs of points on the image.
+The outer tip is always clicked first before the inner tip.
+For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip. 
 Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again.
 
-Leaf label is implemented by clicking the boundary of one leaf at each time.
+The labeling of the leaf segment is implemented by clicking the boundary of one leaf at each time.
 The labeled leaf boundary is overlaid on the image for better visualization to guide the next action.
 Incorrect label can be deleted right after the labeling.
-This process continues until all leaves have been annotated.
+This process continues until all leaf segments have been annotated.
 After the labeling of one plant, we visually go through the results and correct inaccurate labels.
-One example of leaf label result for one plant is shown in Fig.~\ref{fig:LabelExample}, where one color is used to represent one leaf.
-As we can see, there is leaf showing up and cover up the leaf underneath, which will not be annotated later (transition between day $4$ and day $5$).
+Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
+Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a superpixel into two makes it a less efficient alternative.
+One example of the labeling results for one plant is shown in Figure~\ref{fig:LabelExample}, where one color is used to represent each specific leaf.
+As we can see during the transition between day $4$ and day $5$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
 
 %\begin{figure}[h]
 %\centering
@@ -131,45 +129,81 @@ As we can see, there is leaf showing up and cover up the leaf underneath, which 
 \includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_9_num_13.png}\\
   day 1 & day 2 & day 3 & day 4 & day 5 & day 6 & day 7 & day 8 & day 9 \\
 \end{tabular}
-\caption{Leaf label results for one Arabidopsis plant over nine days with one image per day. }
+\caption{Leaf labeling results of one Arabidopsis plant over nine days with one image per day. Note that the labels of tips are not shown for visualization clarity. }
 \label{fig:LabelExample}
 \end{centering}
 \end{figure*}
 
 
 
-\subsection{File types and name conventions}
+\subsection{Name conventions and file types}
 We release training and testing sets in two separate folders.
 In each folder, there are two subfolders named Arabidopsis and Bean.
 The files in each subfolder have the following form:
 \begin{itemize}
-  \item plant$\_$XX$\_$day$\_$X$\_$num$\_$XX$\_$rgb.png: the original RGB color images;
-  \item plant$\_$XX$\_$day$\_$X$\_$num$\_$XX$\_$fmp.png: the original fluorescence images;
-  \item plant$\_$XX$\_$day$\_$X$\_$num$\_$XX$\_$ir.png: the original IR images;
-  \item plant$\_$XX$\_$day$\_$X$\_$num$\_$XX$\_$depth.png: the original depth images;
-  \item plant$\_$XX$\_$day$\_$X$\_$num$\_$XX$\_$label.png: the labeled images;
-  \item plant$\_$XX$\_$day$\_$X$\_$num$\_$XX$\_$tips.txt: the labeled tip locations;
+  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$rgb.png: the original RGB color images;
+  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$fmp.png: the original fluorescence images;
+  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$ir.png: the original IR images;
+  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$depth.png: the original depth images;
+  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$label.png: the labeled images of fluorescence modality;
+  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$tips.txt: the labeled tip locations;
 \end{itemize}
-where $XX$ is an integer number indicating the specific plant information.
-For each image in the database, we provide four channels images in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
+where XX indicates the plant type ("AR" or "BE"), X is an integer indicating the date (e.g., $1-9$ for Arabidopsis), YY represents the image index within a day (e.g., $1-16$ for Arabidopsis), and ZZ is the subject (or plant) ID (e.g., $1-5$ for bean). 
+For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
 For annotated images, we have two additional files ($\_$label, $\_$tips) saving the annotation results.
-Leaf segmentation results are encoded as indexed PNG files, where each leaf is assigned a unique and consistent ID over time.
-Leaf ID starts from $1$ and continuously increase.
+Leaf segmentation results are encoded as indexed PNG files, where each leaf is assigned a unique and consistent leaf ID over time.
+Leaf ID starts from $1$ and continuously increase till the totoal number of leaves.
 And the background is encoded as $0$.
 Tips locations are saved in TXT files where each line has the following format:
 \begin{itemize}
   \item leaf ID \quad tip1$\_$x \quad tip1$\_$y \quad tip2$\_$x \quad  tip2$\_$y
 \end{itemize}
 where leaf ID is an integer number that is consistent with the segmentation label in the PNG file.
-tip1$\_$x and tip1$\_$y are floating numbers represent the coordinates of the outer tip point.
-tip2$\_$x and tip2$\_$y are floating numbers represent the coordinates of the inner tip point.
+tip1$\_$x and tip1$\_$y represent the coordinates of the outer tip point.
+tip2$\_$x and tip2$\_$y represent the coordinates of the inner tip point.
 
 
-In addition to the original images and annotation results, we provide another folder named Matlab with all Matlab functions that will be used for mapping between different image channels and for performance evaluation purpose.
-Note that the annotation is provided based on Fluorescence images.
-In order to evaluate methods developed on other channels, we provide image mapping functions between every two channels.
+In addition to the original images and annotation results, we provide another folder named Matlab with all Matlab functions that will be used for mapping between different image modalities and for the purpose of performance evaluation.
+Note that the annotation is provided based on fluorescence images.
+In order to evaluate methods developed on other modalities, we provide image mapping functions between every two modalities.
+The total storage of our database is around $XX Mb$, which is convenient for downloading via Internet.
 
+\subsection{Experimental Protocols}
 
+As shown in Tab.~\ref{tab:database}, MSU-PID can be used for leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
+To facilitate future research, we separate the database into training set and testing set.
+$40\%$ of the data is used for training and $60\%$ for testing.
+Specifically, $6$ plants of Arabidopisis and $2$ plants of bean are selected for training.
+We will provide training and testing data in different folders.
+For fair comparison, both supervised learning and unsupervised learning methods should evaluate the performance on the training and testing sets separately.
+The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
+
+\paragraph{Performance metric}
+To evaluate the performance of leaf segmentation, alignment, and tracking, we use four criteria and provide the Matlab implementations.
+Three of them are based on tip-based error, which is defined as average distance of a pair of estimated leaf tips $\hat{\bm{t}}_{1,2}$ with a pair of labeled leaf tips $ \bm{t}_{1,2}$ normalized by the labeled leaf length:
+
+\begin {equation}
+e_{la}(\hat{\bm{t}}_{1,2}, \bm{t}_{1,2}) = \frac{||\hat{\bm{t}}_1-{\bm{t}}_1||_2 + ||\hat{\bm{t}}_2-{\bm{t}}_2||_2}{2 ||\bm{t}_1-\bm{t}_2||_2}.
+\label{eqn:tipError}
+\end{equation}
+
+We build the frame-to-frame and video-to-video correspondence respectively and generate two sets of tip-based errors.
+More details can be find in~\cite{};
+We define a threshold $\tau$ to operate on the corresponding tip-based errors.
+By varying $\tau$, we compute the first three criteria as:
+\begin{itemize}
+  \item {\it{Unmatched Leaf Rate(ULR)}}, the percentage of unmatched leaves w.r.t. the total number of labeled leaves. This can attribute to two sources. First, miss detections and false alarms. Second, matched leaves with tip-based errors larger than $\tau$.
+  \item {\it{Landmark Error(LE)}}, the average tip-based errors smaller than $\tau$ of all frame-to-frame correspondent leaves.
+  \item {\it{Tracking Consistency(TC)}}, the percentage of video-to-video correspondent leaves whos tip-based errors are smaller than $\tau$.
+\end{itemize}
+
+In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation result and ground truth label:
+\begin{itemize}
+  \item {\it{Symmetric Best Dice(SBD)}}, the symmetric best Dice among all labeled leaves.
+\end{itemize}
+
+The Matlab function for computing {\it{SBD}} is provided by~\cite{scharr2014annotated}.
+The instruction on how to use the evaluation functions are included within the functions.
 
 
 %For leaf annotation, we use the idea of merging and splitting super pixels.
