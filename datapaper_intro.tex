@@ -14,13 +14,14 @@ In this interdisciplinary field, scientists employ various imaging sensors to ca
 
 \begin{table*}[t!]
 	\centering
-	\caption{Plant image databases, where the abbreviation in ``Applications'' column is defined as Leaf Classification (LC), Leaf Segmentation (LS), Leaf Counting (LO), Leaf Alignment (LA), and Leaf Tracking (LT).}
+	  \begin{threeparttable}
+	\caption{Plant image databases.}
 	%\resizebox{12cm}{!} {
 	%\begin{tabular}{|l@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|}
 	\begin{tabular}{l|c|c|c|c|c|c}
 		\hline
-		\multirow{2}{*}{Database}&  \multirow{2}{*}{Modality}  & Appli-& Plant & Subject/ &Total  &  Labeled   \\ 						
-			&         & cations &            Type         &       Classe \#         &  Image \#    & Image \# \\ \hline
+		\multirow{2}{*}{Database}&  \multirow{2}{*}{Modality}  &  \multirow{2}{*}{Applications}\tnote{a} & \multirow{2}{*}{Plant Type} & Subject/ &Total  &  Labeled   \\ 						
+			&         &  &                    &       Classe \#         &  Image \#    & Image \# \\ \hline
 		
 Swedish leaf &  Scaned leaf & LC& Swedish trees & $15$ & $1,125$ & $1,125$ \\ \hline
 Flavia& RGB  & LC& Leaves & $32$  & $2,120$ & $2,120$ \\ \hline
@@ -33,6 +34,11 @@ Crop/weed &  RGB &Weed detection & Crop/weed & $2$  & $60$ & $60$ \\ \hline
 	       \hline
 	\end{tabular}
 	%}
+\begin{tablenotes}
+	    \footnotesize	
+            \item[a] The abbreviation in ``Applications'' column is defined as Leaf Classification (LC), Leaf Segmentation (LS), Leaf Counting (LO), Leaf Alignment (LA), and Leaf Tracking (LT).
+        \end{tablenotes}
+     \end{threeparttable}
 	\label{tab:database}
 \end{table*}
 
@@ -44,9 +50,13 @@ However, the publicly available database for plant phenotyping is still very lim
 
 
 To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a new multi-modality plant imagery database collected at Michigan State University (MSU), termed ``MSU-PID''. The MSU-PID includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., Fluorescence, infrared (IR), RGB color, and depth.
-All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days. Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities. 
-For a subset of the database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips and leaf segments. 
-To provide a performance baseline for future research and comparison, we apply our automatic leaf segmentation framework~\cite{yin2014a,yin2014b} to the Arabidopsis imagery and demonstrate the unique challenge of image analysis on this database.
+All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days. 
+Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities. 
+
+The type and amount of manual labels on a datatbase is a critical enabler to the potential applications of the database.
+For a subset of the MSU-PID database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips and leaf segments. 
+As a result,  MSU-PID is suitable for a number of applications, including 1) {\it leaf segmentation} that aims at estimating the correct segmentation mask of each leaf in an image, 2) {\it leaf counting} that estimates the correct number of leaves within a plant, 3) {\it leaf alignment} that aligns the two tips of each leaf -- the cornerstone of the leaf structure, and 4) {\it leaf tracking} that is designed to track each leaf over time.
+Finally, to provide a performance baseline for future research and comparison, we apply our automatic leaf segmentation framework~\cite{yin2014a,yin2014b} to the Arabidopsis imagery and demonstrate the unique challenge of image analysis on this database.
 
 
 
