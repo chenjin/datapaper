@@ -126,6 +126,13 @@ Note that the annotation is provided based on fluorescence images.
 In order to evaluate methods developed on other modalities, we provide image mapping functions between every two modalities.
 The total storage of our database is around $XX Mb$, which is convenient for downloading via Internet.
 
+\begin{figure*}[t!]
+\centering
+\includegraphics[width=.98\textwidth]{Figures/overview}\\
+\caption{Overview of the baseline method.}
+\label{fig:methodOverview}
+\end{figure*}
+
 \subsection{Experimental Protocols}
 
 As shown in Table~\ref{tab:database}, MSU-PID can be used for applications such as leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
@@ -139,12 +146,7 @@ The availability of multiple modalities allows user to design novel experimental
 For example, using RGB and depth modalities for training and RGB for testing can evaluate an algorithm that can handle a missing modality during the testing.
 %The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 
-\begin{figure*}[t!]
-\centering
-\includegraphics[width=.98\textwidth]{Figures/overview}\\
-\caption{Overview of the baseline method.}
-\label{fig:methodOverview}
-\end{figure*}
+
 
 \paragraph{Performance metric}
 To evaluate the performance of leaf segmentation, alignment, and tracking, we use four performance metrics, whose Matlab implementations will be provided along with the data.
