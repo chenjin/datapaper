@@ -1,7 +1,4 @@
 \section{Annotation, Files and Protocol}
-
-
-
 \subsection{Data statistics}
 MSU-PID includes two subsets, one for each plant type: Arabidopsis and Bean.
 The statistic information of these two subsets are summarised in Table~\ref{tab:stat}.
@@ -12,16 +9,10 @@ In order to make sure that all four modalities present at each imaging opportuni
 
 
 The two subsets differs in plant image resolutions.
-As shown in Figure~\ref{fig:rawIm},  we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time.
+As shown in Figure~\ref{fig:fourmodality},  we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time.
 Therefore, the resolution of a Arabidopsis plant is much lower than that of a bean plant.
 We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors simultaneously.
 Table~\ref{tab:resolution} summaries the image resolution of each plant in all four modalities.
-
-
-
-
-
-
 
 
 
@@ -51,7 +42,7 @@ For consistent annotation of the same leaf over time, we show a number on the ce
 
 The labeling of leaf tips is implemented by clicking pairs of points on the image.
 The outer tip is always clicked first before the inner tip.
-For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip. 
+For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip.
 Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again.
 
 The labeling of the leaf segment is implemented by clicking the boundary of one leaf at each time.
@@ -63,13 +54,6 @@ Note that one alternative approach for labeling leaf segments is to directly lab
 Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a superpixel into two makes it a less efficient alternative.
 One example of the labeling results for one plant is shown in Figure~\ref{fig:LabelExample}, where one color is used to represent each specific leaf.
 As we can see during the transition between day $4$ and day $5$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
-
-%\begin{figure}[h]
-%\centering
-%\includegraphics[width=.98\textwidth]{Figures/labelExamples}\\
-%\caption{Leaf label results for one Arabidopsis plant over nine days with one image per day. }
-%\label{fig:LabelExample}
-%\end{figure}
 
 
 \begin{figure*}
@@ -106,7 +90,7 @@ The files in each subfolder have the following form:
   \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$label.png: the labeled images of fluorescence modality;
   \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$tips.txt: the labeled tip locations;
 \end{itemize}
-where XX indicates the plant type ("AR" or "BE"), X is an integer indicating the date (e.g., $1-9$ for Arabidopsis), YY represents the image index within a day (e.g., $1-16$ for Arabidopsis), and ZZ is the subject (or plant) ID (e.g., $1-5$ for bean). 
+where XX indicates the plant type ("AR" or "BE"), X is an integer indicating the date (e.g., $1-9$ for Arabidopsis), YY represents the image index within a day (e.g., $1-16$ for Arabidopsis), and ZZ is the subject (or plant) ID (e.g., $1-5$ for bean).
 For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
 For annotated images, we have two additional files ($\_$label, $\_$tips) saving the annotation results.
 Leaf segmentation results are encoded as indexed PNG files, where each leaf is assigned a unique and consistent leaf ID over time.
@@ -142,7 +126,7 @@ Specifically, $6$ plants of Arabidopisis and $2$ plants of bean are selected for
 We will provide training and testing data in different folders.
 For fair comparison, both supervised learning and unsupervised learning methods should evaluate their performances on the training and testing sets separately.
 The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
-The availability of multiple modalities allows user to design novel experimental setup. 
+The availability of multiple modalities allows user to design novel experimental setup.
 For example, using RGB and depth modalities for training and RGB for testing can evaluate an algorithm that can handle a missing modality during the testing.
 %The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 
@@ -161,9 +145,9 @@ More details can be find in~\cite{yin2014b}.
 We define a threshold $\tau$ to operate on the corresponding tip-based errors.
 By varying $\tau$, we compute the first three metrics as follows:
 \begin{itemize}
-  \item {\it{Unmatched Leaf Rate (ULR)}}, the percentage of unmatched leaves with respect to the total number of labeled leaves. 
-This can attribute to two sources. 
-The first is miss detections and false alarms. 
+  \item {\it{Unmatched Leaf Rate (ULR)}}, the percentage of unmatched leaves with respect to the total number of labeled leaves.
+This can attribute to two sources.
+The first is miss detections and false alarms.
 The second is matched leaves with tip-based errors larger than $\tau$.
   \item {\it{Landmark Error (LE)}}, the average tip-based errors smaller than $\tau$ of all frame-to-frame correspondent leaves.
   \item {\it{Tracking Consistency (TC)}}, the percentage of video-to-video correspondent leaves whose tip-based errors are smaller than $\tau$.
