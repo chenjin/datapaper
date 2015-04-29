@@ -50,6 +50,12 @@ When the overlapping leaves are close to the center, smaller leaves will be cove
 
 Leaf alignment provides the leaf candidates for tracking over time. 
 One example of leaf tracking result is shown in Fig.~\ref{fig:trackExample}. 
+The leaf template transformation works well for most leaves. 
+As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves. 
+Our backward tracking algorithm tracks leaves from last frame to first frame. 
+Leaves will be deleted when it becomes small and the leaf underneath it will be detected. 
+As shown in Fig,~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is considered as a tracking failure. 
+
 
 
 
@@ -81,8 +87,9 @@ One example of leaf tracking result is shown in Fig.~\ref{fig:trackExample}.
 
 \begin{figure*}
 \begin{centering}
-\begin{tabular}{@{}c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
+\begin{tabular}{c c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
 %\begin{tabular}{lllllllll}
+(1) &
 \includegraphics[width=.11\textwidth]{Figures/trackExample/1_1}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/1_2}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/1_3}&
@@ -92,7 +99,7 @@ One example of leaf tracking result is shown in Fig.~\ref{fig:trackExample}.
 \includegraphics[width=.11\textwidth]{Figures/trackExample/1_7}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/1_8}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/1_9}\\
-
+(2)&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/2_1}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/2_2}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/2_3}&
@@ -102,7 +109,7 @@ One example of leaf tracking result is shown in Fig.~\ref{fig:trackExample}.
 \includegraphics[width=.11\textwidth]{Figures/trackExample/2_7}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/2_8}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/2_9}\\
-
+(3) &
 \includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
@@ -113,17 +120,25 @@ One example of leaf tracking result is shown in Fig.~\ref{fig:trackExample}.
 \includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
 \includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}\\
 
-Day 1 & Day 2 & Day 3 & Day 4 & Day 5 & Day 6 & Day 7 & Day 8 & Day 9 \\
+ & Day 1 & Day 2 & Day 3 & Day 4 & Day 5 & Day 6 & Day 7 & Day 8 & Day 9 \\
 \end{tabular}
-\caption{Tracking result for one video with one frame for each day.}
+\caption{Tracking result for one video with one frame for each day. $(1)$ Example frames in the video.  $(2)$. Leaf label result overlaid with tip locations. $(3)$ Leaf tracking result. We show one frame for each day. }
 \label{fig:trackExample}
 \end{centering}
 \end{figure*}
 
 
+For quantitative evaluation, we vary $\tau$ from 0 to 1 and generate the first three evaluation metrics, as shown in Fig.~\ref{fig:performance}.
+{\it{ULR}} decreases as $\tau$ increases as more leaves are being considered as matched leaves.  
+As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the the diferent number in leaf counting that results from both miss detection and false alarms. 
+{\it{LE}} increases as $\tau$ increases as it includes leaves with larger tip-based errors for averaging. 
+{\it{TC}} increases as $\tau$ increases as more leaves are being considered as correctly tracked leaves. 
+Overall, our method can detect $80\%$ and track $60\%$ of all labeled leaves with $XX$ average tip-based errors. 
 
-The results of our algorithm by varying $\tau$ from 0 to 1 is shown in Fig.~.
-And the {\it{SBD}} score is $0.59$ by averaging over all plants.
+We generate a label image for each frame based on the leaf segmentation results anc compute the {\it{SBD}} score for each labeled image. 
+The average {\it{SBD}} over all images is $0.59$.
+
+
 
 
 
