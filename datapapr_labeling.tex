@@ -128,13 +128,16 @@ The total storage of our database is around $XX Mb$, which is convenient for dow
 
 \subsection{Experimental Protocols}
 
-As shown in Tab.~\ref{tab:database}, MSU-PID can be used for leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
-To facilitate future research, we separate the database into training set and testing set.
+As shown in Table~\ref{tab:database}, MSU-PID can be used for applications such as leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
+To facilitate future research, we separate the database into the training set and the testing set.
 $40\%$ of the data is used for training and $60\%$ for testing.
 Specifically, $6$ plants of Arabidopisis and $2$ plants of bean are selected for training.
 We will provide training and testing data in different folders.
-For fair comparison, both supervised learning and unsupervised learning methods should evaluate the performance on the training and testing sets separately.
-The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
+For fair comparison, both supervised learning and unsupervised learning methods should evaluate their performances on the training and testing sets separately.
+The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
+The availability of multiple modalities allows user to design novel experimental setup. 
+For example, using RGB and depth modalities for training and RGB for testing can evaluate an algorithm that can handle a missing modality during the testing.
+%The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 
 \begin{figure*}[t!]
 \centering
@@ -144,9 +147,8 @@ The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 \end{figure*}
 
 \paragraph{Performance metric}
-To evaluate the performance of leaf segmentation, alignment, and tracking, we use four criteria and provide the Matlab implementations.
-Three of them are based on tip-based error, which is defined as average distance of a pair of estimated leaf tips $\hat{\bm{t}}_{1,2}$ with a pair of labeled leaf tips $ \bm{t}_{1,2}$ normalized by the labeled leaf length:
-
+To evaluate the performance of leaf segmentation, alignment, and tracking, we use four performance metrics, whose Matlab implementations will be provided along with the data.
+Three of them are based on the tip-based error, which is defined as the average distance of a pair of estimated leaf tips $\hat{\bm{t}}_{1,2}$ with a pair of labeled leaf tips $ \bm{t}_{1,2}$ normalized by the labeled leaf length:
 \begin {equation}
 e_{la}(\hat{\bm{t}}_{1,2}, \bm{t}_{1,2}) = \frac{||\hat{\bm{t}}_1-{\bm{t}}_1||_2 + ||\hat{\bm{t}}_2-{\bm{t}}_2||_2}{2 ||\bm{t}_1-\bm{t}_2||_2}.
 \label{eqn:tipError}
@@ -155,20 +157,22 @@ e_{la}(\hat{\bm{t}}_{1,2}, \bm{t}_{1,2}) = \frac{||\hat{\bm{t}}_1-{\bm{t}}_1||_2
 We build the frame-to-frame and video-to-video correspondence respectively and generate two sets of tip-based errors.
 More details can be find in~\cite{};
 We define a threshold $\tau$ to operate on the corresponding tip-based errors.
-By varying $\tau$, we compute the first three criteria as:
+By varying $\tau$, we compute the first three metrics as follows:
 \begin{itemize}
-  \item {\it{Unmatched Leaf Rate(ULR)}}, the percentage of unmatched leaves w.r.t. the total number of labeled leaves. This can attribute to two sources. First, miss detections and false alarms. Second, matched leaves with tip-based errors larger than $\tau$.
-  \item {\it{Landmark Error(LE)}}, the average tip-based errors smaller than $\tau$ of all frame-to-frame correspondent leaves.
-  \item {\it{Tracking Consistency(TC)}}, the percentage of video-to-video correspondent leaves whos tip-based errors are smaller than $\tau$.
+  \item {\it{Unmatched Leaf Rate (ULR)}}, the percentage of unmatched leaves with respect to the total number of labeled leaves. 
+This can attribute to two sources. 
+The first is miss detections and false alarms. 
+The second is matched leaves with tip-based errors larger than $\tau$.
+  \item {\it{Landmark Error (LE)}}, the average tip-based errors smaller than $\tau$ of all frame-to-frame correspondent leaves.
+  \item {\it{Tracking Consistency (TC)}}, the percentage of video-to-video correspondent leaves whose tip-based errors are smaller than $\tau$.
 \end{itemize}
 
-In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation result and ground truth label:
+In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation results and ground truth labels:
 \begin{itemize}
-  \item {\it{Symmetric Best Dice(SBD)}}, the symmetric best Dice among all labeled leaves.
+  \item {\it{Symmetric Best Dice (SBD)}}, the symmetric best Dice among all labeled leaves.
 \end{itemize}
-
 The Matlab function for computing {\it{SBD}} is provided by~\cite{scharr2014annotated}.
-The instruction on how to use the evaluation functions are included within the functions.
+The instruction on how to use the evaluation functions are included as comments of the function.
 
 
 %For leaf annotation, we use the idea of merging and splitting super pixels.
