@@ -2,28 +2,15 @@
 
 \subsection{Sensor Calibration}
 
-A checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the checkerboard pattern is not visible as variations in depth, it is nevertheless observed as variations in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a $2$-parameter radial distortion of each camera, as well as a calculation of their relative poses.  The optical center of the color camera is used to define the world coordinates of our data.  The depth values of the depth camera are projected along their pixel rays and then rotated and translated by the pose of the depth camera, and thus recorded as $3$D points in the world coordinate system.
-Therefore it is straight forward to project these points onto any of the three camera images.
+A planar checkerboard pattern was used to calibrate all three cameras to obtain both intrinsic and extrinsic parameters.  While the grid pattern is not visible in the depth image, it is nevertheless observed in the reflected IR image whose pixels correspond to the depth pixels.  This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a $2$-parameter radial distortion of each camera.  In this process the poses of all three cameras are also calculated relative to the checkerboard.  The intrinsic and extrinsic parameters are stored as text files, and a Matlab function is provided that reads the parameters and can plot the camera poses as in Fig.~\ref{fig:CameraConfiguration}.
 
 
-
-\subsubsection{Depth Bias and Noise Characterization}
+\subsubsection{Noise Characterization}
 \label{sec:bias}
 
-We characterized both the bias and the variance of the depth cameras as follows.
-A flat printed checkerboard with a surrounding white board was positioned at a large number of poses in front of the sensor.
-The pose of the checkerboard is calculated in each case using the color and IR reflectance images.
-This defines a plane relative to the depth camera, which we use to calculate the ground truth depths for each pixel in the depth camera.
-At each pose, we collect multiple depth images; this provides both a bias and variance measurement for each pixel at multiple depths.
+The pixel depth measurements have significant noise.  To characterize the noise variance at a particular depth we collected 300 images of a flat surface facing the camera at this depth and calculated the standard deviation at each pixel.  We repeated this for increments of 10cm between 30cm and 90cm.  At each depth we found that the pixel standard deviations were roughly constant at concentric circles around the optical center.  Hence we can summarize the standard deviation as a function of pixel depth and pixel-radius around the optical center, as shown in Fig.~\ref{fig:Noise}.  This captures a large fraction of the depth error for pixels on plant leafs, although additional sources of error include individual pixel biases, object specularities, strong variations in object albedo, mixed pixels on object edges, and very-low signal reflection.  
 
-Next we sought to model the depth bias as a linear function of depth.
-Two parameters were fit for each pixel (a linear coefficient and an offset).
-We found that the bias was close to a constant as a function of depth, although it varied across the depth image as shown in Figure~\ref{fig:Bias}.
-The standard deviation of the pixel depth varied as a function of depth and roughly with the distance of the pixel from the optical center.
-Estimates of the noise are shown in Figure~\ref{fig:Bias}.
-
-
-In the recorded $3$D data we subtracted our estimated bias, and averaged five depth images for each record.  Hence the actual depth standard deviations for our data are $1/\sqrt{5}$ of the standard deviations shown in Figure~\ref{fig:Bias} (b) and the bias is zero.
+In the recorded $3$D data we averaged five depth images for each record.  Ideally this leads to reducing the standard deviation by $1/\sqrt{5}$, although the actual benefit is less as some sources of error are not reduced by averaging.
 
 Now we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination.  This resulted in an additional bias shift which we measured and removed from the depth data. % FIXME
 

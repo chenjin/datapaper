@@ -53,20 +53,10 @@ The confidence image is the standard deviation of the depth pixels.
 This is useful for identifying pixels at depth discontinuities that are unreliably detected and result in large standard deviations.  
 In addition pixels with no response or saturated pixels are assigned with the maximum standard deviation, and should be filtered out.
 
-\begin{figure}[t!]
+\begin{figure}
 \centering
-%\begin{tabular}{ c c}
-%  \includegraphics[height=5.2cm,trim=160 300 170 310,clip]{Figures/BiasError} &
-%  \includegraphics[height=5.2cm,trim=110 240 50 260,clip]{Figures/SigmaRadius} \\
-%  (\emph{a}) & (\emph{b}) \\
-%\end{tabular}
-\begin{tabular}{ c}
-  \includegraphics[height=3.8cm,trim=175 310 140 310,clip]{Figures/BiasError} \\
-   \small{(a)} \\
   \includegraphics[height=5.9cm,trim=110 250 60 260,clip]{Figures/SigmaRadius} \\
-  \small{(b)}  \\
-\end{tabular}
-\caption{Noise analysis for a depth camera.  (\emph{a}) Bias was fit and we found it to be roughly constant as a function of depth.  This constant offset is shown for the camera pixels with red positive and blue negative offset in mm.  Inside the chamber, the obstructions around the depth camera altered the bias somewhat and we re-calibrated the bias there.  In all cases we subtracted the modeled constant bias from the depth images.  (\emph{b}) The standard deviation of the depth camera depends on depth as well as roughly on radius from the image optical center.  A radius of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have large noise. }
-\label{fig:Bias}
+\caption{Noise analysis for a depth camera obtained by imaging a flat surface at various depths.  We found that the standard deviation of the pixel depth measurements had a large dependency on both the target depth and the pixel distance from the image optical center.  A radius of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have far larger noise than at the image center for a given depth. }
+\label{fig:Noise}
 \end{figure}
 
