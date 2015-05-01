@@ -24,8 +24,13 @@ As with chlorophyll a fluorescence, images were captured in the absence of $940~
 
 % For one-column wide figures use
 \begin{figure}
-  \includegraphics[width=\linewidth,trim=50 230 45 300,clip]{Figures/CameraConfiguration}
-\caption{A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in $mm$.  The optical center of the color camera (on the left) defines the world coordinate system.  Close to it is the depth camera.  Its points are projected into the world coordinate system.  On the right is the combined fluorescent and IR camera.}
+\begin{tabular}{c}
+  \includegraphics[width=\linewidth,trim=50 200 45 250,clip]{Figures/CameraConfiguration} \\
+  ($a$)\\
+  \includegraphics[width=6cm,trim=100 200 100 200,clip]{Figures/DepthOnBeanRGB} \\
+  ($b$)\\
+\end{tabular}
+\caption{($a$)A plot of the three cameras showing their relative configuration and fields of view as obtained through calibration.  Units are in $mm$, apart from the size of the images which are scaled and plotted at equal resolution.  The optical center of the color camera (left-most) defines the world coordinate system.  Close to it is the depth camera having much lower resolution.  The right-most camera is the combined fluorescent and IR camera. ($b$) $3$D points from the depth camera are projected along their rays into the world coordinates and then projected into the color and fluorescent camera images.  This shows the projection into the color image.  Only points in a rectangular region around the plant in the depth image are selected, and these are further filtered by eliminating points with high standard deviation.  An algorithm requiring only $3$D points on the plant could select only those that fall on the leaf pixels.}
 \label{fig:CameraConfiguration}
 \end{figure}
 
@@ -39,24 +44,19 @@ The primary measurement limitation on the range-to-target is the strength of the
 As a result, dark, matt surfaces are measured reliably only at a close range on the order of $20$ or $30~cm$.  
 Highly reflective surfaces also pose problems with direct reflections leading to saturation and highly unreliable depths.  
 In addition reflective surfaces at grazing angles are less reliably measured since little signal is reflected. 
-Hence in our data portions of the chamber floor visible in Figure~\ref{fig:CameraConfiguration} are highly reflective and have incorrect depths.  %FIXME
-Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian reflections of IR~\cite{Chelle2006219}.  
-Therefore for these reasons the non-leaf depth pixels in the $3$D depth data are unreliable and should be ignored in data analysis.  
-Another limitation is that the IR illuminator has a slight offset to the left of the sensor, which results in shadows to the right of some objects, as well as mixed pixels on depth discontinuities.  
-Both of these can be readily detected as large standard deviations in the depth image.
+Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian, reflections of IR~\cite{Chelle2006219}.  Thus the depth pixels that are most reliable and are of most use are those that fall on plant foliage.
 
-
-The imagery data were collected once every hour. %taken within 10 minutes of each other.  %
+The imagery data were collected once every hour.
 These include the fluorescent image, the IR reflectance image with the same camera, the color image, the $3$D depth and a confidence image.  
 The $3$D depth image is built from the depth sensor by transforming the points into the world coordinates and is expressed in the unit of $mm$.  
 The confidence image is the standard deviation of the depth pixels.  
 This is useful for identifying pixels at depth discontinuities that are unreliably detected and result in large standard deviations.  
-In addition pixels with no response or saturated pixels are assigned with the maximum standard deviation, and should be filtered out.
+
 
 \begin{figure}
 \centering
   \includegraphics[height=5.9cm,trim=110 250 60 260,clip]{Figures/SigmaRadius} \\
-\caption{Noise analysis for a depth camera obtained by imaging a flat surface at various depths.  We found that the standard deviation of the pixel depth measurements had a large dependency on both the target depth and the pixel distance from the image optical center.  A radius of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have far larger noise than at the image center for a given depth. }
+\caption{Noise analysis for a depth camera obtained by imaging a flat surface at various depths.  We found that the standard deviation, $\sigma_I$ from Eq. (\ref{eq:sigma}) of the pixel depth measurements had a large dependency on both the target depth and the pixel distance from the image center, and these are plotted.  A radius of $0$ pixels is the image center, and of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have far larger standard deviation than at the image center for the same depth. }
 \label{fig:Noise}
 \end{figure}
 
