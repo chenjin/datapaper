@@ -13,12 +13,7 @@ For each scale template, we rotate every $15^{\circ}$ to generate $24$ templates
 Tip locations will be scaled and rotated accordingly.
 Finally, we generate $2,880$ leaf templates.
 
-\begin{figure*}
-\centering
-\includegraphics[width=.98\textwidth]{Figures/performance}\\
-\caption{Performance of the baseline method.}
-\label{fig:performance}
-\end{figure*}
+
 
 %We also generate the two tips for each template for finding the corresponding tip points of each leaf via Chamfer Matching~\cite{barrow1977parametric}.
 Our work is motivated by Chamfer Matching technique~\cite{barrow1977parametric}, which is used to align two edge maps.
@@ -44,17 +39,17 @@ Leaf alignment is applied to the last frame of each video.
 Figure~\ref{fig:alignResult} shows some examples of leaf alignment results. 
 Our framework works very well on segmenting large leaves with no overlap to neighbor leaves. 
 For overlapping leaves, it becomes more challenging as the edges between the overlapping area are more difficult to be detected. 
-However, when the overlapping leaves are further away from the center, they will have a higher chance to be detected as shown in $(3)$ of Fig.~\ref{fig:alignResult}. 
-When the overlapping leaves are close to the center, smaller leaves will be covered by larger leaves as shown in $(1), (4), (5)$ of Fig.~\ref{fig:alignResult}.
+However, when the overlapping leaves are further away from the center, they will have a higher chance to be detected as shown in $(3)$ of Figure~\ref{fig:alignResult}. 
+When the overlapping leaves are close to the center, smaller leaves will be covered by larger leaves as shown in $(1), (4), (5)$ of Figure~\ref{fig:alignResult}.
 
 
 Leaf alignment provides the leaf candidates for tracking over time. 
-One example of leaf tracking result is shown in Fig.~\ref{fig:trackExample}. 
+One example of leaf tracking result is shown in Figure~\ref{fig:trackExample}. 
 The leaf template transformation works well for most leaves. 
 As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves. 
 Our backward tracking algorithm tracks leaves from last frame to first frame. 
 Leaves will be deleted when it becomes small and the leaf underneath it will be detected. 
-As shown in Fig,~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is considered as a tracking failure. 
+As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is considered as a tracking failure. 
 
 
 
@@ -128,7 +123,14 @@ As shown in Fig,~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consider
 \end{figure*}
 
 
-For quantitative evaluation, we vary $\tau$ from 0 to 1 and generate the first three evaluation metrics, as shown in Fig.~\ref{fig:performance}.
+\begin{figure*}
+\centering
+\includegraphics[width=.98\textwidth]{Figures/performance}\\
+\caption{Performance of the baseline method.}
+\label{fig:performance}
+\end{figure*}
+
+For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Figure~\ref{fig:performance}.
 {\it{ULR}} decreases as $\tau$ increases as more leaves are being considered as matched leaves.  
 As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the the diferent number in leaf counting that results from both miss detection and false alarms. 
 {\it{LE}} increases as $\tau$ increases as it includes leaves with larger tip-based errors for averaging. 

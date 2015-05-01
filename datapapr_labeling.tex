@@ -22,7 +22,7 @@ Tip locations are saved in a TXT file for each frame.
 Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
 The same color is used to represent the same leaf over a sequence of frames.
 
-We use fluorescence images for labeling because of their simple background.
+We use the fluorescence images as the input for labeling because of their simple and uniform background.
 For Arabidopsis images, we label $4$ frames each day.
 While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
 A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}.
@@ -39,23 +39,6 @@ For consistent annotation of the same leaf over time, we show a number on the ce
 \caption{Leaf labeling process, including tip labels and leaf segmentation annotation.}
 \label{fig:label}
 \end{figure*}
-
-The labeling of leaf tips is implemented by clicking pairs of points on the image.
-The outer tip is always clicked first before the inner tip.
-For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip.
-Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again.
-
-The labeling of the leaf segment is implemented by clicking the boundary of one leaf at each time.
-The labeled leaf boundary is overlaid on the image for better visualization to guide the next action.
-Incorrect label can be deleted right after the labeling.
-This process continues until all leaf segments have been annotated.
-After the labeling of one plant, we visually go through the results and correct inaccurate labels.
-Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
-Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a superpixel into two makes it a less efficient alternative.
-One example of the labeling results for one plant is shown in Figure~\ref{fig:LabelExample}, where one color is used to represent each specific leaf.
-As we can see during the transition between day $4$ and day $5$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
-In total, we labeled $5142$ leaves. 
-
 
 \begin{figure*}
 \begin{centering}
@@ -76,6 +59,25 @@ In total, we labeled $5142$ leaves.
 \label{fig:LabelExample}
 \end{centering}
 \end{figure*}
+
+The labeling of leaf tips is implemented by clicking pairs of points on the image.
+The outer tip is always clicked first before the inner tip.
+For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip.
+Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again.
+
+The labeling of the leaf segment is implemented by clicking the boundary of one leaf at each time.
+The labeled leaf boundary is overlaid on the image for better visualization to guide the next action.
+Incorrect label can be deleted right after the labeling.
+This process continues until all leaf segments have been annotated.
+After the labeling of one plant, we visually go through the results and correct inaccurate labels.
+Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
+Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a superpixel into two makes it a less efficient alternative.
+One example of the labeling results for one plant is shown in Figure~\ref{fig:LabelExample}, where one color is used to represent each specific leaf.
+As we can see during the transition between day $4$ and day $5$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
+In total, we labeled $5142$ leaves. 
+
+
+
 
 
 

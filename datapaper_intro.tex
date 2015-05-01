@@ -7,10 +7,33 @@ For this purpose, plant scientists make various genetic mutant strains of plants
 %
 While many factors can be assessed quantitatively, which is essential for high-throughput study, one of the bottleneck in this research pipeline is plant visual phenotyping~\cite{walter2015plant}.
 
+\begin{figure*}
+\begin{centering}
+\begin{tabular}{@{}c c c c}
+%\begin{tabular}{lllllllll}
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_rgb}&
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_depth}&
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_fmp}&
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_ir}\\
+Arabidopsis: RGB &  Arabidopsis: Depth & Arabidopsis: Fluorescence & Arabidopsis: IR \\
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_rgb}&
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_depth}&
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_fmp}&
+\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_ir}\\
+Bean: RGB &  Bean: Depth & Bean: Fluorescence & Bean: IR \\
+\end{tabular}
+\caption{The multi-modality plant imagery database of MSU-PID. }
+\label{fig:fourmodality}
+\end{centering}
+\end{figure*}
+
+
 The objective of {\it plant visual phenotyping} is to analyze and categorize the visual appearance of plants. %~\cite{}.
 In old days, plant phenotyping was conducted through manual visual observation~\cite{Erblichkeit1903}.
 Today, motivated by the increasing lower cost of imaging sensors and advances of computer vision technologies, image-based automatic plant visual phenotyping is quickly growing into a desirable and viable solution~\cite{cruz2015depi}.
 In this interdisciplinary field, scientists employ various imaging sensors to capture plants and design advanced algorithms to automatically analyze the captured plant imagery, with the purpose of raising testable biological hypotheses to solve the aforementioned problems.
+
+
 
 \begin{table*}[t!]
 	\centering
@@ -50,7 +73,7 @@ However, the publicly available database for plant phenotyping is still very lim
 
 
 To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality plant imagery database through an interdisciplinary effort at Michigan State University (MSU), termed ``MSU-PID''.
-The MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., Fluorescence, infrared (IR), RGB color, and depth.
+As illustrated in Figure~\ref{fig:fourmodality}, the MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., Fluorescence, infrared (IR), RGB color, and depth.
 All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days.
 Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities.
 
@@ -66,25 +89,6 @@ In summary, this paper and our database have made the following main contributio
 \end{itemize}
 
 
-\begin{figure*}
-\begin{centering}
-\begin{tabular}{c c c c}
-%\begin{tabular}{lllllllll}
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_rgb}&
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_depth}&
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_fmp}&
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/A_ir}\\
-Arabidopsis: RGB &  Arabidopsis: Depth & Arabidopsis: Fluorescence & Arabidopsis: IR \\
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_rgb}&
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_depth}&
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_fmp}&
-\includegraphics[width=.23\textwidth]{Figures/FourModalities/B_ir}\\
-Bean: RGB &  Bean: Depth & Bean: Fluorescence & Bean: IR \\
-\end{tabular}
-\caption{Multi-modality dataset. }
-\label{fig:fourmodality}
-\end{centering}
-\end{figure*}
 
 
 
