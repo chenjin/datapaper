@@ -8,13 +8,13 @@ A planar checkerboard pattern was used to calibrate all three cameras to obtain 
 \subsubsection{Noise Characterization}
 \label{sec:bias}
 
-The time of flight depth measurements can have significant noise, and it is useful to both model it and quantify it.  Doing so can lead to strategies to reduce noise as well as providing guidance to algorithms that use the depth measurements.  Our goal in this section is to provide a simple noise model that can predict the empirically observed depth noise on smooth, Lambertian surfaces, such as plant leafs.  
+The time of flight depth measurements can have significant noise, and it is useful to both model it and quantify it.  Doing so can lead to strategies to reduce noise as well as providing guidance to algorithms that use the depth measurements.  Our goal in this section is to provide a simple noise model that can predict the empirically observed depth noise on smooth, Lambertian surfaces, such as plant leafs.
 
-The depth noise $\epsilon$ is modeled as the sum of two components, $\epsilon_I$ and $\epsilon_S$: 
+The depth noise $\epsilon$ is modeled as the sum of two components, $\epsilon_I$ and $\epsilon_S$:
 \begin{equation}
 	\epsilon = \epsilon_I + \epsilon_S\label{eq:epsilon}
 \end{equation}
-The term $\epsilon_I$ captures the noise component that varies between images taken from a fixed pose of a static scene. On the other hand the term $\epsilon_S$ models noise that is constant between images but varies between pixels. The variance of $\epsilon_I$ can be estimated by observing pixels of a fixed scene over multiple images.  In our experiments we observed a flat, uniform albedo surface perpendicular to the camera at a sequence of depths, and for each depth acquiring 300 images.  Object depth has a large impact on $\epsilon_I$ likely due to reduced reflected signal.  For constant depth, we observed that the primary factor affecting the variance is the pixel radius from the image center.  Physically we expect this dependence is due to a circularly symmetric illuminating beam closely aligned with the optical axis.  Based on these observations $\sigma_I^2$, the variance of $\epsilon_I$, is empirically estimated as a function of object depth and pixel radius as shown in Figure~\ref{fig:Noise}.  
+The term $\epsilon_I$ captures the noise component that varies between images taken from a fixed pose of a static scene. On the other hand the term $\epsilon_S$ models noise that is constant between images but varies between pixels. The variance of $\epsilon_I$ can be estimated by observing pixels of a fixed scene over multiple images.  In our experiments we observed a flat, uniform albedo surface perpendicular to the camera at a sequence of depths, and for each depth acquiring 300 images.  Object depth has a large impact on $\epsilon_I$ likely due to reduced reflected signal.  For constant depth, we observed that the primary factor affecting the variance is the pixel radius from the image center.  Physically we expect this dependence is due to a circularly symmetric illuminating beam closely aligned with the optical axis.  Based on these observations $\sigma_I^2$, the variance of $\epsilon_I$, is empirically estimated as a function of object depth and pixel radius as shown in Figure~\ref{fig:Noise}.
 
 \begin{table*}[t!]
 \begin{center}
@@ -44,7 +44,7 @@ The term $\epsilon_I$ captures the noise component that varies between images ta
       % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
       Plants     & Fluorescence       & IR        & RGB      & Depth     \\
       \hline
-      Arabidopsis &  $\sim$$240\times240$ &  $\sim$$240\times240$  & $\sim$$120\times120$  & NA  \\
+      Arabidopsis &  $\sim$$240\times240$ &  $\sim$$240\times240$  & $\sim$$120\times120$  & $\sim$$25\times25$  \\
       %\hline
       Bean        & $1000\times640$ & $1000\times640$ & $380\times720$ & $90\times190$    \\
       \hline
