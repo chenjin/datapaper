@@ -44,14 +44,14 @@ When the overlapping leaves are close to the center, smaller leaves will be cove
 
 
 Leaf alignment provides the leaf candidates for tracking over time.
-Figure~\ref{fig:trackExample} shows one leaf tracking result. 
+Figure~\ref{fig:trackExample} shows one leaf tracking result.
 The leaf template transformation works well for most of the leaves.
 As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves.
-As shown in Fig.~\ref{fig:trackExample} (b), purple leaf replaces the red leaf at day $6$.
+As shown in Figure ~\ref{fig:trackExample} (b), purple leaf replaces the red leaf at day $6$.
 Our backward tracking algorithm tracks leaves from the last frame to the first frame.
-The two leaves are still being considered as one leaf (ID $8$) in day $4$ and day $3$. 
-Leaf $8$ in day $1$ and $2$ is considered as leaf ID switch and will be not count as consistently tracked leaf. 
-However, it is still been considered as well aligned and segmented leaves. 
+The two leaves are still being considered as one leaf (ID $8$) in day $4$ and day $3$.
+Leaf $8$ in day $1$ and $2$ is considered as leaf ID switch and will be not count as consistently tracked leaf.
+However, it is still been considered as well aligned and segmented leaves.
 %Leaves will be deleted when it becomes small and the leaf underneath it will be detected.
 
 \begin{figure*}
@@ -130,13 +130,13 @@ However, it is still been considered as well aligned and segmented leaves.
 \label{fig:performance}
 \end{figure*}
 
-For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Fig.~\ref{fig:performance}.
+For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Figure ~\ref{fig:performance}.
 {\it{ULR}} decreases as $\tau$ increases as more leaves are being considered as matched leaves.
 As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the different number in leaf counting that results from both miss detection and false alarms.
 {\it{LE}} increases as $\tau$ increases as it includes leaves with larger tip-based errors for averaging.
 {\it{TC}} increases as $\tau$ increases as more leaves are being considered as correctly tracked leaves.
-Note that {\it{TC}} is influenced by the length of frames evaluated for each video. 
-As the longer frames we evaluate, the higher chance tracking will be failed. 
+Note that {\it{TC}} is influenced by the length of frames evaluated for each video.
+As the longer frames we evaluate, the higher chance tracking will be failed.
 Overall, our method can detect $87\%$ and track $50\%$ of all labeled leaves with less than $20\%$ average tip-based errors.
 
 We generate a label image for each frame based on the leaf segmentation results and compute the {\it{SBD}} score for each labeled image.
