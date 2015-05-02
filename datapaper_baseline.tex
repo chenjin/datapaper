@@ -5,7 +5,7 @@ To facilitate future research on this database, we provide a baseline approach a
 
 \subsection{Multi-leaf segmentation and tracking framework}
 We apply our automatic multi-leaf segmentation and tracking framework~\cite{yin2014a,yin2014b} to the testing set of Arabidopsis fluorescence imagery to provide a baseline.
-We treat all images in $9$ days as a video from first image on the first day to the last image in the last day. 
+We treat all images in $9$ days as a video from first image on the first day to the last image in the last day.
 As shown in Figure~\ref{fig:methodOverview}, the input of this framework is a plant video and a set of predefined templates with various shapes, scales, and orientations.
 To generate the template set, we first select $12$ templates with different aspect ratios from the labeled images in the training set together with the corresponding tip locations.
 For each template, we scale it to $10$ different sizes in order to cover the entire range of leaf sizes in the database.
@@ -20,13 +20,13 @@ Our work is motivated by Chamfer Matching technique~\cite{barrow1977parametric},
 We extend it to simultaneously align multiple overlapping objects.
 For plant segmentation, we use simple thresholding and edge detection to generate an edge map and mask.
 The best threshold is learnt from the training set.
-The edge map and mask are used in the alignment and tracking optimization. 
+The edge map and mask are used in the alignment and tracking optimization.
 
 First, we find the best location of each template in the edge map that has the minimal Chamfer matching distance, which will result in an over-completed set of leaf candidates.
 Second, we apply multi-leaf alignment~\cite{yin2014a} approach to find an optimal set of leaf candidates on the last frame of the video, which will provide the information of the number of leaves, tip locations and boundaries of each leaf.
 Third, we apply multi-leaf tracking~\cite{yin2014b} approach, which is based on leaf template transformation, to track leaves between continuous two frames.
 
-In the tracking process, we delete a leaf when it becomes too small. 
+In the tracking process, we delete a leaf when it becomes too small.
 We develop a procedure to generate new leaves when there is a relatively large portion of the mask has not been covered by current leaf candidates.
 For each frame of the video, we can generate a label image with each leaf being labeled with one color and the tip locations for each estimated leaf.
 The labeled color for each leaf in the video remains the same during the tracking process.
@@ -35,21 +35,21 @@ The labeled color for each leaf in the video remains the same during the trackin
 
 \subsection{Performance and analysis}
 We apply our algorithm on all $144$ frames of each video and evaluate the performance on labeled $36$ frames.
-Leaf alignment is applied to the last frame of each video. 
-Figure~\ref{fig:alignResult} shows some examples of leaf alignment results. 
-Our framework works very well on segmenting large leaves with no overlap to neighbor leaves. 
-For overlapping leaves, it becomes more challenging as the edges between the overlapping area are more difficult to be detected. 
-However, when the overlapping leaves are further away from the center, they will have a higher chance to be detected as shown in $(3)$ of Figure~\ref{fig:alignResult}. 
-When the overlapping leaves are close to the center, smaller leaves will be covered by larger leaves as shown in $(1), (4), (5)$ of Figure~\ref{fig:alignResult}.
+Leaf alignment is applied to the last frame of each video.
+Figure~\ref{fig:alignResult} shows some examples of leaf alignment results.
+Our framework works very well on segmenting large leaves with no overlap to neighbor leaves.
+For overlapping leaves, it becomes more challenging as the edges between the overlapping area are more difficult to be detected.
+However, when the overlapping leaves are further away from the center, they will have a higher chance to be detected as shown in $(c)$ of Figure~\ref{fig:alignResult}.
+When the overlapping leaves are close to the center, smaller leaves will be covered by larger leaves as shown in $(a), (d), (e)$ of Figure~\ref{fig:alignResult}.
 
 
-Leaf alignment provides the leaf candidates for tracking over time. 
-One example of leaf tracking result is shown in Figure~\ref{fig:trackExample}. 
-The leaf template transformation works well for most leaves. 
-As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves. 
-Our backward tracking algorithm tracks leaves from last frame to first frame. 
-Leaves will be deleted when it becomes small and the leaf underneath it will be detected. 
-As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is considered as a tracking failure. 
+Leaf alignment provides the leaf candidates for tracking over time.
+One example of leaf tracking result is shown in Figure~\ref{fig:trackExample}.
+The leaf template transformation works well for most leaves.
+As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves.
+Our backward tracking algorithm tracks leaves from last frame to first frame.
+Leaves will be deleted when it becomes small and the leaf underneath it will be detected.
+As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is considered as a tracking failure.
 
 
 
@@ -71,7 +71,7 @@ As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consid
 \includegraphics[width=.14\textwidth]{Figures/AlignPerformance/12_2}&
 \includegraphics[width=.14\textwidth]{Figures/AlignPerformance/14_2}&
 \includegraphics[width=.14\textwidth]{Figures/AlignPerformance/15_2}\\
-(1) & (2) & (3) & (4) & (5) & (6) \\
+(a) & (b) & (c) & (d) & (e) & (f) \\
 \end{tabular}
 \caption{Leaf alignment results on the last frame of $6$ plant videos. First row shows the original image. Second row shows the alignment result. }
 \label{fig:alignResult}
@@ -84,36 +84,36 @@ As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consid
 \begin{centering}
 \begin{tabular}{c c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
 %\begin{tabular}{lllllllll}
-(1) &
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_1}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_2}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_3}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_4}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_5}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_6}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_7}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_8}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/1_9}\\
-(2)&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_1}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_2}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_3}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_4}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_5}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_6}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_7}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_8}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/2_9}\\
-(3) &
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}&
-\includegraphics[width=.11\textwidth]{Figures/trackExample/3_9}\\
+(a) &
+\includegraphics[trim= 10 100 20 100, clip, width=.1\textwidth]{Figures/trackExample/1_1}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_2}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_3}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_4}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_5}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_6}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_7}&
+\includegraphics[trim= 50 150 100 200, clip, width=.1\textwidth]{Figures/trackExample/1_8}&
+\includegraphics[trim= 0 100 20 100, clip, width=.1\textwidth]{Figures/trackExample/1_9}\\
+(b)&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_1}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_2}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_3}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_4}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_5}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_6}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_7}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_8}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/2_9}\\
+(c) &
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}&
+\includegraphics[width=.1\textwidth]{Figures/trackExample/3_9}\\
 
  & Day 1 & Day 2 & Day 3 & Day 4 & Day 5 & Day 6 & Day 7 & Day 8 & Day 9 \\
 \end{tabular}
@@ -125,20 +125,20 @@ As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consid
 
 \begin{figure*}
 \centering
-\includegraphics[width=.98\textwidth]{Figures/performance}\\
+\includegraphics[width=.98\textwidth]{Figures/performance.pdf}\\
 \caption{Performance of the baseline method.}
 \label{fig:performance}
 \end{figure*}
 
 For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Figure~\ref{fig:performance}.
-{\it{ULR}} decreases as $\tau$ increases as more leaves are being considered as matched leaves.  
-As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the the diferent number in leaf counting that results from both miss detection and false alarms. 
-{\it{LE}} increases as $\tau$ increases as it includes leaves with larger tip-based errors for averaging. 
-{\it{TC}} increases as $\tau$ increases as more leaves are being considered as correctly tracked leaves. 
-Overall, our method can detect $80\%$ and track $60\%$ of all labeled leaves with $XX$ average tip-based errors. 
+{\it{ULR}} decreases as $\tau$ increases as more leaves are being considered as matched leaves.
+As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the the diferent number in leaf counting that results from both miss detection and false alarms.
+{\it{LE}} increases as $\tau$ increases as it includes leaves with larger tip-based errors for averaging.
+{\it{TC}} increases as $\tau$ increases as more leaves are being considered as correctly tracked leaves.
+Overall, our method can detect $87\%$ and track $50\%$ of all labeled leaves with less than $20\%$ average tip-based errors.
 
-We generate a label image for each frame based on the leaf segmentation results anc compute the {\it{SBD}} score for each labeled image. 
-The average {\it{SBD}} over all images is $0.59$.
+We generate a label image for each frame based on the leaf segmentation results anc compute the {\it{SBD}} score for each labeled image.
+The average {\it{SBD}} over all images is $0.61$.
 
 
 

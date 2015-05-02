@@ -66,17 +66,17 @@ For visualization, a line connecting each pair of tips will be shown immediately
 Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again.
 
 The labeling of the leaf segment is implemented by clicking the boundary of one leaf at each time.
+In order to provide more accuracy labeling, we click very dense points ($\sim20$ points on average) on the boundary. 
 The labeled leaf boundary is overlaid on the image for better visualization to guide the next action.
 Incorrect label can be deleted right after the labeling.
 This process continues until all leaf segments have been annotated.
 After the labeling of one plant, we visually go through the results and correct inaccurate labels.
-Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
-Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a superpixel into two makes it a less efficient alternative.
 One example of the labeling results for one plant is shown in Figure~\ref{fig:LabelExample}, where one color is used to represent each specific leaf.
 As we can see during the transition between day $4$ and day $5$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
-In total, we labeled $5142$ leaves. 
+In total, we labeled $5142$ leaves.
 
-
+Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
+Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a superpixel into two makes it a less efficient alternative.
 
 
 
@@ -85,19 +85,30 @@ In total, we labeled $5142$ leaves.
 We release training and testing sets in two separate folders.
 In each folder, there are two subfolders named Arabidopsis and Bean.
 The files in each subfolder have the following form:
+
 \begin{itemize}
-  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$rgb.png: the original RGB color images;
-  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$fmp.png: the original fluorescence images;
-  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$ir.png: the original IR images;
-  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$depth.png: the original depth images;
-  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$label.png: the labeled images of fluorescence modality;
-  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$tips.txt: the labeled tip locations;
+  \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$rgb.png: the original RGB color images;
+  \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$fmp.png: the original fluorescence images;
+  \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$ir.png: the original IR images;
+  \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$depth.png: the original depth images;
+  \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$label.png: the labeled images of fluorescence modality;
+  \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$tips.txt: the labeled tip locations;
 \end{itemize}
-where XX indicates the plant type ("AR" or "BE"), X is an integer indicating the date (e.g., $1-9$ for Arabidopsis), YY represents the image index within a day (e.g., $1-16$ for Arabidopsis), and ZZ is the subject (or plant) ID (e.g., $1-5$ for bean).
+where ID indicates the plant ID number ($1$ to $16$ for Arabidopsis, $1$ to $5$ for bean), X is an integer indicating the date ($1-9$ for Arabidopsis, $1$ to $5$ for bean), and YY represents the image index within a day ($1-16$ for Arabidopsis, $1$ to $14$ for bean).
 For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
+%\begin{itemize}
+%  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$rgb.png: the original RGB color images;
+%  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$fmp.png: the original fluorescence images;
+%  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$ir.png: the original IR images;
+%  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$depth.png: the original depth images;
+%  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$label.png: the labeled images of fluorescence modality;
+%  \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$tips.txt: the labeled tip locations;
+%\end{itemize}
+%where XX indicates the plant type ("AR" or "BE"), X is an integer indicating the date (e.g., $1-9$ for Arabidopsis), YY represents the image index within a day (e.g., $1-16$ for Arabidopsis), and ZZ is the subject (or plant) ID (e.g., $1-5$ for bean).
+%For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
 For annotated images, we have two additional files ($\_$label, $\_$tips) saving the annotation results.
 Leaf segmentation results are encoded as indexed PNG files, where each leaf is assigned a unique and consistent leaf ID over time.
-Leaf ID starts from $1$ and continuously increase till the totoal number of leaves.
+Leaf ID starts from $1$ and continuously increase till the total number of leaves.
 And the background is encoded as $0$.
 Tips locations are saved in TXT files where each line has the following format:
 \begin{itemize}
@@ -121,12 +132,11 @@ The total storage of our database is around $XX Mb$, which is convenient for dow
 \end{figure*}
 
 \subsection{Experimental Protocols}
-
 As shown in Table~\ref{tab:database}, MSU-PID can be used for applications such as leaf segmentation, leaf alignment, leaf tracking, and leaf counting.
 To facilitate future research, we separate the database into the training set and the testing set.
 $40\%$ of the data is used for training and $60\%$ for testing.
 Specifically, $6$ plants of Arabidopisis and $2$ plants of bean are selected for training.
-We will provide training and testing data in different folders.
+%We will provide training and testing data in different folders.
 For fair comparison, both supervised learning and unsupervised learning methods should evaluate their performances on the training and testing sets separately.
 The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
 The availability of multiple modalities allows user to design novel experimental setup.
