@@ -44,15 +44,15 @@ When the overlapping leaves are close to the center, smaller leaves will be cove
 
 
 Leaf alignment provides the leaf candidates for tracking over time.
-One example of leaf tracking result is shown in Figure~\ref{fig:trackExample}.
-The leaf template transformation works well for most leaves.
+Figure~\ref{fig:trackExample} shows one leaf tracking result. 
+The leaf template transformation works well for most of the leaves.
 As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves.
-Our backward tracking algorithm tracks leaves from last frame to first frame.
-Leaves will be deleted when it becomes small and the leaf underneath it will be detected.
-As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is considered as a tracking failure.
-
-
-
+As shown in Fig.~\ref{fig:trackExample} (b), purple leaf replaces the red leaf at day $6$.
+Our backward tracking algorithm tracks leaves from the last frame to the first frame.
+The two leaves are still being considered as one leaf (ID $8$) in day $4$ and day $3$. 
+Leaf $8$ in day $1$ and $2$ is considered as leaf ID switch and will be not count as consistently tracked leaf. 
+However, it is still been considered as well aligned and segmented leaves. 
+%Leaves will be deleted when it becomes small and the leaf underneath it will be detected.
 
 \begin{figure*}
 \begin{centering}
@@ -65,15 +65,15 @@ As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consid
 \includegraphics[width=.14\textwidth]{Figures/AlignPerformance/14_1}&
 \includegraphics[width=.14\textwidth]{Figures/AlignPerformance/15_1}\\
 
-\includegraphics[width=.14\textwidth]{Figures/AlignPerformance/9_2}&
-\includegraphics[width=.14\textwidth]{Figures/AlignPerformance/10_2}&
-\includegraphics[width=.14\textwidth]{Figures/AlignPerformance/11_2}&
-\includegraphics[width=.14\textwidth]{Figures/AlignPerformance/12_2}&
-\includegraphics[width=.14\textwidth]{Figures/AlignPerformance/14_2}&
-\includegraphics[width=.14\textwidth]{Figures/AlignPerformance/15_2}\\
+\includegraphics[trim= 90 60 100 5, clip, width=.14\textwidth]{Figures/AlignPerformance/9_2}&
+\includegraphics[trim= 90 60 100 5, clip, width=.14\textwidth]{Figures/AlignPerformance/10_2}&
+\includegraphics[trim= 90 60 100 5, clip, width=.14\textwidth]{Figures/AlignPerformance/11_2}&
+\includegraphics[trim= 90 60 100 5, clip, width=.14\textwidth]{Figures/AlignPerformance/12_2}&
+\includegraphics[trim= 90 60 100 5, clip, width=.14\textwidth]{Figures/AlignPerformance/14_2}&
+\includegraphics[trim= 90 60 100 5, clip, width=.14\textwidth]{Figures/AlignPerformance/15_2}\\
 (a) & (b) & (c) & (d) & (e) & (f) \\
 \end{tabular}
-\caption{Leaf alignment results on the last frame of $6$ plant videos. First row shows the original image. Second row shows the alignment result. }
+\caption{Leaf alignment results on the last frame of $6$ plant videos. First row shows the original image. Second row shows the alignment result with red points denote the boundary of the leaf templates in the blue bounding boxes. The numbers on the leaves are the leaf IDs representing the order of the leaf being selected and they will be consistent during tracking.}
 \label{fig:alignResult}
 \end{centering}
 \end{figure*}
@@ -105,15 +105,15 @@ As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consid
 \includegraphics[trim= 100 100 150 10, clip, width=.1\textwidth]{Figures/trackExample/2_8}&
 \includegraphics[trim= 100 100 150 10, clip, width=.1\textwidth]{Figures/trackExample/2_9}\\
 (c) &
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_1.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_2.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_3.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_4.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_5.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_6.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_7.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_8.pdf}&
-\includegraphics[trim= 110 100 170 10, clip, width=.1\textwidth]{Figures/trackExample/3_9.pdf}\\
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_1.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_2.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_3.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_4.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_5.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_6.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_7.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_8.pdf}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_9.pdf}\\
 
  & Day 1 & Day 2 & Day 3 & Day 4 & Day 5 & Day 6 & Day 7 & Day 8 & Day 9 \\
 \end{tabular}
@@ -130,11 +130,13 @@ As shown in Figure~\ref{}, leaf $X$ replace leaf $X$ at day $X$, which is consid
 \label{fig:performance}
 \end{figure*}
 
-For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Figure~\ref{fig:performance}.
+For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Fig.~\ref{fig:performance}.
 {\it{ULR}} decreases as $\tau$ increases as more leaves are being considered as matched leaves.
-As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the the diferent number in leaf counting that results from both miss detection and false alarms.
+As $\tau$ keep increasing, {\it{ULR}} approaches a constant value, which is the the different number in leaf counting that results from both miss detection and false alarms.
 {\it{LE}} increases as $\tau$ increases as it includes leaves with larger tip-based errors for averaging.
 {\it{TC}} increases as $\tau$ increases as more leaves are being considered as correctly tracked leaves.
+Note that {\it{TC}} is influenced by the length of frames evaluated for each video. 
+As the longer frames we evaluate, the higher chance tracking will be failed. 
 Overall, our method can detect $87\%$ and track $50\%$ of all labeled leaves with less than $20\%$ average tip-based errors.
 
 We generate a label image for each frame based on the leaf segmentation results anc compute the {\it{SBD}} score for each labeled image.
