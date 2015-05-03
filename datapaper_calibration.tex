@@ -14,7 +14,7 @@ The depth noise $\epsilon$ is modeled as the sum of two components, $\epsilon_I$
 \begin{equation}
 \epsilon = \epsilon_I + \epsilon_S\label{eq:epsilon}
 \end{equation}
-The term $\epsilon_I$ captures the noise component that varies between images taken from a fixed pose of a static scene. On the other hand the term $\epsilon_S$ models noise is constant between images but varies between pixels. The variance of $\epsilon_I$ can be estimated by observing pixels of a fixed scene over multiple images. In our experiments we observed a flat, uniform albedo surface perpendicular to the camera at a sequence of depths, and for each depth acquiring 300 images. Object depth has a large impact on $\epsilon_I$ likely due to reduced reflected signal. For constant depth, we observed that the primary factor affecting the variance is the pixel radius from the image center. Physically we expect this dependence is due to a circularly symmetric illuminating beam closely aligned with the optical axis. Based on these observations $\sigma_I^2$, the variance of $\epsilon_I$, is empirically estimated as a function of object depth and pixel radius as shown in Figure~\ref{fig:Noise}.
+The term $\epsilon_I$ captures the noise component that varies between images taken from a fixed pose of a static scene. On the other hand the term $\epsilon_S$ models noise is constant between images but varies between pixels. The variance of $\epsilon_I$ is estimated for each pixel of a fixed scene observed over multiple images. In our experiments we observed a flat, uniform albedo surface perpendicular to the camera at a sequence of depths, and for each depth acquired 300 images. Object depth, $d$, has a large impact on $\epsilon_I$ likely due to reduced reflected signal. For constant depth, we observed that the primary factor affecting the variance is the pixel radius, $r$, from the image center. Physically we expect this dependence is due to a circularly symmetric illuminating beam closely aligned with the optical axis. Based on these observations we model $\sigma_I^2(d,r)$ the variance of $\epsilon_I$, as a function of depth and pixel radius.  From our experiments we build up a lookup table for this as plotted in Figure~\ref{fig:Noise}.
 
 \begin{table*}[t!]
 \begin{center}
@@ -52,16 +52,17 @@ Bean & $1000\times640$ & $1000\times640$ & $380\times720$ & $90\times190$ \\
 \end{center}
 \end{table*}
 
-In addition to image-varying noise, there are pixel depth offsets that are constant for images of the same scene so cannot be removed by averaging over many frames. We model these with $\epsilon_S$. To estimate its variance, $\sigma_S^2$, we first average over many depth measurement images, in our case 300, to obtain pixel depth estimates that approximately eliminate the effect of $\epsilon_I$. Then by calculating true ray depths on a known surface, in our case the observed plane, and assuming that $\epsilon_S$ has the same distribution over all pixels, $\sigma_S^2$ is obtained as the variance of the error between averaged depths and known depths. In our experiments we obtained $\sigma_S=6.5mm$, and found that it was insensitive to changes in depth.
+In addition to repeated-image-varying noise, there are pixel depth offsets that are constant for images of the same scene, and so cannot be removed by averaging over many frames. We model these with $\epsilon_S$. To estimate its variance, $\sigma_S^2$, we first average over many depth measurement images, in our case 300, to obtain pixel depth estimates that approximately eliminate the effect of $\epsilon_I$. Then by calculating true ray depths on a known surface, in our case the observed plane, and assuming that $\epsilon_S$ has the same distribution over all pixels, $\sigma_S$ is obtained as the standard deviation of the error between averaged depths and known depths. In our experiments we obtained $\sigma_S=6.5mm$, and found that it was insensitive to changes in depth.
 
 
-
-Assuming independence of $\epsilon_I$ and $\epsilon_S$, the expected variance of depth measurements in the data collection can be obtained as follows. When $N$ images are averaged to obtain a depth image, where $N=5$ for our data collection, the depth variance is predicted to be:
+The recorded depth images in the data collection are the result of averaging $N=5$ subsequent depth images.  Assuming independence of $\epsilon_I$ and $\epsilon_S$, the expected variance of pixel depth measurements for is given by:
 \begin{equation}
-\sigma^2 = \frac{\sigma_I^2}{N} + \sigma_S^2.\label{eq:sigma}
+\sigma^2(d,r) = \frac{\sigma_I^2(d,r)}{N} + \sigma_S^2.\label{eq:sigma}
 \end{equation}
 
-There are additional sources of noise not captured by this including object specularities, sharp variations in object albedo, mixed-depth pixels on object edges, and cases of very-low signal reflection. In addition we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination. This resulted in a small constant depth shift for the pixels. We measured this shift for each chamber experiment and provide it as an optional correction to the depth images.
+There are additional sources of noise not captured by this including object specularities, sharp variations in object albedo, mixed-depth pixels on object edges, and cases of very-low signal reflection. One of the utilities of having a modeled expected variance is that it can be compared with the measured variance, and strong disparity is a cue that the surface violates our modeling assumptions, and can be filtered out as not belonging to a plant leaf. 
+
+In addition we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination. This resulted in a small constant depth shift for the pixels. We measured this shift for each chamber experiment and provide it as an optional correction to the depth images.
 
 %\begin{figure}
 %\begin{centering}
