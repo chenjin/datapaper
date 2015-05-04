@@ -42,7 +42,7 @@ Bean & $5$ & $5$ & $14$ & $350\times 4$ & $175\times 4$ \\
 \begin{tabular}{c|c|c|c|c}
 \hline
 % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-Plants & Fluorescence & IR & RGB & Depth \\
+Plants & fluorescence & IR & RGB & depth \\
 \hline
 Arabidopsis & $\sim$$240\times240$ & $\sim$$240\times240$ & $\sim$$120\times120$ & $\sim$$25\times25$ \\
 %\hline
@@ -59,7 +59,7 @@ The recorded depth images in the data collection are the result of averaging $N=
 \sigma^2(d,r) = \frac{\sigma_I^2(d,r)}{N} + \sigma_S^2.\label{eq:sigma}
 \end{equation}
 
-There are additional sources of noise not modeled by this.  Object albedo has an impact although this is fairly weak for strong signal reflections.  Factors with large impact on signal noise include: object specularities, sharp variations in object albedo, mixed-depth pixels on object edges, and cases of very-low signal reflection, all of which can lead to very large variances. One of the utilities of having a model for variance is that it can be compared with the measured variance, and the difference used as a cue for portions of the scene that violate our modeling assumptions. 
+There are additional sources of noise not modeled by this.  Object albedo has an impact although this is fairly weak for strong signal reflections.  Factors with large impact on signal noise include: object specularities, sharp variations in object albedo, mixed-depth pixels on object edges, and cases of very-low signal reflection, all of which can lead to very large variances. One of the utilities of having a model for variance is that it can be compared with the measured variance, and the difference used as a cue for portions of the scene that violate our modeling assumptions.
 
 In addition, we noticed that the chamber light shades blocked some of the depth camera field of view, and in doing so reflected some of the IR illumination. This resulted in a small constant depth shift for the pixels. We measured this shift for each chamber experiment and provide it as an optional correction to the depth images.
 

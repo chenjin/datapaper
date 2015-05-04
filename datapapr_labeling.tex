@@ -22,25 +22,25 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 \label{fig:label}
 \end{figure*}
 
-\begin{figure*}
-\begin{centering}
-\begin{tabular}{@{}c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
-%\begin{tabular}{lllllllll}
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_1_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_2_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_3_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_4_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_5_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_6_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_7_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_8_num_13.png}&
-\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_9_num_13.png}\\
-day 1 & day 2 & day 3 & day 4 & day 5 & day 6 & day 7 & day 8 & day 9 \\
-\end{tabular}
-\caption{Leaf labeling results of one Arabidopsis plant over nine days with one image per day. Note that the labels of tips are not shown for visualization clarity. }
-\label{fig:LabelExample}
-\end{centering}
-\end{figure*}
+%\begin{figure*}
+%\begin{centering}
+%\begin{tabular}{@{}c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{} c@{}}
+%%\begin{tabular}{lllllllll}
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_1_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_2_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_3_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_4_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_5_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_6_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_7_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_8_num_13.png}&
+%\includegraphics[width=.11\textwidth]{Figures/labelExample/plant_1_day_9_num_13.png}\\
+%day 1 & day 2 & day 3 & day 4 & day 5 & day 6 & day 7 & day 8 & day 9 \\
+%\end{tabular}
+%\caption{Leaf labeling results of one Arabidopsis plant over nine days with one image per day. Note that the labels of tips are not shown for visualization clarity. }
+%\label{fig:LabelExample}
+%\end{centering}
+%\end{figure*}
 
 
 \subsection{Manual Annotations}
@@ -71,8 +71,8 @@ The labeled leaf boundary is overlaid on the image for better visualization to g
 Incorrect label can be deleted right after the labeling.
 This process continues until all leaf segments have been annotated.
 After the labeling of one plant, we visually go through the results and correct inaccurate labels.
-One example of the labeling results for one plant is shown in Figure~\ref{fig:LabelExample}, where one color is used to represent each specific leaf.
-As we can see during the transition between day $4$ and day $5$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
+One example of the labeling results for one plant is shown in Figure~\ref{fig:trackExample} $(b)$, where one color is used to represent each specific leaf.
+As we can see during the transition between day $5$ and day $6$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
 In total, we labeled $5142$ leaves.
 
 Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.

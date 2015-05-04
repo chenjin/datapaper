@@ -15,12 +15,12 @@ While many factors can be assessed quantitatively, which is essential for high-t
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/A_depth}&
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/A_fmp}&
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/A_ir}\\
-Arabidopsis: RGB & Arabidopsis: Depth & Arabidopsis: Fluorescence & Arabidopsis: IR \\
+Arabidopsis: RGB & Arabidopsis: depth & Arabidopsis: fluorescence & Arabidopsis: IR \\
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/B_rgb}&
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/B_depth}&
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/B_fmp}&
 \includegraphics[width=.23\textwidth]{Figures/FourModalities/B_ir}\\
-Bean: RGB & Bean: Depth & Bean: Fluorescence & Bean: IR \\
+Bean: RGB & Bean: depth & Bean: fluorescence & Bean: IR \\
 \end{tabular}
 \caption{The multi-modality plant imagery database of MSU-PID. }
 \label{fig:fourmodality}
@@ -43,7 +43,7 @@ In this interdisciplinary field, scientists employ various imaging sensors to ca
 %\begin{tabular}{|l@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|}
 \begin{tabular}{l|c|c|c|c|c|c}
 \hline
-\multirow{2}{*}{Database}& \multirow{2}{*}{Modality} & \multirow{2}{*}{Applications}\tnote{a} & \multirow{2}{*}{Plant Type} & Subject/ &Total & Labeled \\ 
+\multirow{2}{*}{Database}& \multirow{2}{*}{Modality} & \multirow{2}{*}{Applications}\tnote{a} & \multirow{2}{*}{Plant Type} & Subject/ &Total & Labeled \\
 & & & & Classe \# & Image \# & Image \# \\ \hline
 Swedish leaf & Scaned leaf & LC& Swedish trees & $15$ & $1,125$ & $1,125$ \\ \hline
 Flavia& RGB & LC& Leaves & $32$ & $2,120$ & $2,120$ \\ \hline
@@ -51,13 +51,13 @@ Leafsnap & RGB & LC& USA trees & $184$ & $29,107$ & $29,107$ \\ \hline
 Crop/weed & RGB &Weed detection & Crop/weed & $2$ & $60$ & $60$ \\ \hline
 \multirow{2}{*}{LSC} & \multirow{2}{*}{RGB} & \multirow{2}{*}{LS, LO} & Arabidopsis & $43$ & $6287$ & $201$ \\ \cline{4-7}
 & & & Tobacco & $80$ & $165,120$ & $83$ \\ \hline
-\multirow{2}{*}{MSU-PID} & Fluorescence, & LS, LO, & Arabidopsis & $16$ & $2304\times 4$ & $576\times 4$ \\ \cline{4-7}
-& IR, RGB, Depth & LA, LT & Bean & $5$ & $350\times 4$ & $175\times 4$ \\ \hline
+\multirow{2}{*}{MSU-PID} & fluorescence, & LS, LO, & Arabidopsis & $16$ & $2304\times 4$ & $576\times 4$ \\ \cline{4-7}
+& IR, RGB, depth & LA, LT & Bean & $5$ & $350\times 4$ & $175\times 4$ \\ \hline
 \hline
 \end{tabular}
 %}
 \begin{tablenotes}
-\footnotesize 
+\footnotesize
 \item[a] The abbreviation in ``Applications'' column is defined as Leaf Classification (LC), Leaf Segmentation (LS), Leaf Counting (LO), Leaf Alignment (LA), and Leaf Tracking (LT).
 \end{tablenotes}
 \end{threeparttable}
@@ -72,7 +72,7 @@ However, the publicly available database for plant phenotyping is still very lim
 
 
 To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality plant imagery database through an interdisciplinary effort at Michigan State University (MSU), termed ``MSU-PID''.
-As illustrated in Figure~\ref{fig:fourmodality}, the MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., Fluorescence, infrared (IR), RGB color, and depth.
+As illustrated in Figure~\ref{fig:fourmodality}, the MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., fluorescence, infrared (IR), RGB color, and depth.
 All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days.
 Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities.
 
