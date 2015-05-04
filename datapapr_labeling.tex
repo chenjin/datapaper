@@ -1,5 +1,5 @@
 \section{Annotation, Files and Protocol}
-\subsection{Data statistics}
+\subsection{Data Statistics}
 MSU-PID includes two subsets, one for each plant type: Arabidopsis and Bean.
 The statistic information of these two subsets are summarized in Table~\ref{tab:stat}.
 The images were acquired every hour.
@@ -14,24 +14,6 @@ Therefore, the resolution of a Arabidopsis plant is much lower than that of a be
 We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors simultaneously.
 Table~\ref{tab:resolution} summaries the image resolution of each plant in all four modalities.
 
-
-
-\subsection{Manual annotations}
-Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency overtime.
-Tip locations are saved in a TXT file for each frame.
-Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
-The same color is used to represent the same leaf over a sequence of frames.
-
-We use the fluorescence images as the input for labeling because of their simple and uniform background.
-For Arabidopsis images, we label $4$ frames each day.
-While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
-A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}.
-A user can open a plant image to label the two tips and annotate each leaf segment.
-The results will be automatically saved once a user moves onto the next image for labeling.
-For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
-%This GUI is used to annotate leaves in each frame.
-%For consistent annotation of the same leaf over time, we use the labeled results of each frame to find the correspondence according to leaf centers.
-%Incorrect correspondence will be manually corrected.
 
 \begin{figure*}
 \centering
@@ -60,6 +42,24 @@ day 1 & day 2 & day 3 & day 4 & day 5 & day 6 & day 7 & day 8 & day 9 \\
 \end{centering}
 \end{figure*}
 
+
+\subsection{Manual Annotations}
+Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency overtime.
+Tip locations are saved in a TXT file for each frame.
+Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
+The same color is used to represent the same leaf over a sequence of frames.
+
+We use the fluorescence images as the input for labeling because of their simple and uniform background.
+For Arabidopsis images, we label $4$ frames each day.
+While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
+A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}.
+A user can open a plant image to label the two tips and annotate each leaf segment.
+The results will be automatically saved once a user moves onto the next image for labeling.
+For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
+%This GUI is used to annotate leaves in each frame.
+%For consistent annotation of the same leaf over time, we use the labeled results of each frame to find the correspondence according to leaf centers.
+%Incorrect correspondence will be manually corrected.
+
 The labeling of leaf tips is implemented by clicking pairs of points on the image.
 The outer tip is always clicked first before the inner tip.
 For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip.
@@ -82,7 +82,7 @@ The extra effort of breaking a super pixel into two makes it a less efficient al
 
 
 
-\subsection{Name conventions and file types}
+\subsection{Name Conventions and File Types}
 We release training and testing sets in two separate folders.
 In each folder, there are two subfolders named Arabidopsis and Bean.
 The files in each subfolder have the following form:
@@ -96,7 +96,7 @@ The files in each subfolder have the following form:
 \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$label.png: the labeled images of fluorescence modality;
 \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$tips.txt: the labeled tip locations;
 \end{itemize}
-where ID indicates the plant ID number ($1$ to $16$ for Arabidopsis, $1$ to $5$ for bean), X is an integer indicating the date ($1-9$ for Arabidopsis, $1$ to $5$ for bean), and YY represents the image index within a day ($1-16$ for Arabidopsis, $1$ to $14$ for bean).
+where ID indicates the plant subject ID number ($1$ to $16$ for Arabidopsis, $1$ to $5$ for bean), X is an integer indicating the date ($1-9$ for Arabidopsis, $1$ to $5$ for bean), and YY represents the image index within a day ($1-16$ for Arabidopsis, $1$ to $14$ for bean).
 For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
 %\begin{itemize}
 % \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$rgb.png: the original RGB color images;

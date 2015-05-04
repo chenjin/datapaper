@@ -12,7 +12,7 @@ The time of flight depth measurements can have significant noise, and it is usef
 
 The depth noise, $\varepsilon$, is modeled as the sum of an image dependent term, $\varepsilon_I$, and a sensor dependent term, $\varepsilon_S$:
 \begin{equation}
-\varepsilon = \varepsilon_I + \varepsilon_S\label{eq:epsilon}
+\varepsilon = \varepsilon_I + \varepsilon_S. \label{eq:epsilon}
 \end{equation}
 The term $\varepsilon_I$ is a random variable for each pixel with a value that varies between subsequent images taken from a fixed pose of a static scene.  On the other hand, $\varepsilon_S$ is a random variable for each pixel that models its depth offset, and its value only changes when the scene changes.  The variance of $\varepsilon_I$ is estimated for each pixel of a fixed scene observed over multiple images. In our experiments we observed a flat, uniform albedo surface perpendicular to the camera at a sequence of depths, and for each depth acquired 300 images. Object depth, $d$, has a large impact on $\varepsilon_I$. For constant depth, we observed that the primary factor affecting the variance is the pixel radius, $r$, from the image center. Physically we expect this dependence is due to a circularly symmetric illuminating beam closely aligned with the optical axis. Based on these observations we model $\sigma_I(d,r)$, the standard deviation of $\varepsilon_I$, as a function of depth and pixel radius.  From our experiments we build up a lookup table for this as plotted in Figure~\ref{fig:Noise}.
 
@@ -37,7 +37,7 @@ Bean & $5$ & $5$ & $14$ & $350\times 4$ & $175\times 4$ \\
 
 \begin{table*}
 \begin{center}
-\caption{Plant image resolution of Arabidopsis and Bean databases.}
+\caption{Plant image resolution of Arabidopsis and Bean databases, computed based on the yellow ROIs in Figure~\ref{fig:fourmodality}.}
 \label{tab:resolution}
 \begin{tabular}{c|c|c|c|c}
 \hline
