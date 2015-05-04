@@ -58,7 +58,7 @@ This is useful for identifying pixels at depth discontinuities that are unreliab
 \begin{figure}
 \centering
   \includegraphics[height=5.9cm,trim=110 250 60 260,clip]{Figures/SigmaRadius} \\
-\caption{Noise analysis for a depth camera obtained by imaging a flat surface at various depths.  We found that the standard deviation, $\sigma_I$ from Eq. (\ref{eq:sigma}) of the pixel depth measurements had a large dependency on both the target depth and the pixel distance from the image center, and these are plotted.  A radius of $0$ pixels is the image center, and of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have far larger standard deviation than at the image center for the same depth. }
+\caption{Noise analysis for a depth camera obtained by imaging a flat surface at various depths.  We found that the standard deviation, $\sigma_I(d,r)$ from Eq. (\ref{eq:sigma}) of the pixel depth measurements had a large dependency on both the target depth, $d$, and the pixel radius, $r$, from the image center, and these are plotted.  A radius of $0$ pixels is the image center, and of $200$ pixels corresponds to the corners of the depth camera, which can be seen to have far larger standard deviation than at the image center for the same depth. }
 \label{fig:Noise}
 \end{figure}
 
