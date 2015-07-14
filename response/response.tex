@@ -67,10 +67,15 @@ The authors should clarify what is intended by "leaf alignment" and why it is im
 \end{review}
 
 \begin{response}
-Leaf alignment estimates the inner and outer tips of the leaf, which can help understand the leaf structure. 
+Leaf alignment aims to estimate the structure of a leaf. 
+In the case where the leaf structure is simple (e.g., ellipsoid-shaped leaf), leaf alignment amounts to estimating the inner and outer tips of the leaf.
+For more complex leaf structure (e.g., maple leaf), leaf alignment will estimate additional landmarks on the leaf contour that will consistently appear in all leaves.
+Leaf alignment is important for two reasons:
+First, it goes beyond leaf segmentation and provide structural information of a leaf - a discriminative signature for a leaf.
 For example, ~\cite{cerutti2013understanding} uses a polygonal leaf model for leaf segmentation and plant identification.
-This leaf structure information can be used to analysis the difference of plant phenotyping within one leaf.  
-\\ \textcolor{red}{could not find a reference.}
+Second, plant biologists often hypothesize that different local parts of a leaf may have different photosynthetic efficiency.
+This leaf structure information can be used to quantitatively study this hypothesis and its implication to the overall photosynthetic efficiency of a plant.
+%\\ \textcolor{red}{could not find a reference.}
 \end{response}
 
 
@@ -93,6 +98,8 @@ Each of the databases mentioned in Table $1$ should be accompanied by a referenc
 \begin{response}
 We have the corresponding references in the prior work section, which follows the order as they appear in Table $2$. 
 Therefore, we do not add the references in Table $2$ for conciseness.
+
+TBD: pls add reference in Tab.2
 \end{response}
 
 
@@ -104,7 +111,8 @@ The authors should adjust language and/or expand the literature review.
 \end{review}
 
 \begin{response}
-We adjust language by the statement of "we summarize some existing publicly available databases that are related to plant imagery". 
+We adjust language by the statement of ``we summarize existing publicly available databases that are most related to our work". 
+
 \end{response}
 
 
@@ -129,9 +137,14 @@ Briefly presenting a use case scenario or citing relevant works may help clarify
 \end{review}
 
 \begin{response}
-Here we want to emphasize that it is not necessary to train and test on the same modality. 
-For example, if we would like to develop a leaf segmentation algorithm that can work on RGB images, we can still utilize the depth images during training.   
-\\ \textcolor{red}{I am not sure if I understand the statement correctly.}
+%Here we want to emphasize that it is not necessary to train and test on the same modality. 
+%For example, if we would like to develop a leaf segmentation algorithm that can work on RGB images, we can still utilize the depth images during training.   
+In this use case scenario, the training part of leaf segmentation algorithms may have both the RGB and depth modalities, while during the testing, we may only have the RGB modality available.
+This scenario is useful because it leverages additional information during the training, while does not increase the hardware/sensor cost during the testing.
+Specifically, we may use two types of approachs to implement this scenario.
+One is called learning with side information, which is the depth modality in this example (see~\cite{chen2013boosting}).
+The other is to use transfer learning that handles missing modality in the target domain (see~\cite{ding2014latent}).
+
 \end{response}
 
 
@@ -251,6 +264,8 @@ Nevertheless, I recommend the authors for arranging information as in Table $1$.
 We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge datasets only includes independent images without tracking context. 
 The reason we do not include mutants is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure. 
 \\ \textcolor{red}{I do not understand what to be added to Table $1$.}
+TBD: Dr. Chen, please add some sentences about mutants in bean data. I recell we plan to capture additional bean data sets that have different mutants. Am I right?
+
 \end{response}
 
 
@@ -340,7 +355,7 @@ We have corrected those typos.
 
 {\small
 \bibliographystyle{IEEEbib}
-\bibliography{references}
+\bibliography{abbrev,references}
 }
 %\begin{thebibliography}{}
 %
