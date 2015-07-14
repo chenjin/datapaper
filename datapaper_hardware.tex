@@ -21,6 +21,8 @@ Pulses of $940~nm$ light were provided by an array of OSRAM LEDs (SFH 4239, Digi
 Since $940~nm$ light does not influence plant development or drive photosynthesis, images were also collected during the night period~\cite{eskins1992light}.
 %
 Precisely, phytochromes are the closest photoreceptors that absorb in the far red, near infrared region, but the action spectrum is diminished to zero or near zero ($>800~nm$) in the region where we do IR reflectance ($940~nm$)~\cite{butler1964actton}.
+%
+Note that the other modalities were captured only at day time, so that they will not interfere plant growth.
 
 
 
@@ -53,11 +55,13 @@ Fortunately the primary goal of the depth measurements are to obtain leaf depths
 \label{fig:CameraConfiguration}
 \end{figure}
 
-The imagery data were collected once every hour.
-These include the fluorescent image, the IR reflectance image with the same camera, the color image, the $3$D depth and a confidence image.
-The $3$D depth image is built from the depth sensor by transforming the points into the world coordinates and is expressed in the unit of $mm$.
-The confidence image is the standard deviation of the depth pixels.
-This is useful for identifying pixels at depth discontinuities that are unreliably detected and result in large standard deviations.
+\subsubsection{Image collection} 
+The imagery data, including the fluorescent image, the IR reflectance image,  the color image, and the $3$D depth image, were collected once every hour. First, the fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay.
+% 
+After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor. The captured depth points were then transformed into the world coordinates and expressed in the unit of $mm$. Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration.
+
+%A confidence image is the standard deviation of the depth pixels.
+%This is useful for identifying pixels at depth discontinuities that are unreliably detected and result in large standard deviations.
 
 
 \begin{figure}

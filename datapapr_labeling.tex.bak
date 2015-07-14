@@ -8,9 +8,11 @@ In order to make sure that all four modalities are present at each imaging oppor
 
 
 
-The two subsets differ in plant image resolutions. As shown in Figure~\ref{fig:fourmodality}, we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time. Therefore, the resolution of a Arabidopsis plant is much lower than that of a bean plant. We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors simultaneously. Table~\ref{tab:resolution} summaries the image resolution of each plant in all four modalities. 
-%
-It is often argued which is the best setting due to the trade-off between the image resolution and the throughput of phenotyping experiments. We chose to image a whole tray of Arabidopsis rather than an individual one because it is frequently used in biological experiment protocols, and the expanded capability allows users to compare different genotypes or replicates in the same tray. In contrary, we chose to image a single bean plant because we anticipate enabling development of 3D plant canopy reconstruction algorithms for bush plants.
+The two subsets differ in plant image resolutions (Table~\ref{}).
+As shown in Figure~\ref{fig:fourmodality}, we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time.
+Therefore, the resolution of a Arabidopsis plant is much lower than that of a bean plant.
+We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors simultaneously.
+Table~\ref{tab:resolution} summaries the image resolution of each plant in all four modalities.
 
 
 \begin{figure*}

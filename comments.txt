@@ -21,8 +21,17 @@ Since $940~nm$ light does not influence plant development or drive photosynthesi
 
 5. Furthermore, it assumes that cameras are perfectly synchronized which i) is not mentioned and ii) it cannot be done for some modalities since the same camera (with different filter) is used so some delay is expected. Granted the plants may not move in between but this should be clarified and mentioned.
 
+We added more details in Section 3.2.3 as follows:
+
+The imagery data, including the fluorescent image, the IR reflectance image,  the color image, and the $3$D depth and a confidence image, were collected once every hour. The fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay. After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor. The captured depth points were then transformed into the world coordinates and expressed in the unit of $mm$. Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration. 
 
 6. On table 3 you list resolutions for the acquired image data. This image resolution is much lower than the LSC database of Scharr et al. This limitation should be mentioned.
 
+We added the following paragraph in section 4.1 to address the trade-off between image resolution and experiment throughput.
+
+It is often argued which is the best setting due to the trade-off between the image resolution and the throughput of phenotyping experiments. We chose to image a whole tray of Arabidopsis rather than an individual one because it is frequently used in biological experiment protocols, and the expanded capability allows users to compare different genotypes or replicates in the same tray. In contrary, we chose to image a single bean plant because we anticipate enabling development of 3D plant canopy reconstruction algorithms for bush plants.
+
 7) Figure 2 if possible can you please also include an image showing the cameras from the view of the plant (LED off)?
+
+Fig 2 was updated. 
 
