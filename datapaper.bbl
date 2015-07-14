@@ -1,5 +1,10 @@
 \begin{thebibliography}{}
 
+\bibitem[Baker, 2008]{baker2008chlorophyll}
+Baker, Neil~R 2008.
+\newblock Chlorophyll fluorescence: a probe of photosynthesis in vivo.
+\newblock Annu. Rev. Plant Biol., 59:89--113.
+
 \bibitem[Barbosa et~al., 2012]{Barbosa:reid12}
 Barbosa, Igor~Barros, Marco Cristani, Alessio Del~Bue, Loris Bazzani, \&
   Vittorio Murino 2012.
@@ -12,11 +17,23 @@ Barrow, Harry~G., Jay~M. Tenenbaum, Robert~C. Bolles, \& Helen~C. Wolf 1977.
   for image matching.
 \newblock Technical report, DTIC Document.
 
+\bibitem[Butler et~al., 1964]{butler1964actton}
+Butler, WL, SB~Hendricks, \& HW~Siegelman 1964.
+\newblock ACTTON SPECTRA OF PHYTOCHROME IN VITRO*.
+\newblock Photochemistry and Photobiology, 3(4):521--528.
+
 \bibitem[Chelle, 2006]{Chelle2006219}
 Chelle, Michael 2006.
 \newblock Could plant leaves be treated as Lambertian surfaces in dense crop
   canopies to estimate light absorption?
 \newblock Ecological Modelling, 198(1):219 -- 228.
+
+\bibitem[Chen et~al., 2014]{chen2014dissecting}
+Chen, Dijun, Kerstin Neumann, Swetlana Friedel, Benjamin Kilian, Ming Chen,
+  Thomas Altmann, \& Christian Klukas 2014.
+\newblock Dissecting the phenotypic components of crop plant growth and drought
+  responses based on high-throughput image analysis.
+\newblock The Plant Cell, 26(12):4636--4655.
 
 \bibitem[Cruz et~al., 2015]{cruz2015depi}
 Cruz, JA, LJ~Savage, R~Zegarac, W~Kovac, C~Hall, J~Chen, \& DM~Kramer 2015.
@@ -29,10 +46,29 @@ D{\"o}{\"o}s, Bo~R 2002.
 \newblock Population growth and loss of arable land.
 \newblock Global Environmental Change, 12(4):303--311.
 
+\bibitem[Dutta et~al., 2015]{Dutta2015Non}
+Dutta, S, JA~Cruz, Y~Jiao, J~Chen, DM~Kramer, \& KW~Osteryoung 2015.
+\newblock Non-invasive imaging of photosynthesis and chloroplast movements in
+  chloroplast division mutants reveal differences in photosynthetic responses
+  independent of chloroplast photorelocation.
+\newblock Plant J.
+
 \bibitem[Erblichkeit, 1903]{Erblichkeit1903}
 Erblichkeit, Johannsen~W. 1903.
 \newblock Populationen und reinen Linien.
 \newblock Gustav Fischer Verlag.
+
+\bibitem[Eskins, 1992]{eskins1992light}
+Eskins, Kenneth 1992.
+\newblock Light-quality effects on Arabidopsis development. Red, blue and
+  far-red regulation of flowering and morphology.
+\newblock Physiologia Plantarum, 86(3):439--444.
+
+\bibitem[Fahlgren et~al., 2015]{fahlgren2015lights}
+Fahlgren, Noah, Malia~A Gehan, \& Ivan Baxter 2015.
+\newblock Lights, camera, action: high-throughput plant phenotyping is ready
+  for a close-up.
+\newblock Current opinion in plant biology, 24:93--99.
 
 \bibitem[Furbank \& Tester, 2011]{furbank2011phenomics}
 Furbank, Robert~T, \& Mark Tester 2011.
