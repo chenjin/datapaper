@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: datapaper.aux
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: datapaper.aux
 The style file: springer.bst
 Database file #1: abbrev.bib
 Database file #2: xl-literature.bib
@@ -17,4 +19,45 @@ Repeated entry---line 207 of file science.bib
 I'm skipping whatever remains of this entry
 Warning--empty institution in scharr2014annotated
 Warning--empty publisher in soderkvist2001computer
+You've used 31 entries,
+            1955 wiz_defined-function locations,
+            1224 strings with 18913 characters,
+and the built_in function-call counts, 13648 in all, are:
+= -- 1360
+> -- 674
+< -- 20
++ -- 217
+- -- 204
+* -- 1063
+:= -- 2308
+add.period$ -- 96
+call.type$ -- 31
+change.case$ -- 227
+chr.to.int$ -- 30
+cite$ -- 33
+duplicate$ -- 546
+empty$ -- 884
+format.name$ -- 266
+if$ -- 2768
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 29
+newline$ -- 158
+num.names$ -- 93
+pop$ -- 295
+preamble$ -- 1
+purify$ -- 257
+quote$ -- 0
+skip$ -- 401
+stack$ -- 0
+substring$ -- 899
+swap$ -- 81
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 184
+warning$ -- 2
+while$ -- 106
+width$ -- 0
+write$ -- 402
 (There were 3 error messages)
