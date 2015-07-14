@@ -1,10 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[Baker, 2008]{baker2008chlorophyll}
-Baker, Neil~R 2008.
-\newblock Chlorophyll fluorescence: a probe of photosynthesis in vivo.
-\newblock Annu. Rev. Plant Biol., 59:89--113.
-
 \bibitem[Barbosa et~al., 2012]{Barbosa:reid12}
 Barbosa, Igor~Barros, Marco Cristani, Alessio Del~Bue, Loris Bazzani, \&
   Vittorio Murino 2012.
@@ -28,12 +23,11 @@ Chelle, Michael 2006.
   canopies to estimate light absorption?
 \newblock Ecological Modelling, 198(1):219 -- 228.
 
-\bibitem[Chen et~al., 2014]{chen2014dissecting}
-Chen, Dijun, Kerstin Neumann, Swetlana Friedel, Benjamin Kilian, Ming Chen,
-  Thomas Altmann, \& Christian Klukas 2014.
-\newblock Dissecting the phenotypic components of crop plant growth and drought
-  responses based on high-throughput image analysis.
-\newblock The Plant Cell, 26(12):4636--4655.
+\bibitem[Chen et~al., 2013]{chen2013boosting}
+Chen, Jixu, Xiaoming Liu, \& Siwei Lyu 2013.
+\newblock Boosting with side information.
+\newblock In Proc. Asian Conf. Computer Vision (ACCV), pages 563--577.
+  Springer.
 
 \bibitem[Cruz et~al., 2015]{cruz2015depi}
 Cruz, JA, LJ~Savage, R~Zegarac, W~Kovac, C~Hall, J~Chen, \& DM~Kramer 2015.
@@ -41,17 +35,16 @@ Cruz, JA, LJ~Savage, R~Zegarac, W~Kovac, C~Hall, J~Chen, \& DM~Kramer 2015.
   Phenotypes Related to the Environmental Responses of Photosynthesis.
 \newblock Nature Biotechnology, in revision.
 
+\bibitem[Ding et~al., 2014]{ding2014latent}
+Ding, Zhengming, Shao Ming, \& Yun Fu 2014.
+\newblock Latent low-rank transfer subspace learning for missing modality
+  recognition.
+\newblock In Proc. of the AAAI Conference on Artificial Intelligence (AAAI).
+
 \bibitem[D{\"o}{\"o}s, 2002]{doos2002population}
 D{\"o}{\"o}s, Bo~R 2002.
 \newblock Population growth and loss of arable land.
 \newblock Global Environmental Change, 12(4):303--311.
-
-\bibitem[Dutta et~al., 2015]{Dutta2015Non}
-Dutta, S, JA~Cruz, Y~Jiao, J~Chen, DM~Kramer, \& KW~Osteryoung 2015.
-\newblock Non-invasive imaging of photosynthesis and chloroplast movements in
-  chloroplast division mutants reveal differences in photosynthetic responses
-  independent of chloroplast photorelocation.
-\newblock Plant J.
 
 \bibitem[Erblichkeit, 1903]{Erblichkeit1903}
 Erblichkeit, Johannsen~W. 1903.
