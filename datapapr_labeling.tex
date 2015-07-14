@@ -4,7 +4,7 @@ MSU-PID includes two subsets, one for each plant type: Arabidopsis and Bean.
 The statistic information of these two subsets are summarized in Table~\ref{tab:stat}.
 The images were acquired every hour.
 As there is no light at night hours, plants can not be imaged by the fluorescence and RGB color sensors while IR and depth cameras can still perform the capturing in the night.
-In order to make sure that all four modalities present at each imaging opportunity, we release the part of images captured only in the day time, which are $16$ images per day for Arabidopsis and $14$ for bean for all four modalities.
+In order to make sure that all four modalities are present at each imaging opportunity, we release the part of images captured only in the day time, which are $16$ images per day for Arabidopsis and $14$ for bean for all four modalities.
 
 
 
@@ -52,7 +52,7 @@ The same color is used to represent the same leaf over a sequence of frames.
 We use the fluorescence images as the input for labeling because of their simple and uniform background.
 For Arabidopsis images, we label $4$ frames each day.
 While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
-A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}.
+A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will also be available to the public. 
 A user can open a plant image to label the two tips and annotate each leaf segment.
 The results will be automatically saved once a user moves onto the next image for labeling.
 For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
@@ -76,8 +76,7 @@ As we can see during the transition between day $5$ and day $6$, there is one le
 In total, we labeled $5142$ leaves.
 
 Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
-Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves.
-The extra effort of breaking a super pixel into two makes it a less efficient alternative.
+Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a super pixel into two makes it a less efficient alternative.
 
 
 
@@ -124,7 +123,7 @@ tip2$\_$x and tip2$\_$y represent the coordinates of the inner tip point.
 In addition to the original images and annotation results, we provide another folder named Matlab with all Matlab functions that will be used for mapping between different image modalities and for the purpose of performance evaluation.
 Note that the annotation is provided based on fluorescence images.
 In order to evaluate methods developed on other modalities, we provide image-mapping functions between every two modalities.
-The total storage of our database is around $380 Mb$, which is convenient for downloading via Internet.
+The total storage of our database is around $380 MB$, which is convenient for downloading via Internet.
 
 \begin{figure*}[t!]
 \centering
@@ -139,7 +138,7 @@ To facilitate future research, we separate the database into the training set an
 $40\%$ of the data is used for training and $60\%$ for testing.
 Specifically, $6$ plants of Arabidopsis and $2$ plants of bean are selected for training.
 %We will provide training and testing data in different folders.
-For fair comparison, both supervised learning and unsupervised learning methods should evaluate their performances on the training and testing sets separately.
+For fair comparison, both supervised learning and unsupervised learning methods should evaluate their performance on the training and testing sets separately.
 The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
 The availability of multiple modalities allows user to design novel experimental setup.
 For example, using RGB and depth modalities for training and RGB for testing can evaluate an algorithm that can handle a missing modality during the testing.

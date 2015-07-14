@@ -3,6 +3,14 @@ The style file: springer.bst
 Database file #1: abbrev.bib
 Database file #2: xl-literature.bib
 Database file #3: science.bib
+Repeated entry---line 48 of file science.bib
+ : %@article{Sung2011
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 69 of file science.bib
+ : %@inproceedings{Barbosa:reid12
+ :                               ,
+I'm skipping whatever remains of this entry
 Warning--empty institution in scharr2014annotated
 Warning--empty publisher in soderkvist2001computer
-(There were 2 warnings)
+(There were 2 error messages)

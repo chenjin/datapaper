@@ -1,10 +1,12 @@
 \section{Baseline Method and Performance}
 \label{sec:baseline}
 
-To facilitate future research on this database, we provide a baseline approach and its performance by using the fluorescence modality.
+To facilitate future research on this database, we provide a baseline approach and its performance by using the fluorescence modality of Arabidopsis.
 
 \subsection{Multi-leaf Segmentation and Tracking Framework}
 We apply our automatic multi-leaf segmentation and tracking framework~\cite{yin2014a,yin2014b} to the testing set of Arabidopsis fluorescence imagery to provide a baseline.
+Note that~\cite{yin2014a,yin2014b} is designed for rosette plants like Arabidopsis. 
+Therefore, it will not be applied to bean plant as it does  not belong to rosette plants. 
 We treat all images in $9$ days as a video from first image on the first day to the last image in the last day.
 As shown in Figure~\ref{fig:methodOverview}, the input of this framework is a plant video and a set of predefined templates with various shapes, scales, and orientations.
 To generate the template set, we first select $12$ templates with different aspect ratios from the labeled images in the training set together with the corresponding tip locations.
@@ -19,7 +21,7 @@ Finally, we generate $2,880$ leaf templates.
 Our work is motivated by Chamfer Matching technique~\cite{barrow1977parametric}, which is used to align two edge maps.
 We extend it to simultaneously align multiple overlapping objects.
 For plant segmentation, we use simple thresholding and edge detection to generate an edge map and mask.
-The best threshold is learnt from the training set.
+The best threshold is learnt from the training set, which is done by tuning the threshold in a certain range and find the best one by evaluating the overlap of the segmented masks with the groundtruth label masks.
 The edge map and mask are used in the alignment and tracking optimization.
 
 First, we find the best location of each template in the edge map that has the minimal Chamfer matching distance, which will result in an over-completed set of leaf candidates.
@@ -119,7 +121,7 @@ However, when the overlapping leaves are further away from the center, they will
 When the overlapping leaves are close to the center, smaller leaves will be covered by larger leaves as shown in $(a), (d), (e)$ of Figure~\ref{fig:alignResult}.
 
 
-Leaf alignment provides the leaf candidates for tracking over time. 
+Leaf alignment provides the leaf candidates for tracking over time.
 Figure~\ref{fig:trackExample} shows the leaf tracking result of one video.
 The leaf template transformation works well for most of the leaves.
 As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves.
