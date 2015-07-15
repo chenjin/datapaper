@@ -68,6 +68,11 @@ Furbank, Robert~T, \& Mark Tester 2011.
 \newblock Phenomics--technologies to relieve the phenotyping bottleneck.
 \newblock Trends in plant science, 16(12):635--644.
 
+\bibitem[Hansard et~al., 2013]{Hansard2013}
+Hansard, Miles, Seungkyu Lee, Ouk Choi, \& Radu Horaud 2013.
+\newblock Time-of-Flight Cameras: Principles, Methods and Applications.
+\newblock Springer, New York, NY.
+
 \bibitem[Haug \& Ostermann, 2014]{haug2014crop}
 Haug, Sebastian, \& J{\"o}rn Ostermann 2014.
 \newblock A Crop/Weed Field Image Dataset for the Evaluation of Computer Vision
