@@ -34,7 +34,7 @@ As with chlorophyll {\it a} fluorescence, images were captured in the absence of
 \subsubsection{RGB Color and Depth Images} %This section describes characterizes the data from this sensor, particularly the depth data.
 
 The RGB color and depth images were collected using a Creative Senz3D sensor~\cite{nguyen2015vietnamese}. The sensor contains both a $1280 \times 720$ color camera directed parallel to, and separated by roughly $25~mm$ from, a depth camera which has a resolution of $320\times240$ pixels.
-The depth sensor uses a flash near IR illuminator and measures the time-of-flight~\cite{Hansard2013} of the beam at each pixel to obtain depth estimates along with an IR reflectance at each pixel. 
+The depth sensor uses a flash near IR illuminator and measures the time-of-flight~\cite{Hansard2013} of the beam at each pixel to obtain depth estimates along with an IR reflectance at each pixel.
 
 There are a number of limitations to the depth sensor that become the sources of depth errors.
 The primary measurement limitation on the range-to-target is the strength of the reflected beam.
@@ -55,9 +55,9 @@ Fortunately the primary goal of the depth measurements are to obtain leaf depths
 \label{fig:CameraConfiguration}
 \end{figure}
 
-\subsubsection{Image collection} 
+\subsubsection{Image collection}
 The imagery data, including the fluorescent image, the IR reflectance image,  the color image, and the $3$D depth image, were collected once every hour. First, the fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay.
-% 
+%
 After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor. The captured depth points were then transformed into the world coordinates and expressed in the unit of $mm$. Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration.
 
 %A confidence image is the standard deviation of the depth pixels.
