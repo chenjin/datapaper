@@ -52,7 +52,11 @@ In this interdisciplinary field, scientists employ various imaging sensors to ca
 %
 A key advance in visual phenotyping is the capability to non-invasively capture plant traits, enabling continuous measurements that are necessary to monitor plants during growth and/or under stress conditions. Vision based phenotyping also increases the throughput of phenotyping experiments by eliminating destructive operations. The increased capacity allows more genotypes or biological replicates to be examined under the same environmental conditions~\cite{fahlgren2015lights,walter2015plant}.
 
-
+One practical goal of plant visual phenotyping is to accurately quantify plant traits, particularly those related to photosynthetic performance, growth, yield and resilience to environmental stress.  For the approach to be of practical use, plants must be monitored continuously, over developmental time scales and under conditions that more closely approximate the native environment (dynamic 'field' conditions)~\cite{fahlgren2015lights,walter2015plant}.
+%
+The capacity to identify and track individual leaves throughout experiments will be important for more clearly defining phenotypic behaviors related to leaf specific factors such as developmental age~\cite{schottler2015photosynthetic} and/or following the application of stress. For example, decreases in the average photosynthetic efficiency ($\Phi_{II}$, quantum yield of photochemistry at photosystem II) of an Arabidopsis plant may reflect a heterogeneous distribution of $\Phi_{II}$ values across its entire photosynthetic surface area~\cite{oxborough2004imaging}. In this case, mapping distributions to individual leaves can be used to distinguish between a systemic (whole plant) effect and localization of the effect to subset leaves.
+%
+In addition, using more detailed information, such as leaf angle and height/position as well as canopy density/size, it should be possible to improve estimates of total photosynthetic capacity over time (particularly for plants with more complex canopies, like common bean or tobacco), since these factors influence absorption and availability of the light energy used to drive photosynthesis.
 
 \begin{table*}[t!]
 \centering
@@ -76,13 +80,13 @@ A key advance in visual phenotyping is the capability to non-invasively capture 
 \hline
 \multirow{2}{*}{Database}& \multirow{2}{*}{Modality} & \multirow{2}{*}{Applications}\tnote{a} & \multirow{2}{*}{Plant Type} & Subject/ &Total & Labeled \\
 & & & & Classe \# & Image \# & Image \# \\ \hline
-Swedish leaf & \multirow{2}{*}{Scaned leaf} & \multirow{2}{*}{LC} & \multirow{2}{*}{Swedish trees} & \multirow{2}{*}{$15$} & \multirow{2}{*}{$1,125$} & \multirow{2}{*}{$1,125$} \\ 
+Swedish leaf & \multirow{2}{*}{Scaned leaf} & \multirow{2}{*}{LC} & \multirow{2}{*}{Swedish trees} & \multirow{2}{*}{$15$} & \multirow{2}{*}{$1,125$} & \multirow{2}{*}{$1,125$} \\
 ~\cite{soderkvist2001computer} & & & & & & \\ \hline
-Flavia & \multirow{2}{*}{RGB} & \multirow{2}{*}{LC} & \multirow{2}{*}{Leaves} & \multirow{2}{*}{$32$} & \multirow{2}{*}{$2,120$} & \multirow{2}{*}{$2,120$} \\ 
+Flavia & \multirow{2}{*}{RGB} & \multirow{2}{*}{LC} & \multirow{2}{*}{Leaves} & \multirow{2}{*}{$32$} & \multirow{2}{*}{$2,120$} & \multirow{2}{*}{$2,120$} \\
 ~\cite{wu2007leaf} & & & & & & \\ \hline
-Leafsnap & \multirow{2}{*}{RGB} & \multirow{2}{*}{LC} & \multirow{2}{*}{USA trees} & \multirow{2}{*}{$184$} & \multirow{2}{*}{$29,107$} & \multirow{2}{*}{$29,107$} \\ 
+Leafsnap & \multirow{2}{*}{RGB} & \multirow{2}{*}{LC} & \multirow{2}{*}{USA trees} & \multirow{2}{*}{$184$} & \multirow{2}{*}{$29,107$} & \multirow{2}{*}{$29,107$} \\
 ~\cite{kumar2012leafsnap} & & & & & & \\ \hline
-Crop/weed & \multirow{2}{*}{RGB} & \multirow{2}{*}{Weed detection} & \multirow{2}{*}{Crop/weed} & \multirow{2}{*}{$2$} & \multirow{2}{*}{$60$} & \multirow{2}{*}{$60$} \\ 
+Crop/weed & \multirow{2}{*}{RGB} & \multirow{2}{*}{Weed detection} & \multirow{2}{*}{Crop/weed} & \multirow{2}{*}{$2$} & \multirow{2}{*}{$60$} & \multirow{2}{*}{$60$} \\
 ~\cite{haug2014crop} & & & & & & \\ \hline
 LSC & \multirow{2}{*}{RGB} & \multirow{2}{*}{LS, LO} & Arabidopsis & $43$ & $6287$ & $201$ \\ \cline{4-7}
 ~\cite{haug2014crop} & & & Tobacco & $80$ & $165,120$ & $83$ \\ \hline
@@ -111,6 +115,8 @@ As illustrated in Figure~\ref{fig:fourmodality}, the MSU-PID database includes t
 All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days.
 Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities.
 
+
+%
 The type and amount of manual labels on a database is a critical enabler to the potential applications of the database.
 For a subset of the MSU-PID database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips and leaf segments.
 As a result, MSU-PID is suitable for a number of applications, including 1) {\it leaf segmentation} that aims at estimating the correct segmentation mask of each leaf in an image, 2) {\it leaf counting} that estimates the correct number of leaves within a plant, 3) {\it leaf alignment} that aligns the two tips of each leaf -- the cornerstone of the leaf structure, and 4) {\it leaf tracking} that is designed to track each leaf over time.

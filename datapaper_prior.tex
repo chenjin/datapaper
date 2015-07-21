@@ -5,23 +5,31 @@ Databases drive computer vision research.
 Hence, it is always important to develop and promote properly captured databases in the vision community.
 While there is a clear desire to apply computer vision to plant image analysis, the lack of publicly available plant image databases has been an obstacle for the further study and development.
 
-We summarize existing publicly available databases that are most related to our work in Table~\ref{tab:database}. 
+We summarize existing publicly available databases that are most related to our work in Table~\ref{tab:database}.
 In terms of potential applications of these databases, they can be categorized into two types.
 The first type is for the general purpose of recognizing a particular species of tree or plant.
 The Swedish leaf database~\cite{soderkvist2001computer} is probably the first leaf database even though the images are captured by scanners.
 The Flavia database~\cite{wu2007leaf} is considerably larger and a neural network is utilized to train a leaf classifier.
 The most recent leafsnap project~\cite{kumar2012leafsnap} is an impressive effort that includes a very large dataset of leaves for $184$ tree types.
-A mobile phone application is also developed to make the leaf classification system portable. 
+A mobile phone application is also developed to make the leaf classification system portable.
 Finally, the crop/weed image database~\cite{haug2014crop} is captured by a robot in the real field, and used for the classification of crop vs.~weed.
 Note that except for~\cite{haug2014crop} where images are captured in the wild for a large area of plant, other databases in this type normally capture only a {\it single} leaf is in a relatively constrained imaging environment.
-Therefore, the challenging problem of leaf segmentation has been bypassed. 
+Therefore, the challenging problem of leaf segmentation has been bypassed.
 % Note that in this type of databases, normally only a {\it single} leaf is imaged in a relatively constrained imaging environment and as a result, the challenging problem of leaf segmentation has been bypassed.
 
 The second type of databases is for plant phenotyping, where it is important to capture plant images without interfering the growth of plants.
-Thus, non-destructive imaging approaches are taken and the entire plant is imaged. The LSC database~\cite{scharr2014annotated} is the most relevant one to our database. It captures a large set of RGB images for the Arabidopsis and Tobacco plants. The provided manual labels allow the evaluation of leaf segmentation and leaf counting. In comparison, our MSU-PID database utilizes four sensing modalities in the data capturing, each providing different aspects of plant visual appearance.
+Thus, non-destructive imaging approaches are taken and the entire plant is imaged. The LSC database~\cite{scharr2014annotated} is the most relevant one to our database. 
+It captures a large set of RGB images for the Arabidopsis and Tobacco plants. 
+The provided manual labels allow the evaluation of leaf segmentation and leaf counting. 
+In comparison, our MSU-PID database utilizes four sensing modalities in the data capturing, each providing different aspects of plant visual appearance.
 Our diverse manual labels also enable us to develop algorithms for additional applications such as leaf tracking and leaf alignment.
 
-One of our data modalities is dense depth measurement. This has been a component of a number of recent non-plant RGB-D databases designed for object recognition~\cite{Lai2011}, scene segmentation~\cite{Silberman2011}, human analysis~\cite{Sung2011,Barbosa:reid12}, and mapping~\cite{sturm12iros}. By including dense depth for a plant database we anticipate enabling development of new 3D plant shape analysis algorithms.
+%One of our data modalities is dense depth measurement. This has been a component of a number of recent non-plant RGB-D databases designed for object recognition~\cite{Lai2011}, scene segmentation~\cite{Silberman2011}, human analysis~\cite{Sung2011,Barbosa:reid12}, and mapping~\cite{sturm12iros}. By including dense depth for a plant database we anticipate enabling development of new 3D plant shape analysis algorithms.
+
+The four sensing modalities in MSU-PID provide unique opportunities to comprehensively characterize plant morphological and physiological phenotypes. The use of chlorophyll fluorescence at $730$ to $750nm$ as a tool for evaluating photosynthetic performance is well established~\cite{baker2008chlorophyll}, and against non-(chlorophyll)fluorescent background clearly defines photosynthetically active leaf area.
+The dense depth measurement has been a component of a number of recent non-plant RGB-D databases designed for object recognition~\cite{Lai2011}, scene segmentation~\cite{Silberman2011}, human analysis~\cite{Sung2011,Barbosa:reid12}, and mapping~\cite{sturm12iros}. By including dense depth for a plant database we anticipate enabling development of new 3D plant canopy analysis algorithms, thus probing the total energy intake and storage.
+Near infrared (IR) reflectance has been used by others to detect water content in leaves~\cite{chen2014dissecting}.  However, it may also be useful in determining leaf angle and curvature.  Furthermore, since imaging occurs at a wavelength that is effectively non-absorbing for photosynthesis or known light receptors~\cite{butler1964actton,eskins1992light} in plants, it can be used for imaging during the night cycle to observe night time leaf expansion or in some cases circadian movements~\cite{mcclung2006plant}.
+
 
 
 

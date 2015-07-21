@@ -17,10 +17,10 @@ Chlorophyll {\it a} fluorescence was excited using monochromatic red LEDs (Everl
 In addition, a series of $5$ images were also collected in the absence of the excitation light for artifact subtraction.
 
 Infrared images were collected once every hour with the same camera and filter used for chlorophyll {\it a} fluorescence.
-Pulses of $940~nm$ light were provided by an array of OSRAM LEDs (SFH 4239, Digi-Key), collimated using a Polymer Optics lens (Part no. 170, Polymer Optics Ltd., Berkshire, England).
-Since $940~nm$ light does not influence plant development or drive photosynthesis, images were also collected during the night period~\cite{eskins1992light}.
+Pulses of $940nm$ light were provided by an array of OSRAM LEDs (SFH 4239, Digi-Key), collimated using a Polymer Optics lens (Part no. 170, Polymer Optics Ltd., Berkshire, England).
+Since $940nm$ light does not influence plant development or drive photosynthesis, images were also collected during the night period~\cite{eskins1992light}.
 %
-Precisely, phytochromes are the closest photoreceptors that absorb in the far red, near infrared region, but the action spectrum is diminished to zero or near zero ($>800~nm$) in the region where we do IR reflectance ($940~nm$)~\cite{butler1964actton}.
+Precisely, phytochromes are the closest photoreceptors that absorb in the far red, near infrared region, but the action spectrum is diminished to zero or near zero ($>800nm$) in the region where we do IR reflectance ($940nm$)~\cite{butler1964actton}.
 %
 Note that the other modalities were captured only at day time, so that they will not interfere plant growth.
 
@@ -56,9 +56,16 @@ Fortunately the primary goal of the depth measurements are to obtain leaf depths
 \end{figure}
 
 \subsubsection{Image collection}
-The imagery data, including the fluorescent image, the IR reflectance image,  the color image, and the $3$D depth image, were collected once every hour. First, the fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay.
+The imagery data, including the fluorescent image, the IR reflectance image,  the color image, and the $3$D depth image, were collected once every hour.
 %
-After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor. The captured depth points were then transformed into the world coordinates and expressed in the unit of $mm$. Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration.
+Five minutes before the end of each hour, $3$D depth images and the color image were captured using the Creative Senz3D sensor (the depth points were transformed into the world coordinates and expressed in the unit of $mm$), followed by fluorescence and the IR reflectance images collected sequentially at 2 minute intervals by the IR filtered CCD camera.
+%
+No substantial movements or growth were observed within the about four minute period required for image capture using all four modalities, minimizing potential problems in image calibration.
+
+%First, the fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay.
+%
+%After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor. 
+%Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration.
 
 %A confidence image is the standard deviation of the depth pixels.
 %This is useful for identifying pixels at depth discontinuities that are unreliably detected and result in large standard deviations.

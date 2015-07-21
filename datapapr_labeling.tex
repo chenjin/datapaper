@@ -42,6 +42,9 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 %\end{centering}
 %\end{figure*}
 
+It is often argued which is the best setting due to the trade-off between the image resolution and the throughput of phenotyping experiments. 
+We chose to image a whole tray of Arabidopsis at lower resolution rather than an individual at higher resolution, because it better reflects high-throughput protocols, which in practice allows direct comparison of multiple genotypes in the same experiment.  
+In contrary, we chose to image a single bean plant because we anticipate enabling development of $3$D plant canopy reconstruction algorithms for bush plants.
 
 \subsection{Manual Annotations}
 Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency overtime.
@@ -52,7 +55,7 @@ The same color is used to represent the same leaf over a sequence of frames.
 We use the fluorescence images as the input for labeling because of their simple and uniform background.
 For Arabidopsis images, we label $4$ frames each day.
 While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
-A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will also be available to the public. 
+A Matlab-based GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will also be available to the public.
 A user can open a plant image to label the two tips and annotate each leaf segment.
 The results will be automatically saved once a user moves onto the next image for labeling.
 For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
