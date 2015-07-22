@@ -1,0 +1,22 @@
+
+@article{baker2008chlorophyll,
+  title={Chlorophyll fluorescence: a probe of photosynthesis in vivo},
+  author={Baker, Neil R},
+  journal={Annu. Rev. Plant Biol.},
+  volume={59},
+  pages={89--113},
+  year={2008},
+  publisher={Annual Reviews}
+}
+
+
+@article{cerutti2013understanding,
+  title={Understanding leaves in natural images--a model-based approach for tree species identification},
+  author={Cerutti, Guillaume and Tougne, Laure and Mille, Julien and Vacavant, Antoine and Coquin, Didier},
+  journal={Computer Vision and Image Understanding},
+  volume={117},
+  number={10},
+  pages={1482--1501},
+  year={2013},
+  publisher={Elsevier}
+}

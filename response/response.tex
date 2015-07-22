@@ -29,6 +29,9 @@
 \newcommand{\resp}{\textcolor{Blue}}
 \renewcommand{\thefigure}{R-\arabic{figure}}
 
+
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
 \newcounter{reviewcounter}
 \setcounter{reviewcounter}{1}
 
@@ -63,6 +66,31 @@ For your convenience, we add a separate reference list in the end that is used i
 
 % Reviewer 1: Q1
 \begin{review}
+The text (including the abstract) contains many typographical and grammatical errors, which are distracting and render the manuscript difficult to read.
+The authors should proofread the document carefully.
+\end{review}
+
+\begin{response}
+\todo{Proofread by everyone}
+\end{response}
+
+
+% Reviewer 1: Q2
+\begin{review}
+In the introduction, four example applications are mentioned for which the dataset can be used.
+According to the title of the paper the dataset is proposed for phenotyping applications.
+Thus, the authors should elaborate on why and how the computer vision tasks they mention are relevant to plant phenotyping.
+The authors should also include few key references to works that use (or discuss) such features for plant phenotyping.
+\end{review}
+
+\begin{response}
+We have added two paragraphs with related references in the Sec. $1$ to better connect plant phenotyping and computer vision tasks. 
+They are paragraph $2$ and $3$. 
+\end{response}
+
+
+% Reviewer 1: Q3
+\begin{review}
 The authors should clarify what is intended by "leaf alignment" and why it is important, since this feature is probably less common in plant phenotyping applications than the others that are mentioned.
 \end{review}
 
@@ -75,33 +103,44 @@ First, it goes beyond leaf segmentation and provide structural information of a 
 For example, ~\cite{cerutti2013understanding} uses a polygonal leaf model for leaf segmentation and plant identification.
 Second, plant biologists often hypothesize that different local parts of a leaf may have different photosynthetic efficiency.
 This leaf structure information can be used to quantitatively study this hypothesis and its implication to the overall photosynthetic efficiency of a plant.
-%\\ \textcolor{red}{could not find a reference.}
 \end{response}
 
 
-% Reviewer 1: Q2
+% Reviewer 1: Q4
+\begin{review}
+Since multi-modality is a strength of the proposed dataset, the authors should motivate better their choice of imaging modalities (i.e. fluorescence, infrared, RGB color, and depth), highlighting their importance and what information they convey on plant structure and functions.
+Apparently, this is only partly done for depth at the end of Sec. $2$.
+\end{review}
+
+\begin{response}
+We have inserted a brief explanation with references in the last paragraph of Sec. $2$. 
+\end{response}
+
+
+% Reviewer 1: Q5
 \begin{review}
  Figure $1$ should be augmented (or a separate figure should be created) with zoom in details showing how the same plant parts (or scene portions) appear in the different modalities.
  This would help the reader get a better idea of the contrast and the type of information conveyed by each of the modalities adopted by the authors.
 \end{review}
 
 \begin{response}
-We have augmented Fig.$1$ by adding one zoom-in view for each image.
+We have augmented Fig.$1$ by adding one zoom-in view for Arabidopsis plant.
+Since bean dataset only includes one plant in the view, we did not provide a zoom-in view.
 \end{response}
 
 
-% Reviewer 1: Q3
+% Reviewer 1: Q6
 \begin{review}
 Each of the databases mentioned in Table $1$ should be accompanied by a reference.
 \end{review}
 
 \begin{response}
 We have the corresponding references in the prior work section, which follows the order as they appear in Table $2$.
-To make it complete, we also added the reference to Table $2$. 
+To make it complete, we also added the reference to Table $2$.
 \end{response}
 
 
-% Reviewer 1: Q4
+% Reviewer 1: Q7
 \begin{review}
 The second paragraph of Sec. $2$ begins with "we summarize all existing publicly available databases that are related to plant imagery".
 This is a strong statement, particularly because other plant related image datasets exist (e.g., ImageCLEF, ICL leaf database) which are omitted from the review.
@@ -110,11 +149,10 @@ The authors should adjust language and/or expand the literature review.
 
 \begin{response}
 We adjust language by the statement of ``we summarize existing publicly available databases that are most related to our work".
-
 \end{response}
 
 
-% Reviewer 1: Q5
+% Reviewer 1: Q8
 \begin{review}
 In the second paragraph in Sec. $2$, I believe the observation on single leaves imaged in a constrained environment does not apply to the dataset by (Haug and Ostermann, $2014$).
 Please reformulate.
@@ -128,7 +166,45 @@ We have reformulated this in the second paragraph in Sec. $2$.
 \end{response}
 
 
-% Reviewer 1: Q6
+% Reviewer 1: Q9
+\begin{review}
+It appears from Sec. $3.1$ that all plant subjects (respectively for Arabidopsis and bean) belong to the same genotype and that no treatments were performed.
+This would entail that the proposed dataset cannot be used to investigate computer vision algorithms or imaging modalities in relation to group differences.
+Could the authors comment on this?
+\end{review}
+
+\begin{response}
+It is true that we did not compare group differences, based on morphology (for example).
+However, we are using these data sets to address a fundamental issue with visual phenotyping; accurate and automated identification and tracking of individual leaves over developmental time scales (weeks).  
+The reason this is important is highlighted in other sections, in particular in text we are adding to address point $1$ and $2$.  
+The inherent challenge of course is that as leaves emerge and grow, they change in size, position and shape and they may overlap or be overlapped by other leaves.  
+I think that new text we have added more clearly emphasizes leaf identification and tracking over time rather than developing methods/algorithms to define group differences. 
+We added a paragraph in Conclusion.
+\end{response}
+
+
+% Reviewer 1: Q10
+\begin{review}
+In Sec. $3.2.1$ the authors remark that light used for night image acquisition does not influence plant development. 
+A reference should be included to support this statement.
+\end{review}
+
+\begin{response}
+We have revised the second paragraph in Sec. $3.2.1$ and added two references to support this statement. 
+\end{response}
+
+
+% Reviewer 1: Q11
+\begin{review}
+As for the other lighting and imaging protocols adopted by the authors (Sec. $3.2.1$ and $3.2.2$), do they interfere with plant growth?
+\end{review}
+
+\begin{response}
+\todo{Jin}
+\end{response}
+
+
+% Reviewer 1: Q12
 \begin{review}
 At the end of the first paragraph of Sec. $4.4$, p. $8$, the authors envision a use of the multiple modalities in their dataset in which algorithms are developed to handle missing modalities.
 Briefly presenting a use case scenario or citing relevant works may help clarify the importance of this point.
@@ -146,7 +222,7 @@ The other is to use transfer learning that handles missing modality in the targe
 \end{response}
 
 
-% Reviewer 1: Q7
+% Reviewer 1: Q13
 \begin{review}
 In Sec. $5$ no baseline method or result is reported for bean images. Could the authors comment on this?
 \end{review}
@@ -159,8 +235,8 @@ Therefore, we did not apply the baseline method to bean plants.
 We have added this statement in the beginning of Sec $5.1$.
 \end{response}
 
-
-% Reviewer 1: Q8
+ 
+% Reviewer 1: Q14
 \begin{review}
 The conclusions (Sec. $6$) should be expanded.
 \end{review}
@@ -170,7 +246,7 @@ The conclusions (Sec. $6$) should be expanded.
 \end{response}
 
 
-% Reviewer 1: Q9
+% Reviewer 1: Q15
 \begin{review}
 The acronym "MSU-PID" should be clearly defined when it first appears in text (p. $2$, line $51$)
 \end{review}
@@ -181,7 +257,7 @@ We have clearly defined it as short for Michigan State University Plant Image Da
 \end{response}
 
 
-% Reviewer 1: Q10
+% Reviewer 1: Q16
 \begin{review}
 According to the SI (International System of Units), units of measure should be written in roman type, while italic type is reserved for variables.
 Besides, when they follow a number, a space should be included between numerical value and unit symbol.
@@ -189,11 +265,11 @@ To improve clarity of the manuscript, the authors are therefore advised to adher
 \end{review}
 
 \begin{response}
-
+\todo{Xi}
 \end{response}
 
 
-% Reviewer 1: Q11
+% Reviewer 1: Q17
 \begin{review}
 In Sec. $3.2.1$, the "a" of "chlorophyll a" could be italicized to improve clarity.
 \end{review}
@@ -203,7 +279,7 @@ We have changed "chlorophyll a" to "chlorophyll {\it a}" all over the paper.
 \end{response}
 
 
-% Reviewer 1: Q12
+% Reviewer 1: Q18
 \begin{review}
 It is not clear on p. $8$, line $15$, if the size of the database is $380$ megabytes (MB) or $380$ megabits (Mb).
 %In the former case "MB" should be used instead of "Mb", while in the latter case the authors should consider reporting the value in megabytes (MB) which is more common.
@@ -215,7 +291,7 @@ We have changed it in the text.
 \end{response}
 
 
-% Reviewer 1: Q13
+% Reviewer 1: Q19
 \begin{review}
 In Eq. $3$, p. $8$, the authors should better define the symbols used. In particular, it is not clear if subscripts $1$ and $2$ refer to inner and outer leaf tips respectively, and in which order.
 \end{review}
@@ -227,7 +303,7 @@ The equation does not rely on the correspondence of inner or outer tips as long 
 \end{response}
 
 
-% Reviewer 1: Q14
+% Reviewer 1: Q20
 \begin{review}
 Sec. $5.1$, p. $9$, for completeness the authors should mention the approach they used to find a threshold for plant segmentation.
 \end{review}
@@ -246,7 +322,7 @@ We have added this statement to the paper.
 \hline
 \end{tabular*}
 
-% Reviewer 2: Q15
+% Reviewer 2: Q21
 \begin{review}
 The authors argue that the most closely related work is that of Scharr et al $2014$.
 They identify as weaknesses that it i) uses only RGB images and ii) can be used for a few vision problems.
@@ -261,13 +337,78 @@ Nevertheless, I recommend the authors for arranging information as in Table $1$.
 \begin{response}
 We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge datasets only includes independent images without tracking context.
 The reason we do not include mutants is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure.
-\\ \textcolor{red}{I do not understand what to be added to Table $1$.}
-TBD: Dr. Chen, please add some sentences about mutants in bean data. I recell we plan to capture additional bean data sets that have different mutants. Am I right?
-
+\\ %\textcolor{red}{I do not understand what to be added to Table $1$.}
+\todo{TBD: Dr. Chen, please add some sentences about mutants in bean data. I recall we plan to capture additional bean data sets that have different mutants. Am I right?}
 \end{response}
 
 
-% Reviewer 2: Q16
+% Reviewer 2: Q22
+\begin{review}
+The authors do a nice work of calibrating the cameras and measuring noise in the depth camera. 
+However, in page $2$ introduction says that this calibration allows for the explicit correspondence between pixels of any modality.  
+The authors rely on this to annotate data in one modality and propagate labels in the other (at least this is what I understand from later on description of methodology).  
+However, this is a VERY strong assumption and depends completely on the distance between the cameras, the angles, the distance between object and sensors and the actual object arrangement. 
+From our experience even when imaging co-planar plants (such as young Arabidopsis) at a distance of $\sim 70$cm even when the camera sensors are really close to each other (less than $5$cm) some differences in view are there and occlusions are present.  
+The authors should comment on this and should show as supportive evidence examples of plants at different growth stages in all $4$ modalities in raw and annotated form to show how close this correspondence is matching and how the propagated labels.  
+Furthermore, additional supporting evidence could be obtained either by arranging for two external and blind annotators to label some data (different age, different placement in the tray to show the effect of angle) in another modality (e.g., optical) and then measure inter-observer variability. 
+Then they can propagate annotations from fluorescence to images of that modality and measure agreement. 
+If this agreement is better than the in between rater variability then you could argue that propagating annotations is ok to do and actually beneficial.  
+Nevertheless, you should definitely mention this limitation of your work.
+\end{review}
+
+\begin{response}
+\todo{Daniel}
+\end{response}
+
+
+% Reviewer 2: Q23
+\begin{review}
+Furthermore, it assumes that cameras are perfectly synchronized which i) is not mentioned and ii) it cannot be done for some modalities since the same camera (with different filter) is used so some delay is expected. 
+Granted the plants may not move in between but this should be clarified and mentioned.
+\end{review}
+
+\begin{response}
+\todo{Jin}
+\end{response}
+
+
+% Reviewer 2: Q24
+\begin{review}
+Fig. $3$ (a) ... From Fig. $2$ it appears the distance from plant to sensor to be greater than $60$mm ($6$cm) !!! ie., to me it looks close to $60$cm, but either Fig. $3$ has wrong axis range or something else is going on. 
+Can you please explain/update?
+Also same Fig. $3$, shouldn't the images overlap? why are shown translated?
+\end{review}
+
+\begin{response}
+Yes, the distance to the plant is roughly $620$mm.  
+The image planes are plotted not at the plant location, but at a distance proportional to the focal length of each camera.  
+We added dashed lines to the figure to make it clearer that these planes do not correspond to the plant depth, and updated the caption to better explain it.
+\end{response}
+
+
+% Reviewer 2: Q25
+\begin{review}
+On Table $3$ you list resolutions for the acquired image data.  
+This image resolution is much lower than the LSC database of Scharr et al. 
+This limitation should be mentioned.
+\end{review}
+
+\begin{response}
+We added one paragraph in the end of Sec. $4.1$ to address the trade-off between image resolution and experiment throughput.
+\end{response}
+
+
+% Reviewer 2: Q26
+\begin{review}
+On manual annotation process:  Did you use an extra annotator or a supervisor?
+\end{review}
+
+\begin{response}
+\todo{Yes, we use an extra annotator to estimate the annotation error between different people.}
+\end{response}
+
+
+% Reviewer 2: Q27
 \begin{review}
 Your annotation process is completely interactive.
 Any way to "save interaction" by interactive segmentation approaches?
@@ -283,7 +424,7 @@ We did explore other options for labeling and found this simple naive way worked
 \end{response}
 
 
-% Reviewer 2: Q17
+% Reviewer 2: Q28
 \begin{review}
 It is unclear if you release this annotation tool? If not, please do... it will be extremely useful for the community.
 \end{review}
@@ -293,7 +434,17 @@ We will release the labeling tool together with the dataset.
 \end{response}
 
 
-% Reviewer 2: Q18
+% Reviewer 2: Q29
+\begin{review}
+Again going back to the problem of lack of exact $1-1$ correspondence between modalities, how can you guarantee that labels on one are good on the other given such high differences in resolutions among modalities?  Please include at least some visual examples.
+\end{review}
+
+\begin{response}
+Please refer to comment $22$.
+\end{response}
+
+
+% Reviewer 2: Q30
 \begin{review}
 Does the annotation $\_$hour$\_$YY$\_$label.png  contain a label for each pixel or only for the boundaries?
 If yes, then can you obtain single boundary definition in between overlapping leaves?
@@ -307,7 +458,7 @@ For overlapping leaves, we can visualize the relative location and annotate acco
 \end{response}
 
 
-% Reviewer 2: Q19
+% Reviewer 2: Q31
 \begin{review}
 Based on your annotations can you find which leaf occludes which?
 \end{review}
@@ -318,7 +469,7 @@ However, it is hard to refer which leaf occludes which from the annotations.
 \end{response}
 
 
-% Reviewer 2: Q20
+% Reviewer 2: Q32
 \begin{review}
 The authors test an algorithm (developed by them) on the fluorescence part of the data.
 Granted this algorithm is presented elsewhere on the same data.
@@ -332,7 +483,75 @@ I think doing one of the two, time permitting, will greatly assist the paper.
 \end{response}
 
 
-% Reviewer 2: Q21
+% Reviewer 2: Q33
+\begin{review}
+I do not subscribe to the term dense for such low resolution depth cameras. 
+In my book dense refers to high res depth maps. 
+Maybe the authors can reconsider the use of the term.
+\end{review}
+
+\begin{response}
+We agree and have removed the term ``dense" from the depth map image.
+\end{response}
+
+
+% Reviewer 2: Q34
+\begin{review}
+I am not sure the authors used the correct reference for Erblichkeit $1903$. 
+I think Erblichkeit is part of the title. 
+A google search reveals this: http://caliban.mpipz.mpg.de/johannsen/erblichkeit/
+with the author being: Wilhelm Ludwig Johannsen.
+Please check.
+\end{review}
+
+\begin{response}
+It is right that Erblichkeit is the part of the title and the author name is Wilhelm Ludwig Johannsen.
+We have corrected it. 
+\end{response}
+
+
+% Reviewer 2: Q35
+\begin{review}
+In page $4$, line $4$, maybe you should put Chlorophyll a either in quotes or italics so a is not confused as an article. 
+\end{review}
+
+\begin{response}
+We have put it in italics to avoid confusion. 
+\end{response}
+
+
+% Reviewer 2: Q36
+\begin{review}
+Figure $2$ if possible can you please also include an image showing the cameras from the view of the plant (LED off)?
+\end{review}
+
+\begin{response}
+Figure $2$ is updated with extended details. 
+Please refer to the paper. 
+\end{response}
+
+
+% Reviewer 2: Q37
+\begin{review}
+Collimated ... is a nice special term, but please put in parenthesis the definition to help broad readership.
+\end{review}
+
+\begin{response}
+\todo{Jin}
+\end{response}
+
+
+% Reviewer 2: Q38
+\begin{review}
+Please also define object albedo again to broaden readership.  
+\end{review}
+
+\begin{response}
+\todo{Daniel}
+\end{response}
+
+
+% Reviewer 2: Q39
 \begin{review}
 Couple of typos:
 \begin{enumerate}
