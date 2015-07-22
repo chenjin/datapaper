@@ -70,7 +70,7 @@ In contrary, we chose to image a single bean plant because we anticipate enablin
 
 
 \subsection{Manual Annotations}
-Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency overtime.
+Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency over time.
 Tip locations are saved in a TXT file for each frame.
 Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
 The same color is used to represent the same leaf over a sequence of frames.
@@ -104,7 +104,13 @@ In total, we labeled $5142$ leaves.
 Note that one alternative approach for labeling leaf segments is to directly label the membership of superpixels instead of drawing a polygon along the boundary.
 Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a super pixel into two makes it a less efficient alternative.
 
+\subsection{Multimodal Annotations}
 
+The leaf labeling can be propagated to each of the other modalities from the fluorescence images for the Arabidopsis sequence.  To do this we approximate the plants with a plane, and find homographies that transform the fluorescence images into the other images.  This provides a direct mapping of the pixel labels between each modality, and is illustrated in Figure~\ref{fig:LabelAlignment}.  
+
+This mapping will introduce errors due to depth-based parallax.  [INCLUDE TABLE AND DESCRIPTION HERE].
+
+In the case of the bean plant, the pixel association between modalities is more difficult as the within-plant depth variations are large.  We found an homography-based mapping performed poorly, and so the manual annotations we supply apply to just the infra-red and fluorescence images which use the same camera.  
 
 
 \subsection{Name Conventions and File Types}
