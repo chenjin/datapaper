@@ -84,14 +84,14 @@ The authors should also include few key references to works that use (or discuss
 \end{review}
 
 \begin{response}
-We have added two paragraphs with related references in the Sec. $1$ to better connect plant phenotyping and computer vision tasks. 
-They are paragraph $2$ and $3$. 
+We have added two paragraphs with related references to better connect plant phenotyping and computer vision tasks. 
+Please refer to paragraph $2$ and $3$ in Sec. $1$. 
 \end{response}
 
 
 % Reviewer 1: Q3
 \begin{review}
-The authors should clarify what is intended by "leaf alignment" and why it is important, since this feature is probably less common in plant phenotyping applications than the others that are mentioned.
+The authors should clarify what is intended by ``leaf alignment" and why it is important, since this feature is probably less common in plant phenotyping applications than the others that are mentioned.
 \end{review}
 
 \begin{response}
@@ -99,7 +99,7 @@ Leaf alignment aims to estimate the structure of a leaf.
 In the case where the leaf structure is simple (e.g., ellipsoid-shaped leaf), leaf alignment amounts to estimating the inner and outer tips of the leaf.
 For more complex leaf structure (e.g., maple leaf), leaf alignment will estimate additional landmarks on the leaf contour that will consistently appear in all leaves.
 Leaf alignment is important for two reasons:
-First, it goes beyond leaf segmentation and provide structural information of a leaf - a discriminative signature for a leaf.
+First, it goes beyond leaf segmentation and provides structural information of a leaf - a discriminative signature for a leaf.
 For example, ~\cite{cerutti2013understanding} uses a polygonal leaf model for leaf segmentation and plant identification.
 Second, plant biologists often hypothesize that different local parts of a leaf may have different photosynthetic efficiency.
 This leaf structure information can be used to quantitatively study this hypothesis and its implication to the overall photosynthetic efficiency of a plant.
@@ -119,13 +119,13 @@ We have inserted a brief explanation with references in the last paragraph of Se
 
 % Reviewer 1: Q5
 \begin{review}
- Figure $1$ should be augmented (or a separate figure should be created) with zoom in details showing how the same plant parts (or scene portions) appear in the different modalities.
- This would help the reader get a better idea of the contrast and the type of information conveyed by each of the modalities adopted by the authors.
+Figure $1$ should be augmented (or a separate figure should be created) with zoom in details showing how the same plant parts (or scene portions) appear in different modalities.
+This would help the reader get a better idea of the contrast and the type of information conveyed by each of the modalities adopted by the authors.
 \end{review}
 
 \begin{response}
-We have augmented Fig.$1$ by adding one zoom-in view for Arabidopsis plant.
-Since bean dataset only includes one plant in the view, we did not provide a zoom-in view.
+We have augmented Fig. $1$ by adding one zoom-in view for Arabidopsis plant.
+Since bean dataset only includes one plant with good view, we do not provide a zoom-in view.
 \end{response}
 
 
@@ -142,13 +142,13 @@ To make it complete, we also added the reference to Table $2$.
 
 % Reviewer 1: Q7
 \begin{review}
-The second paragraph of Sec. $2$ begins with "we summarize all existing publicly available databases that are related to plant imagery".
-This is a strong statement, particularly because other plant related image datasets exist (e.g., ImageCLEF, ICL leaf database) which are omitted from the review.
+The second paragraph of Sec. $2$ begins with ``we summarize all existing publicly available databases that are related to plant imagery".
+This is a strong statement, particularly because other plant related image databases exist (e.g., ImageCLEF, ICL leaf database) which are omitted from the review.
 The authors should adjust language and/or expand the literature review.
 \end{review}
 
 \begin{response}
-We adjust language by the statement of ``we summarize existing publicly available databases that are most related to our work".
+We have adjusted the language by the statement of ``we summarize existing publicly available databases that are most related to our work".
 \end{response}
 
 
@@ -174,12 +174,13 @@ Could the authors comment on this?
 \end{review}
 
 \begin{response}
-It is true that we did not compare group differences, based on morphology (for example).
-However, we are using these data sets to address a fundamental issue with visual phenotyping; accurate and automated identification and tracking of individual leaves over developmental time scales (weeks).  
-The reason this is important is highlighted in other sections, in particular in text we are adding to address point $1$ and $2$.  
-The inherent challenge of course is that as leaves emerge and grow, they change in size, position and shape and they may overlap or be overlapped by other leaves.  
+It is true that we do not compare group differences, based on morphology (for example).
+However, we are using this database to address a fundamental issue with visual phenotyping: accurate and automated identification and tracking of individual leaves over developmental time scales (weeks).  
+The reason this is important is highlighted in other sections, in particular in text we are adding to address Comment $2$ and $4$.  
+The inherent challenge is that leaves change in size, position, and shape as they emerge and grow. 
+Also they may overlap or be overlapped by other leaves.  
 I think that new text we have added more clearly emphasizes leaf identification and tracking over time rather than developing methods/algorithms to define group differences. 
-We added a paragraph in Conclusion.
+We have added one paragraph in Conclusion to better reflect this. 
 \end{response}
 
 
@@ -190,7 +191,7 @@ A reference should be included to support this statement.
 \end{review}
 
 \begin{response}
-We have revised the second paragraph in Sec. $3.2.1$ and added two references to support this statement. 
+We have revised paragraph $2$ in Sec. $3.2.1$ and added $2$ references to support this statement. 
 \end{response}
 
 
@@ -218,13 +219,13 @@ This scenario is useful because it leverages additional information during the t
 Specifically, we may use two types of approaches to implement this scenario.
 One is called learning with side information, which is the depth modality in this example (see~\cite{chen2013boosting}).
 The other is to use transfer learning that handles missing modality in the target domain (see~\cite{ding2014latent}).
-
 \end{response}
 
 
 % Reviewer 1: Q13
 \begin{review}
-In Sec. $5$ no baseline method or result is reported for bean images. Could the authors comment on this?
+In Sec. $5$ no baseline method or result is reported for bean images. 
+Could the authors comment on this?
 \end{review}
 
 \begin{response}
@@ -242,7 +243,7 @@ The conclusions (Sec. $6$) should be expanded.
 \end{review}
 
 \begin{response}
-\textcolor{red}{will expand after everything finished}
+\todo{will expand after everything finished}
 \end{response}
 
 
@@ -252,7 +253,7 @@ The acronym "MSU-PID" should be clearly defined when it first appears in text (p
 \end{review}
 
 \begin{response}
-Except in the Abstract, the "MSU-PID" first appears in fourth paragraph in Sec $1$.
+Except in the Abstract, the "MSU-PID" first appears in paragraph $4$ of Sec $1$.
 We have clearly defined it as short for Michigan State University Plant Image Database.
 \end{response}
 
@@ -293,7 +294,8 @@ We have changed it in the text.
 
 % Reviewer 1: Q19
 \begin{review}
-In Eq. $3$, p. $8$, the authors should better define the symbols used. In particular, it is not clear if subscripts $1$ and $2$ refer to inner and outer leaf tips respectively, and in which order.
+In Eq. $3$, p. $8$, the authors should better define the symbols used. 
+In particular, it is not clear if subscripts $1$ and $2$ refer to inner and outer leaf tips respectively, and in which order.
 \end{review}
 
 \begin{response}
@@ -335,7 +337,7 @@ Nevertheless, I recommend the authors for arranging information as in Table $1$.
 \end{review}
 
 \begin{response}
-We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge datasets only includes independent images without tracking context.
+We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge database only includes independent images without tracking context.
 The reason we do not include mutants is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure.
 \\ %\textcolor{red}{I do not understand what to be added to Table $1$.}
 \todo{TBD: Dr. Chen, please add some sentences about mutants in bean data. I recall we plan to capture additional bean data sets that have different mutants. Am I right?}
@@ -376,7 +378,8 @@ Granted the plants may not move in between but this should be clarified and ment
 \begin{review}
 Fig. $3$ (a) ... From Fig. $2$ it appears the distance from plant to sensor to be greater than $60$mm ($6$cm) !!! ie., to me it looks close to $60$cm, but either Fig. $3$ has wrong axis range or something else is going on. 
 Can you please explain/update?
-Also same Fig. $3$, shouldn't the images overlap? why are shown translated?
+Also same Fig. $3$, shouldn't the images overlap? 
+Why are shown translated?
 \end{review}
 
 \begin{response}
@@ -400,18 +403,20 @@ We added one paragraph in the end of Sec. $4.1$ to address the trade-off between
 
 % Reviewer 2: Q26
 \begin{review}
-On manual annotation process:  Did you use an extra annotator or a supervisor?
+On manual annotation process, did you use an extra annotator or a supervisor?
 \end{review}
 
 \begin{response}
-\todo{Yes, we use an extra annotator to estimate the annotation error between different people.}
+The released label is labeled by one annotator. 
+However, we do use extra annotator to label several images and the annotation error between different annotators is evaluated. 
+\todo{Results?}
 \end{response}
 
 
 % Reviewer 2: Q27
 \begin{review}
 Your annotation process is completely interactive.
-Any way to "save interaction" by interactive segmentation approaches?
+Any way to ``save interaction" by interactive segmentation approaches?
 I applaud your comment on the difficulty of merging super-pixel results, but I would add at least somewhere that easier ways to annotate will be beneficial.
 \end{review}
 
@@ -426,11 +431,13 @@ We did explore other options for labeling and found this simple naive way worked
 
 % Reviewer 2: Q28
 \begin{review}
-It is unclear if you release this annotation tool? If not, please do... it will be extremely useful for the community.
+It is unclear if you release this annotation tool? 
+If not, please do. 
+It will be extremely useful for the community.
 \end{review}
 
 \begin{response}
-We will release the labeling tool together with the dataset.
+We will release the labeling tool together with the database.
 \end{response}
 
 
@@ -446,7 +453,7 @@ Please refer to comment $22$.
 
 % Reviewer 2: Q30
 \begin{review}
-Does the annotation $\_$hour$\_$YY$\_$label.png  contain a label for each pixel or only for the boundaries?
+Does the annotation $\_$hour$\_$YY$\_$label.png contain a label for each pixel or only for the boundaries?
 If yes, then can you obtain single boundary definition in between overlapping leaves?
 \end{review}
 
@@ -465,7 +472,7 @@ Based on your annotations can you find which leaf occludes which?
 
 \begin{response}
 During annotation, we can observe which leaf occludes which and annotate the overlapping area to the leaf on top.
-However, it is hard to refer which leaf occludes which from the annotations.
+However, it is hard to estimate which leaf occludes which from the annotations.
 \end{response}
 
 
@@ -479,7 +486,7 @@ I think doing one of the two, time permitting, will greatly assist the paper.
 \end{review}
 
 \begin{response}
-\textcolor{red}{to be done: apply to RGB modality if label propagation works fine.}
+\todo{Xi: apply to RGB modality and evaluate the performance with transferred labels. Transferred label is needed!}
 \end{response}
 
 
@@ -505,7 +512,7 @@ Please check.
 \end{review}
 
 \begin{response}
-It is right that Erblichkeit is the part of the title and the author name is Wilhelm Ludwig Johannsen.
+It is right that Erblichkeit is part of the title and the author's name is Wilhelm Ludwig Johannsen.
 We have corrected it. 
 \end{response}
 
