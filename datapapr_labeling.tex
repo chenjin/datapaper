@@ -42,6 +42,28 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 %\end{centering}
 %\end{figure*}
 
+\begin{figure*}
+\begin{centering}
+\begin{tabular}{cccc}
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_3_hour_23-seg_ir.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_3_hour_23-seg_fmp.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_3_hour_23-seg_rgb.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_3_hour_23-seg_depth.png}\\
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_5_hour_23-seg_ir.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_5_hour_23-seg_fmp.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_5_hour_23-seg_rgb.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_5_hour_23-seg_depth.png}\\
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_9_hour_20-seg_ir.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_9_hour_20-seg_fmp.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_9_hour_20-seg_rgb.png}&
+\includegraphics[width=.18\textwidth]{Figures/LabelAlignment/day_9_hour_20-seg_depth.png}\\
+($a$) & ($b$) & ($c$) & ($d$) \\
+\end{tabular}
+\caption{Label propagation between all four modalities ($a$) infra-red, ($b$) fluorescence, ($c$) color and ($d$) depth, of a sample plant in the Arabidopsis collection for day 3 (top row), day 5 (middle row), and day 9 (bottom row).  In the dataset the manual segmentation is performed on the fluorescence images and is outlined here as orange lines propagated to all modalities.  The infra-red image is taken by the same camera and so will have close to exact pixel correspondence.  To assess the segmented pixel propagation to other modalities, we also manually labeled a subset of the color plant images and propagated this segmentation to all modalities (shown in cyan).  Comparing these boundaries in each modality gives a measure of the propagation errors due to parallax, and we provide quantitative analysis in table XXX.  Note that the color and depth images are rotated 90 degrees.}
+\label{fig:LabelAlignment}
+\end{centering}
+\end{figure*}
+
 
 \subsection{Manual Annotations}
 Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results and leaf consistency overtime.
