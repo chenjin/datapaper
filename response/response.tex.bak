@@ -29,6 +29,9 @@
 \newcommand{\resp}{\textcolor{Blue}}
 \renewcommand{\thefigure}{R-\arabic{figure}}
 
+
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
 \newcounter{reviewcounter}
 \setcounter{reviewcounter}{1}
 
@@ -63,118 +66,122 @@ For your convenience, we add a separate reference list in the end that is used i
 
 % Reviewer 1: Q1
 \begin{review}
-The authors should clarify what is intended by "leaf alignment" and why it is important, since this feature is probably less common in plant phenotyping applications than the others that are mentioned.
+The text (including the abstract) contains many typographical and grammatical errors, which are distracting and render the manuscript difficult to read.
+The authors should proofread the document carefully.
 \end{review}
 
 \begin{response}
-Leaf alignment estimates the inner and outer tips of the leaf, which can help understand the leaf structure. 
-For example, ~\cite{cerutti2013understanding} uses a polygonal leaf model for leaf segmentation and plant identification.
-This leaf structure information can be used to analysis the difference of plant phenotyping within one leaf.  
-\\ \textcolor{red}{could not find a reference.}
+\todo{Proofread by everyone}
 \end{response}
 
 
 % Reviewer 1: Q2
 \begin{review}
- Figure $1$ should be augmented (or a separate figure should be created) with zoom in details showing how the same plant parts (or scene portions) appear in the different modalities. 
- This would help the reader get a better idea of the contrast and the type of information conveyed by each of the modalities adopted by the authors.
+In the introduction, four example applications are mentioned for which the dataset can be used.
+According to the title of the paper the dataset is proposed for phenotyping applications.
+Thus, the authors should elaborate on why and how the computer vision tasks they mention are relevant to plant phenotyping.
+The authors should also include few key references to works that use (or discuss) such features for plant phenotyping.
 \end{review}
 
 \begin{response}
-We have augmented Fig.$1$ by adding one zoom-in view for each image. 
+We added the following paragraph in the Introduction section to better connect plant phenotyping and computer vision tasks. We added the related references as well.
 \end{response}
 
 
 % Reviewer 1: Q3
 \begin{review}
-Each of the databases mentioned in Table $1$ should be accompanied by a reference.
+The authors should clarify what is intended by "leaf alignment" and why it is important, since this feature is probably less common in plant phenotyping applications than the others that are mentioned.
 \end{review}
 
 \begin{response}
-We have the corresponding references in the prior work section, which follows the order as they appear in Table $2$. 
-Therefore, we do not add the references in Table $2$ for conciseness.
+Leaf alignment aims to estimate the structure of a leaf.
+In the case where the leaf structure is simple (e.g., ellipsoid-shaped leaf), leaf alignment amounts to estimating the inner and outer tips of the leaf.
+For more complex leaf structure (e.g., maple leaf), leaf alignment will estimate additional landmarks on the leaf contour that will consistently appear in all leaves.
+Leaf alignment is important for two reasons:
+First, it goes beyond leaf segmentation and provide structural information of a leaf - a discriminative signature for a leaf.
+For example, ~\cite{cerutti2013understanding} uses a polygonal leaf model for leaf segmentation and plant identification.
+Second, plant biologists often hypothesize that different local parts of a leaf may have different photosynthetic efficiency.
+This leaf structure information can be used to quantitatively study this hypothesis and its implication to the overall photosynthetic efficiency of a plant.
+%\\ \textcolor{red}{could not find a reference.}
 \end{response}
 
 
 % Reviewer 1: Q4
 \begin{review}
-The second paragraph of Sec. $2$ begins with "we summarize all existing publicly available databases that are related to plant imagery". 
-This is a strong statement, particularly because other plant related image datasets exist (e.g., ImageCLEF, ICL leaf database) which are omitted from the review. 
-The authors should adjust language and/or expand the literature review.
+Since multi-modality is a strength of the proposed dataset, the authors should motivate better their choice of imaging modalities (i.e. fluorescence, infrared, RGB color, and depth), highlighting their importance and what information they convey on plant structure and functions.
+Apparently, this is only partly done for depth at the end of Sec. $2$.
 \end{review}
 
 \begin{response}
-We adjust language by the statement of "we summarize some existing publicly available databases that are related to plant imagery". 
+We have inserted a brief explanation with references in the last paragraph of Sec. $2$. 
 \end{response}
 
 
 % Reviewer 1: Q5
 \begin{review}
-In the second paragraph in Sec. $2$, I believe the observation on single leaves imaged in a constrained environment does not apply to the dataset by (Haug and Ostermann, $2014$). 
-Please reformulate.
+ Figure $1$ should be augmented (or a separate figure should be created) with zoom in details showing how the same plant parts (or scene portions) appear in the different modalities.
+ This would help the reader get a better idea of the contrast and the type of information conveyed by each of the modalities adopted by the authors.
 \end{review}
 
 \begin{response}
-It is correct that the dataset (Haug and Ostermann, $2014$) is not about single leaves imaged in a constrained environment. 
-We still category it in the first type because it does not include leaf segmentation. 
-All segmentation tasks are based on plant level. 
-We have reformulated this in the second paragraph in Sec. $2$. 
+We have augmented Fig.$1$ by adding one zoom-in view for Arabidopsis plant.
+Since bean dataset only includes one plant in the view, we did not provide a zoom-in view.
 \end{response}
 
 
 % Reviewer 1: Q6
 \begin{review}
-At the end of the first paragraph of Sec. $4.4$, p. $8$, the authors envision a use of the multiple modalities in their dataset in which algorithms are developed to handle missing modalities. 
-Briefly presenting a use case scenario or citing relevant works may help clarify the importance of this point.
+Each of the databases mentioned in Table $1$ should be accompanied by a reference.
 \end{review}
 
 \begin{response}
-Here we want to emphasize that it is not necessary to train and test on the same modality. 
-For example, if we would like to develop a leaf segmentation algorithm that can work on RGB images, we can still utilize the depth images during training.   
-\\ \textcolor{red}{I am not sure if I understand the statement correctly.}
+We have the corresponding references in the prior work section, which follows the order as they appear in Table $2$.
+To make it complete, we also added the reference to Table $2$.
 \end{response}
 
 
 % Reviewer 1: Q7
 \begin{review}
-In Sec. $5$ no baseline method or result is reported for bean images. Could the authors comment on this?
+The second paragraph of Sec. $2$ begins with "we summarize all existing publicly available databases that are related to plant imagery".
+This is a strong statement, particularly because other plant related image datasets exist (e.g., ImageCLEF, ICL leaf database) which are omitted from the review.
+The authors should adjust language and/or expand the literature review.
 \end{review}
 
 \begin{response}
-The previous developed leaf alignment, segmentation, and tracking algorithm is designed particularly for rosette plants like Arabidopsis and tobacco.
-The rosette plant structure is used as a prior in the development of the algorithm.
-However, bean plant does not belong to rosette plants.
-Therefore, we did not apply the baseline method to bean plants.
-We have added this statement in the beginning of Sec $5.1$. 
+We adjust language by the statement of ``we summarize existing publicly available databases that are most related to our work".
 \end{response}
 
 
 % Reviewer 1: Q8
 \begin{review}
-The conclusions (Sec. $6$) should be expanded.
+In the second paragraph in Sec. $2$, I believe the observation on single leaves imaged in a constrained environment does not apply to the dataset by (Haug and Ostermann, $2014$).
+Please reformulate.
 \end{review}
 
 \begin{response}
-\textcolor{red}{will expand after everything finished}
+It is correct that the dataset (Haug and Ostermann, $2014$) is not about single leaves imaged in a constrained environment.
+We still category it in the first type because it does not include leaf segmentation.
+All segmentation tasks are based on plant level.
+We have reformulated this in the second paragraph in Sec. $2$.
 \end{response}
 
 
 % Reviewer 1: Q9
 \begin{review}
-The acronym "MSU-PID" should be clearly defined when it first appears in text (p. $2$, line $51$)
+It appears from Sec. $3.1$ that all plant subjects (respectively for Arabidopsis and bean) belong to the same genotype and that no treatments were performed.
+This would entail that the proposed dataset cannot be used to investigate computer vision algorithms or imaging modalities in relation to group differences.
+Could the authors comment on this?
 \end{review}
 
 \begin{response}
-Except in the Abstract, the "MSU-PID" first appears in fourth paragraph in Sec $1$. 
-We have clearly defined it as short for Michigan State University Plant Image Database. 
+It is true that we did not compare group differences, based on morphology (for example).
+However, we are using these data sets to address a fundamental issue with visual phenotyping; accurate and automated identification and tracking of individual leaves over developmental time scales (weeks).  The reason this is important is highlighted in other sections, in particular in text we are adding to address points 1 and 2.  The inherent challenge of course is that as leaves emerge and grow, they change in size, position and shape and they may overlap or be overlapped by other leaves.  I think that new text we have added more clearly emphasizes leaf identification and tracking over time rather than developing methods/algorithms to define group differences. We added the following sentences in Conclusion.
 \end{response}
 
 
 % Reviewer 1: Q10
 \begin{review}
-According to the SI (International System of Units), units of measure should be written in roman type, while italic type is reserved for variables. 
-Besides, when they follow a number, a space should be included between numerical value and unit symbol. 
-To improve clarity of the manuscript, the authors are therefore advised to adhere to the SI style conventions.
+
 \end{review}
 
 \begin{response}
@@ -184,47 +191,122 @@ To improve clarity of the manuscript, the authors are therefore advised to adher
 
 % Reviewer 1: Q11
 \begin{review}
-In Sec. $3.2.1$, the "a" of "chlorophyll a" could be italicized to improve clarity.
+
 \end{review}
 
 \begin{response}
-We have changed "chlorophyll a" to "chlorophyll {\it a}" all over the paper. 
+
 \end{response}
 
 
 % Reviewer 1: Q12
 \begin{review}
-It is not clear on p. $8$, line $15$, if the size of the database is $380$ megabytes (MB) or $380$ megabits (Mb). 
-%In the former case "MB" should be used instead of "Mb", while in the latter case the authors should consider reporting the value in megabytes (MB) which is more common.
+At the end of the first paragraph of Sec. $4.4$, p. $8$, the authors envision a use of the multiple modalities in their dataset in which algorithms are developed to handle missing modalities.
+Briefly presenting a use case scenario or citing relevant works may help clarify the importance of this point.
 \end{review}
 
 \begin{response}
-It is $380$ MB. 
-We have changed it in the text. 
+%Here we want to emphasize that it is not necessary to train and test on the same modality.
+%For example, if we would like to develop a leaf segmentation algorithm that can work on RGB images, we can still utilize the depth images during training.
+In this use case scenario, the training part of leaf segmentation algorithms may have both the RGB and depth modalities, while during the testing, we may only have the RGB modality available.
+This scenario is useful because it leverages additional information during the training, while does not increase the hardware/sensor cost during the testing.
+Specifically, we may use two types of approaches to implement this scenario.
+One is called learning with side information, which is the depth modality in this example (see~\cite{chen2013boosting}).
+The other is to use transfer learning that handles missing modality in the target domain (see~\cite{ding2014latent}).
+
 \end{response}
 
 
 % Reviewer 1: Q13
 \begin{review}
+In Sec. $5$ no baseline method or result is reported for bean images. Could the authors comment on this?
+\end{review}
+
+\begin{response}
+The previous developed leaf alignment, segmentation, and tracking algorithm is designed particularly for rosette plants like Arabidopsis and tobacco.
+The rosette plant structure is used as a prior in the development of the algorithm.
+However, bean plant does not belong to rosette plants.
+Therefore, we did not apply the baseline method to bean plants.
+We have added this statement in the beginning of Sec $5.1$.
+\end{response}
+
+ 
+% Reviewer 1: Q14
+\begin{review}
+The conclusions (Sec. $6$) should be expanded.
+\end{review}
+
+\begin{response}
+\textcolor{red}{will expand after everything finished}
+\end{response}
+
+
+% Reviewer 1: Q15
+\begin{review}
+The acronym "MSU-PID" should be clearly defined when it first appears in text (p. $2$, line $51$)
+\end{review}
+
+\begin{response}
+Except in the Abstract, the "MSU-PID" first appears in fourth paragraph in Sec $1$.
+We have clearly defined it as short for Michigan State University Plant Image Database.
+\end{response}
+
+
+% Reviewer 1: Q16
+\begin{review}
+According to the SI (International System of Units), units of measure should be written in roman type, while italic type is reserved for variables.
+Besides, when they follow a number, a space should be included between numerical value and unit symbol.
+To improve clarity of the manuscript, the authors are therefore advised to adhere to the SI style conventions.
+\end{review}
+
+\begin{response}
+
+\end{response}
+
+
+% Reviewer 1: Q17
+\begin{review}
+In Sec. $3.2.1$, the "a" of "chlorophyll a" could be italicized to improve clarity.
+\end{review}
+
+\begin{response}
+We have changed "chlorophyll a" to "chlorophyll {\it a}" all over the paper.
+\end{response}
+
+
+% Reviewer 1: Q18
+\begin{review}
+It is not clear on p. $8$, line $15$, if the size of the database is $380$ megabytes (MB) or $380$ megabits (Mb).
+%In the former case "MB" should be used instead of "Mb", while in the latter case the authors should consider reporting the value in megabytes (MB) which is more common.
+\end{review}
+
+\begin{response}
+It is $380$ MB.
+We have changed it in the text.
+\end{response}
+
+
+% Reviewer 1: Q19
+\begin{review}
 In Eq. $3$, p. $8$, the authors should better define the symbols used. In particular, it is not clear if subscripts $1$ and $2$ refer to inner and outer leaf tips respectively, and in which order.
 \end{review}
 
 \begin{response}
-$t_1$ represents the outer leaf tip and $t_2$ represents the inner leaf tip. 
-This representation is the same as the released leaf tip labels as illustrated in the end of the first paragraph in Sec. $4.3$. 
-The equation does not rely on the correspondence of inner or outer tips as long as the estimated tips correspond to the labeled tips. 
+$t_1$ represents the outer leaf tip and $t_2$ represents the inner leaf tip.
+This representation is the same as the released leaf tip labels as illustrated in the end of the first paragraph in Sec. $4.3$.
+The equation does not rely on the correspondence of inner or outer tips as long as the estimated tips correspond to the labeled tips.
 \end{response}
 
 
-% Reviewer 1: Q14
+% Reviewer 1: Q20
 \begin{review}
 Sec. $5.1$, p. $9$, for completeness the authors should mention the approach they used to find a threshold for plant segmentation.
 \end{review}
 
 \begin{response}
-We use some training images with groundtruth plant segmentation masks to learn a threshold for binary segmentation. 
-The learnt threshold is then applied to both training images and testing images to generate the image mask. 
-We have added this statement to the paper. 
+We use some training images with groundtruth plant segmentation masks to learn a threshold for binary segmentation.
+The learnt threshold is then applied to both training images and testing images to generate the image mask.
+We have added this statement to the paper.
 \end{response}
 
 
@@ -237,15 +319,103 @@ We have added this statement to the paper.
 
 % Reviewer 2: Q15
 \begin{review}
-
+The authors argue that the most closely related work is that of Scharr et al $2014$.
+They identify as weaknesses that it i) uses only RGB images and ii) can be used for a few vision problems.
+However, upon reading the Scharr paper it is clear that the authors of that work, do mention that they collect additional data to be used in tracking context and for other applications.
+It is not clear if the authors here refer to what is available data from Scharr et al or what is described in the paper?
+Furthermore, the data in Scharr et al appear to originate from different mutants and under different treatments, and also imaged with different cameras.
+Since this work does use only wildtypes and single cultivars this distinction should be made.
+Furthermore, once leaf labeling is available several secondary annotations can be derived so in some sense Table $1$ should be annotated accordingly.
+Nevertheless, I recommend the authors for arranging information as in Table $1$.
 \end{review}
 
 \begin{response}
+We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge datasets only includes independent images without tracking context.
+The reason we do not include mutants is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure.
+\\ \textcolor{red}{I do not understand what to be added to Table $1$.}
+TBD: Dr. Chen, please add some sentences about mutants in bean data. I recell we plan to capture additional bean data sets that have different mutants. Am I right?
+
 \end{response}
 
 
+% Reviewer 2: Q16
+\begin{review}
+Your annotation process is completely interactive.
+Any way to "save interaction" by interactive segmentation approaches?
+I applaud your comment on the difficulty of merging super-pixel results, but I would add at least somewhere that easier ways to annotate will be beneficial.
+\end{review}
+
+\begin{response}
+Our annotation is not interactive.
+It is totally based on user input without any computer feedback except for visualization.
+Leaf label is implemented by clicking several points along the boundary of the leaf.
+Tip label is implemented by clicking the outer and inner tip points respectively.
+We did explore other options for labeling and found this simple naive way worked the best.
+\end{response}
 
 
+% Reviewer 2: Q17
+\begin{review}
+It is unclear if you release this annotation tool? If not, please do... it will be extremely useful for the community.
+\end{review}
+
+\begin{response}
+We will release the labeling tool together with the dataset.
+\end{response}
+
+
+% Reviewer 2: Q18
+\begin{review}
+Does the annotation $\_$hour$\_$YY$\_$label.png  contain a label for each pixel or only for the boundaries?
+If yes, then can you obtain single boundary definition in between overlapping leaves?
+\end{review}
+
+\begin{response}
+The annotated image is an image the same size as the original image.
+And each pixel is annotated with a number.
+The same number represents the same leaf and $0$ represents the background.
+For overlapping leaves, we can visualize the relative location and annotate accordingly.
+\end{response}
+
+
+% Reviewer 2: Q19
+\begin{review}
+Based on your annotations can you find which leaf occludes which?
+\end{review}
+
+\begin{response}
+During annotation, we can observe which leaf occludes which and annotate the overlapping area to the leaf on top.
+However, it is hard to refer which leaf occludes which from the annotations.
+\end{response}
+
+
+% Reviewer 2: Q20
+\begin{review}
+The authors test an algorithm (developed by them) on the fluorescence part of the data.
+Granted this algorithm is presented elsewhere on the same data.
+I was wondering if the authors can either a) use the same algorithm on one of the other modalities, and how it would perform (assuming ground truth labeling obtained via propagation)?
+OR b) if they can apply another benchmark method even from the broad CV literature on one of the CV problems considered in another modality.
+I think doing one of the two, time permitting, will greatly assist the paper.
+\end{review}
+
+\begin{response}
+\textcolor{red}{to be done: apply to RGB modality if label propagation works fine.}
+\end{response}
+
+
+% Reviewer 2: Q21
+\begin{review}
+Couple of typos:
+\begin{enumerate}
+  \item page $6$, line $27$ $2$nd col, please add "are" before present
+  \item page $7$, lines $56-69$, left col, the last two sentences should be together and not be separated by a period, but by a comma
+  \item page $8$, line $30$, left col, consider using performance instead of performances
+\end{enumerate}
+\end{review}
+
+\begin{response}
+We have corrected those typos.
+\end{response}
 
 
 
@@ -254,7 +424,7 @@ We have added this statement to the paper.
 
 {\small
 \bibliographystyle{IEEEbib}
-\bibliography{references}
+\bibliography{abbrev,references}
 }
 %\begin{thebibliography}{}
 %

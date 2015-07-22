@@ -1,5 +1,5 @@
 \begin{figure}
-  \includegraphics[width=\linewidth,trim=55 100 200 70,clip]{Figures/hardware}
+  \includegraphics[width=0.95\linewidth]{Figures/hardware}
 \caption{The hardware setup for our data collection.}
 \label{fig:hardware}
 \end{figure}
@@ -11,19 +11,18 @@ Figure~\ref{fig:hardware} illustrates the hardware and imaging setup used in our
 
 \subsubsection{Fluorescence and IR Images}
 Chlorophyll {\it a} fluorescence images were captured once every hour during the daylight period in a growth chamber~\cite{cruz2015depi}.
-A set of $5$ images were captured using a Hitachi KP-F145GV CCD camera (Hitachi Kokusai Electric America Inc., Woodbury, NY) outfitted with an infrared long pass filter (Schott Glass RG-9, Thorlabs, Newton, NJ), during a short period ($<400~ms$) of intense light saturating to photosynthesis ($>10,000~\mu mol~photons~m^{-2} s^{-1}$) provided by an array of white Cree LEDs (XMLAWT, 5700K color temperature, Digi-Key, Thief River Falls, MN) collimated using a $20~mm$ Carclo Lens (10003, LED Supply, Lakewood, CO).
+A set of $5$ images were captured using a Hitachi KP-F145GV CCD camera (Hitachi Kokusai Electric America Inc., Woodbury, NY) outfitted with an infrared long pass filter (Schott Glass RG-$9$, Thorlabs, Newton, NJ), during a short period ($<400~ms$) of intense light saturating to photosynthesis ($>10,000~\mu mol~photons~m^{-2} s^{-1}$) provided by an array of white Cree LEDs (XMLAWT, $5700$K color temperature, Digi-Key, Thief River Falls, MN) collimated using a $20~mm$ Carclo Lens ($10003$, LED Supply, Lakewood, CO).
 %
 Chlorophyll {\it a} fluorescence was excited using monochromatic red LEDs (Everlight $625~nm$, ELSH-F51R1-0LPNM-AR5R6, Digi-Key), collimated using a Ledil reflector optic ($C11347\_REGINA$, Mouser Electronics, Mansfield, TX) and pulsed for $50~\mu s$ during a brief window when the white LEDs were electronically shuttered.
 In addition, a series of $5$ images were also collected in the absence of the excitation light for artifact subtraction.
 
 Infrared images were collected once every hour with the same camera and filter used for chlorophyll {\it a} fluorescence.
-Pulses of $940~nm$ light were provided by an array of OSRAM LEDs (SFH 4239, Digi-Key), collimated using a Polymer Optics lens (Part no. 170, Polymer Optics Ltd., Berkshire, England).
-Since $940~nm$ light does not influence plant development or drive photosynthesis, images were also collected during the night period~\cite{eskins1992light}.
+Pulses of $940nm$ light were provided by an array of OSRAM LEDs (SFH $4239$, Digi-Key), collimated using a Polymer Optics lens (Part no. $170$, Polymer Optics Ltd., Berkshire, England).
+Since $940nm$ light does not influence plant development or drive photosynthesis, images were also collected during the night period~\cite{eskins1992light}.
 %
-Precisely, phytochromes are the closest photoreceptors that absorb in the far red, near infrared region, but the action spectrum is diminished to zero or near zero ($>800~nm$) in the region where we do IR reflectance ($940~nm$)~\cite{butler1964actton}.
+Precisely, phytochromes are the closest photoreceptors that absorb in the far red, near infrared region, but the action spectrum is diminished to zero or near zero ($>800nm$) in the region where we do IR reflectance ($940nm$)~\cite{butler1964actton}.
 %
 Note that the other modalities were captured only at day time, so that they will not interfere plant growth.
-
 
 
 Sets of $15$ images were collected for averaging, in the absence of saturating illumination.
@@ -33,15 +32,17 @@ As with chlorophyll {\it a} fluorescence, images were captured in the absence of
 
 \subsubsection{RGB Color and Depth Images} %This section describes characterizes the data from this sensor, particularly the depth data.
 
-The RGB color and depth images were collected using a Creative Senz3D sensor~\cite{nguyen2015vietnamese}. The sensor contains both a $1280 \times 720$ color camera directed parallel to, and separated by roughly $25~mm$ from, a depth camera which has a resolution of $320\times240$ pixels.
-The depth sensor uses a flash near IR illuminator and measures the time-of-flight~\cite{Hansard2013} of the beam at each pixel to obtain depth estimates along with an IR reflectance at each pixel. 
+The RGB color and depth images were collected using a Creative Senz3D sensor~\cite{nguyen2015vietnamese}. 
+The sensor contains both a $1,280 \times 720$ color camera directed parallel to, and separated by roughly $25mm$ from, a depth camera which has a resolution of $320\times240$ pixels.
+The depth sensor uses a flash near IR illuminator and measures the time-of-flight~\cite{Hansard2013} of the beam at each pixel to obtain depth estimates along with an IR reflectance at each pixel.
 
-There are a number of limitations to the depth sensor that become the sources of depth errors.
+There is a number of limitations to the depth sensor that becomes the sources of depth errors.
 The primary measurement limitation on the range-to-target is the strength of the reflected beam.
-As a result, dark, matt surfaces are measured reliably only at a close range on the order of $20$ or $30~cm$.
+As a result, dark, matt surfaces are measured reliably only at a close range on the order of $20$ or $30cm$.
 Highly reflective surfaces also pose problems with direct reflections leading to saturation and highly unreliable depths.
 In addition reflective surfaces at grazing angles are less reliably measured since little signal is reflected.
-Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian, reflections of IR~\cite{Chelle2006219}.  Thus the depth pixels that are most reliable and are of most use are those that fall on plant foliage.
+Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian, reflections of IR~\cite{Chelle2006219}.  
+Thus the depth pixels that are most reliable and are of most use are those that fall on plant foliage.
 
 % For one-column wide figures use
 \begin{figure}
@@ -55,10 +56,17 @@ Fortunately the primary goal of the depth measurements are to obtain leaf depths
 \label{fig:CameraConfiguration}
 \end{figure}
 
-\subsubsection{Image collection} 
-The imagery data, including the fluorescent image, the IR reflectance image,  the color image, and the $3$D depth image, were collected once every hour. First, the fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay.
-% 
-After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor. The captured depth points were then transformed into the world coordinates and expressed in the unit of $mm$. Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration.
+\subsubsection{Image collection}
+The imagery data, including fluorescence, IR reflectance,  RGB color, and the $3$D depth images, is collected once every hour.
+%
+Five minutes before the end of each hour, $3$D depth images and the color image were captured using the Creative Senz3D sensor (the depth points were transformed into the world coordinates and expressed in the unit of $mm$), followed by fluorescence and IR reflectance images collected sequentially at $2$-minute interval by the IR filtered CCD camera.
+%
+No substantial movements or growth were observed within the about four-minute period required for image capture using all four modalities, minimizing potential problems in image calibration.
+
+%First, the fluorescent image and the IR reflectance image were captured sequentially using the same camera without any delay.
+%
+%After five minutes, the $3$D depth image and the color image were captured using the Creative Senz3D sensor.
+%Since plant leaves do not move quickly, the five minutes gap between the camera operations do not cause severe problems in image calibration.
 
 %A confidence image is the standard deviation of the depth pixels.
 %This is useful for identifying pixels at depth discontinuities that are unreliably detected and result in large standard deviations.

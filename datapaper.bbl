@@ -1,5 +1,10 @@
 \begin{thebibliography}{}
 
+\bibitem[Baker, 2008]{baker2008chlorophyll}
+Baker, Neil~R 2008.
+\newblock Chlorophyll fluorescence: a probe of photosynthesis in vivo.
+\newblock Annu. Rev. Plant Biol., 59:89--113.
+
 \bibitem[Barbosa et~al., 2012]{Barbosa:reid12}
 Barbosa, Igor~Barros, Marco Cristani, Alessio Del~Bue, Loris Bazzani, \&
   Vittorio Murino 2012.
@@ -23,6 +28,13 @@ Chelle, Michael 2006.
   canopies to estimate light absorption?
 \newblock Ecological Modelling, 198(1):219 -- 228.
 
+\bibitem[Chen et~al., 2014]{chen2014dissecting}
+Chen, Dijun, Kerstin Neumann, Swetlana Friedel, Benjamin Kilian, Ming Chen,
+  Thomas Altmann, \& Christian Klukas 2014.
+\newblock Dissecting the phenotypic components of crop plant growth and drought
+  responses based on high-throughput image analysis.
+\newblock The Plant Cell, 26(12):4636--4655.
+
 \bibitem[Chen et~al., 2013]{chen2013boosting}
 Chen, Jixu, Xiaoming Liu, \& Siwei Lyu 2013.
 \newblock Boosting with side information.
@@ -45,11 +57,6 @@ Ding, Zhengming, Shao Ming, \& Yun Fu 2014.
 D{\"o}{\"o}s, Bo~R 2002.
 \newblock Population growth and loss of arable land.
 \newblock Global Environmental Change, 12(4):303--311.
-
-\bibitem[Erblichkeit, 1903]{Erblichkeit1903}
-Erblichkeit, Johannsen~W. 1903.
-\newblock Populationen und reinen Linien.
-\newblock Gustav Fischer Verlag.
 
 \bibitem[Eskins, 1992]{eskins1992light}
 Eskins, Kenneth 1992.
@@ -91,6 +98,10 @@ Huang, Gary~B., Manu Ramesh, Tamara Berg, \& Erik Learned-Miller 2007.
   in Unconstrained Environments.
 \newblock Technical Report 07-49, University of Massachusetts, Amherst.
 
+\bibitem[Johannsen, ]{johannsenerblichkeit}
+Johannsen, Wilhelm~Ludwig.
+\newblock Erblichkeit in Populationen und in reinen Linien.
+
 \bibitem[Kumar et~al., 2012]{kumar2012leafsnap}
 Kumar, Neeraj, Peter~N. Belhumeur, Arijit Biswas, David~W. Jacobs, W.~John
   Kress, Ida~C. Lopez, \& Jo{\~a}o~VB. Soares 2012.
@@ -105,6 +116,11 @@ Lai, Kevin, Liefeng Bo, Xiaofeng Ren, \& Dieter Fox 2011.
 \newblock In IEEE International Conference on Robotics and Automation (ICRA),
   pages 1817--1824.
 
+\bibitem[McClung, 2006]{mcclung2006plant}
+McClung, C~Robertson 2006.
+\newblock Plant circadian rhythms.
+\newblock The Plant Cell, 18(4):792--803.
+
 \bibitem[Minervini et~al., 2015]{Minervini2015}
 Minervini, Massimo, Hanno Scharr, \& Sotirios~A. Tsaftaris 2015.
 \newblock Image analysis: the new bottleneck in plant phenotyping.
@@ -116,6 +132,13 @@ Nguyen, VD, MT~Chew, \& S~Demidenko 2015.
 \newblock In IEEE International Conference on Automation, Robotics and
   Applications (ICARA), pages 77--82.
 
+\bibitem[Oxborough, 2004]{oxborough2004imaging}
+Oxborough, Kevin 2004.
+\newblock Imaging of chlorophyll a fluorescence: theoretical and practical
+  aspects of an emerging technique for the monitoring of photosynthetic
+  performance.
+\newblock Journal of Experimental Botany, 55(400):1195--1205.
+
 \bibitem[Phillips et~al., 2000]{Phillips2000}
 Phillips, P.~J., H.~Moon, P.~J. Rauss, \& S.~Rizvi 2000.
 \newblock The {FERET} evaluation methodology for face recognition algorithms.
@@ -126,6 +149,14 @@ Scharr, Hanno, Massimo Minervini, Andreas Fischbach, \& Sotirios~A Tsaftaris
   2014.
 \newblock Annotated image datasets of rosette plants.
 \newblock Technical Report FZJ-2014-03837.
+
+\bibitem[Sch{\"o}ttler et~al., 2015]{schottler2015photosynthetic}
+Sch{\"o}ttler, Mark~Aurel, Szilvia~Z T{\'o}th, Alix Boulouis, \& Sabine Kahlau
+  2015.
+\newblock Photosynthetic complex stoichiometry dynamics in higher plants:
+  biogenesis, function, and turnover of ATP synthase and the cytochrome b 6 f
+  complex.
+\newblock Journal of experimental botany, 66(9):2373--2400.
 
 \bibitem[Silberman \& Fergus, 2011]{Silberman2011}
 Silberman, Nathan, \& Rob Fergus 2011.
