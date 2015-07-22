@@ -3,7 +3,7 @@
 
 With the rapid growth of world population and the loss of arable land, there is an increasing desire to improve the yield and quality of crops, where the understanding of the genetic mechanisms to influence plant growth is a key enabler~\cite{doos2002population}.
 %
-A classic genetics approach is to produce a diverse population of mutant lines, grow them either in growth chambers with simulated environmental conditions or directly in the field, visually observe the plants during the growth period, and finally identify plant morphological or physiological patterns that tightly associate with key growth factors~\cite{houle2010phenomics}.
+A classic genetic approach is to produce a diverse population of mutant lines, grow them either in growth chambers with simulated environmental conditions or directly in the field, visually observe the plants during the growth period, and finally identify plant morphological or physiological patterns that tightly associate with key growth factors~\cite{houle2010phenomics}.
 %
 While many factors can be assessed quantitatively, which is essential for high-throughput study, one of the bottleneck in this research pipeline is plant visual phenotyping~\cite{walter2015plant}.
 
@@ -41,22 +41,31 @@ While many factors can be assessed quantitatively, which is essential for high-t
 \end{figure*}
 
 
-Plants develop through a complex interaction between genotype and environment. This determines their structure and functions and thus performance such as yield or efficient use of resources. In order to understand the genetic basis of these economically important parameters, it is essential to quantitatively assess plant phenotypes and then identify the latent relationships to genotypes and environmental factors.
+Plants develop through a complex interaction between genotype and environment. 
+This determines their structure, functions, and thus performance such as yield or efficient use of resources. 
+In order to understand the genetic basis of these economically important parameters, it is essential to quantitatively assess plant phenotypes and then identify the latent relationships to genotypes and environmental factors.
 %
-Plant visual phenotyping has been performed by farmers and breeders for more than 5,000 years. In the past, traditional phenotyping is based on experience and intuition, and is laborious~\cite{johannsenerblichkeit}. Recent progresses in imaging sensor, robotics and automation technologies lead to the development of the ever-increasing new field of highly automated, non-destructive {\it plant visual phenotyping}~\cite{furbank2011phenomics,cruz2015depi}. %Modern plant phenotyping is a comprehensive, large-scale assessment of plant traits such as growth, development, tolerance, resistance, architecture, physiology, ecology, yield, and metadata that form the basis for more complex parameters.
+Plant visual phenotyping has been performed by farmers and breeders for more than $5,000$ years. 
+In the past, traditional phenotyping is based on experience and intuition, and is laborious~\cite{johannsenerblichkeit}. 
+Recent progresses in imaging sensor, robotics and automation technologies lead to the development of the ever-increasing new field of highly automated, non-destructive {\it plant visual phenotyping}~\cite{furbank2011phenomics,cruz2015depi}. 
+%Modern plant phenotyping is a comprehensive, large-scale assessment of plant traits such as growth, development, tolerance, resistance, architecture, physiology, ecology, yield, and metadata that form the basis for more complex parameters.
 %
-The objective of modern  plant visual phenotyping is to analyze and categorize the morphological  characteristics of plants, thus accurately quantifying plant traits. %It advances crop yield improvement and enables the systematic study of the environmental plasticity of plants. %
+The objective of modern  plant visual phenotyping is to analyze and categorize the morphological characteristics of plants, and thus accurately quantifying plant traits. %It advances crop yield improvement and enables the systematic study of the environmental plasticity of plants. %
 In this interdisciplinary field, scientists employ various imaging sensors to capture plants and design advanced algorithms to automatically analyze the captured plant imagery, with the purpose of raising testable biological hypotheses to solve problems related to growth, development, stress tolerance, resistance, and so on.
 %
 %In old days, plant phenotyping was conducted through manual visual observation~\cite{Erblichkeit1903}. Today, motivated by the increasing lower cost and increasing diversity of imaging sensors technologies, image-based automatic plant visual phenotyping is quickly growing into a desirable and viable solution~\cite{furbank2011phenomics,cruz2015depi}.
 %
-A key advance in visual phenotyping is the capability to non-invasively capture plant traits, enabling continuous measurements that are necessary to monitor plants during growth and/or under stress conditions. Vision based phenotyping also increases the throughput of phenotyping experiments by eliminating destructive operations. The increased capacity allows more genotypes or biological replicates to be examined under the same environmental conditions~\cite{fahlgren2015lights,walter2015plant}.
+A key advance in visual phenotyping is the capability to non-invasively capture plant traits, enabling continuous measurements that are necessary to monitor plants during growth and/or under stress conditions. Vision based phenotyping also increases the throughput of phenotyping experiments by eliminating destructive operations. 
+The increased capacity allows more genotypes or biological replicates to be examined under the same environmental conditions~\cite{fahlgren2015lights,walter2015plant}.
 
-One practical goal of plant visual phenotyping is to accurately quantify plant traits, particularly those related to photosynthetic performance, growth, yield and resilience to environmental stress.  For the approach to be of practical use, plants must be monitored continuously, over developmental time scales and under conditions that more closely approximate the native environment (dynamic 'field' conditions)~\cite{fahlgren2015lights,walter2015plant}.
+One practical goal of plant visual phenotyping is to accurately quantify plant traits, particularly those related to photosynthetic performance, growth, yield and resilience to environmental stress.  
+For the approaches to be of practical use, plants must be monitored continuously, over developmental time scales and under conditions that more closely approximate the native environment (dynamic 'field' conditions)~\cite{fahlgren2015lights,walter2015plant}.
 %
-The capacity to identify and track individual leaves throughout experiments will be important for more clearly defining phenotypic behaviors related to leaf specific factors such as developmental age~\cite{schottler2015photosynthetic} and/or following the application of stress. For example, decreases in the average photosynthetic efficiency ($\Phi_{II}$, quantum yield of photochemistry at photosystem II) of an Arabidopsis plant may reflect a heterogeneous distribution of $\Phi_{II}$ values across its entire photosynthetic surface area~\cite{oxborough2004imaging}. In this case, mapping distributions to individual leaves can be used to distinguish between a systemic (whole plant) effect and localization of the effect to subset leaves.
+The capacity to identify and track individual leaves throughout experiments is important for more clearly defining phenotypic behaviors related to leaf specific factors such as developmental age~\cite{schottler2015photosynthetic} and/or following the application of stress. 
+For example, decrease in the average photosynthetic efficiency ($\Phi_{II}$, quantum yield of photochemistry at photosystem II) of an Arabidopsis plant may reflect a heterogeneous distribution of $\Phi_{II}$ values across its entire photosynthetic surface area~\cite{oxborough2004imaging}. 
+In this case, mapping distributions to individual leaves can be used to distinguish between a systemic (whole plant) effect and localization of the effect to subset leaves.
 %
-In addition, using more detailed information, such as leaf angle and height/position as well as canopy density/size, it should be possible to improve estimates of total photosynthetic capacity over time (particularly for plants with more complex canopies, like common bean or tobacco), since these factors influence absorption and availability of the light energy used to drive photosynthesis.
+In addition, using more detailed information, such as leaf angle and height/position as well as canopy density/size, it should be possible to improve estimation of total photosynthetic capacity over time (particularly for plants with more complex canopies, like common bean or tobacco), since these factors influence absorption and availability of the light energy used to drive photosynthesis.
 
 \begin{table*}[t!]
 \centering
@@ -109,23 +118,21 @@ In fact, computer vision research lives on and advances with databases, as evide
 However, the publicly available database for plant phenotyping is still very limited, with the only exception of LSC database~\cite{scharr2014annotated}, which, nevertheless, has its own limitations on the type of images (RGB only) and is only suitable for a small set of plant image analysis applications.
 
 
-
-To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality Plant Imagery Database through an interdisciplinary effort at Michigan State University (MSU), termed ``MSU-PID''.
-As illustrated in Figure~\ref{fig:fourmodality}, the MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean), both are widely used in plant research, captured by four types of imaging sensors, i.e., fluorescence, infrared (IR), RGB color, and depth.
+To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality Plant Imagery Database through an interdisciplinary effort at Michigan State University (MSU), which is termed ``MSU-PID''.
+As illustrated in Fig.~\ref{fig:fourmodality}, the MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean, both are widely used in plant research) captured by four types of imaging sensors, i.e., fluorescence, infrared (IR), RGB color, and depth.
 All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days.
 Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities.
+\todo{Need to be updated about the transformation}
 
-
-%
 The type and amount of manual labels on a database is a critical enabler to the potential applications of the database.
-For a subset of the MSU-PID database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips and leaf segments.
+For a subset of the MSU-PID database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips, and leaf segments.
 As a result, MSU-PID is suitable for a number of applications, including 1) {\it leaf segmentation} that aims at estimating the correct segmentation mask of each leaf in an image, 2) {\it leaf counting} that estimates the correct number of leaves within a plant, 3) {\it leaf alignment} that aligns the two tips of each leaf -- the cornerstone of the leaf structure, and 4) {\it leaf tracking} that is designed to track each leaf over time.
 Finally, to provide a performance baseline for future research and comparison, we apply our automatic leaf segmentation framework~\cite{yin2014a,yin2014b} to the Arabidopsis imagery and demonstrate the unique challenge of image analysis on this database.
 
 In summary, this paper and our database have made the following main contributions.
 \begin{itemize}
 \item MSU-PID is the first {\it multi-modality} plant image database. This allows researchers to study the strength and weakness of individual modality, as well as their various combinations in plant image analysis.
-\item Our unique imaging setup and the variety of manual labels make MSU-PID an ideal candidate for evaluating a diverse set of plant image analysis applications, including leaf segmentation, leaf counting, leaf alignment, leaf tracking, and potentially leaf growth prediction and $3$D leaf reconstruction.
+\item Our unique imaging setup and the variety of manual labels make MSU-PID an ideal candidate for evaluating a diverse set of plant image analysis applications including leaf segmentation, leaf counting, leaf alignment, leaf tracking, and potentially leaf growth prediction and $3$D leaf reconstruction.
 \end{itemize}
 
 
