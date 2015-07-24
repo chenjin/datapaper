@@ -1,0 +1,31 @@
+
+
+
+\begin{table}[t]
+\centering
+\caption{Image Labelling Errors on Different Modalities.$L1_{fmp}$ refers to the manual annotator 1, $L2_{fmp}$ refers to the manual annotator 2,$L_{e}$ refers to the labelling score error due to the difference in two manual annotations and $P_{e}$ refers to the propagating score errors that occur due to the difference in manual annotator 1 and the mapped annotation from transformation of one modality to another}
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+   \hline
+    & \multicolumn{4}{|c|}{FMP Modality} & \multicolumn{4}{|c|}{Color Modality}\\
+   \hline
+    & $L1_{fmp}$ vs $L1_{fmp}$ & $L1_{fmp}$ vs $L2_{fmp}$ & $L_{e}$ & $P_{e}$ & $L1_{rgb}$ vs $L1_{rgb}$ & $L1_{rgb}$ vs $L2_{rgb}$ & $L_{e}$ & $P_{e}$ \\
+   \hline
+   Day_$3$_hour_$23$ & $1$ & $0.7502$ & $0.2498$ & $0.2019$ & $1$ & $0.8267$ & $0.1733$ & $0.2002$ \\
+   \hline
+   Day_$5$_hour_$23$ & $1$ & $0.7927$ & $0.2073$ & $0.1541$ & $1$ & $0.8705$ & $0.1295$ & $0.1526$ \\
+   \hline
+   Day_$9$_hour_$20$ & $1$ & $0.8366$ & $0.1634$ & $0.2134$ & $1$ & $0.8765$ & $0.1235$ & $0.2108$ \\
+   \hline
+ \end{tabular}
+\label{tab:label_errors}
+\end{table*}
+
+Table~\ref{tab:label_errors} refers to the BestDice scores and the labelling errors that arise due to the difference in annotations. BestDice scores are calculated based on the percent of pixel overlap between two segmented regions of interest of two images/modalities and selecting the best score amongst all the fits. In our case, two BestDice scores are calculated by interchanging the two modalities and selecting the minimum of the two scores. We select
+%\begin{equation}
+%\label{Eqn_score_BestDice}
+%  score=\min($score1$,$score2$);
+%\end{equation}
+% where $score1$ refers to the BestDice score of two images and the $score2$ refers to the BestDice score after interchanging the modality.
+
+As can be seen from the table, the propagation errors (errors due to transformation of labelling from one modality to another) is close to the labelling errors (errors due to the difference of scores between two manual annotators), indicating the transformation from one modality to another is reasonable.
+
