@@ -1,7 +1,7 @@
 \section{Introduction}
 \label{sec:intro}
 
-With the rapid growth of world population and the loss of arable land, there is an increasing desire to improve the yield and quality of crops, where the understanding of the genetic mechanisms to influence plant growth is a key enabler~\cite{doos2002population}.
+With the rapid growth of world population and the loss of arable land, there is an increasing desire to improve the yield and quality of crops.  Key to increasing yields is gaining understanding of the genetic mechanisms that influence plant growth~\cite{doos2002population}.
 %
 A classic genetic approach is to produce a diverse population of mutant lines, grow them either in growth chambers with simulated environmental conditions or directly in the field, visually observe the plants during the growth period, and finally identify plant morphological or physiological patterns that tightly associate with key growth factors~\cite{houle2010phenomics}.
 %
@@ -121,8 +121,8 @@ However, the publicly available database for plant phenotyping is still very lim
 To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality Plant Imagery Database through an interdisciplinary effort at Michigan State University (MSU), which is termed ``MSU-PID''.
 As illustrated in Fig.~\ref{fig:fourmodality}, the MSU-PID database includes the imagery of two types of plants (Arabidopsis and bean, both are widely used in plant research) captured by four types of imaging sensors, i.e., fluorescence, infrared (IR), RGB color, and depth.
 All four sensors are synchronized and are programmed to periodically capture imagery data for multiple consecutive days.
-Checkerboard-based camera calibration is performed between a pair of sensors, which results in the explicit correspondence between the pixels of {\it any} two modalities.
-\todo{Need to be updated about the transformation}
+Checkerboard-based camera calibration is performed on each modality providing intrinsic camera parameters and poses.  In addition explicit correspondence between the pixels of {\it any} two modalities is obtained using an homographic warping of a plane through the plants.   
+
 
 The type and amount of manual labels on a database is a critical enabler to the potential applications of the database.
 For a subset of the MSU-PID database, we manually label the ground truth regarding the leaf identification number, locations of leaf tips, and leaf segments.
