@@ -71,7 +71,7 @@ The authors should proofread the document carefully.
 \end{review}
 
 \begin{response}
-\todo{Proofread by everyone}
+We have proofread it very carefully and corrected some typos and grammar errors. 
 \end{response}
 
 
@@ -108,7 +108,7 @@ This leaf structure information can be used to quantitatively study this hypothe
 
 % Reviewer 1: Q4
 \begin{review}
-Since multi-modality is a strength of the proposed dataset, the authors should motivate better their choice of imaging modalities (i.e. fluorescence, infrared, RGB color, and depth), highlighting their importance and what information they convey on plant structure and functions.
+Since multi-modality is a strength of the proposed dataset, the authors should motivate better their choice of imaging modalities (i.e. fluorescence, infrared, RGB color, and depth), highlight their importance and what information they convey on plant structure and functions.
 Apparently, this is only partly done for depth at the end of Sec. $2$.
 \end{review}
 
@@ -124,8 +124,8 @@ This would help the reader get a better idea of the contrast and the type of inf
 \end{review}
 
 \begin{response}
-We have augmented Fig. $1$ by adding one zoom-in view for Arabidopsis plant.
-Since bean dataset only includes one plant with good view, we do not provide a zoom-in view.
+We have augmented Figure $1$ by adding one zoom-in view for one Arabidopsis plant.
+Since bean dataset only contains one plant with good view, we do not provide a zoom-in view.
 \end{response}
 
 
@@ -135,8 +135,8 @@ Each of the databases mentioned in Table $1$ should be accompanied by a referenc
 \end{review}
 
 \begin{response}
-We have the corresponding references in the prior work section, which follows the order as they appear in Table $2$.
-To make it complete, we also added the reference to Table $2$.
+We have the corresponding references in Sec. $2$, which follows the order as they appear in Table $2$.
+To make it complete, we also added the references to Table $2$.
 \end{response}
 
 
@@ -179,7 +179,7 @@ However, we are using this database to address a fundamental issue with visual p
 The reason this is important is highlighted in other sections, in particular in text we are adding to address Comment $2$ and $4$.
 The inherent challenge is that leaves change in size, position, and shape as they emerge and grow.
 Also they may overlap or be overlapped by other leaves.
-I think that new text we have added more clearly emphasizes leaf identification and tracking over time rather than developing methods/algorithms to define group differences.
+We emphasize more on leaf identification and tracking rather than developing methods/algorithms to define group differences.
 We have added one paragraph in Conclusion to better reflect this.
 \end{response}
 
@@ -212,8 +212,6 @@ Briefly presenting a use case scenario or citing relevant works may help clarify
 \end{review}
 
 \begin{response}
-%Here we want to emphasize that it is not necessary to train and test on the same modality.
-%For example, if we would like to develop a leaf segmentation algorithm that can work on RGB images, we can still utilize the depth images during training.
 In this use case scenario, the training part of leaf segmentation algorithms may have both the RGB and depth modalities, while during the testing, we may only have the RGB modality available.
 This scenario is useful because it leverages additional information during the training, while does not increase the hardware/sensor cost during the testing.
 Specifically, we may use two types of approaches to implement this scenario.
@@ -266,7 +264,7 @@ To improve clarity of the manuscript, the authors are therefore advised to adher
 \end{review}
 
 \begin{response}
-\todo{Xi}
+We have changed the inaccurate annotations to adhere to the SI style conventions. 
 \end{response}
 
 
@@ -338,7 +336,7 @@ Nevertheless, I recommend the authors for arranging information as in Table $1$.
 
 \begin{response}
 We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge database only includes independent images without tracking context.
-Please refer to Comment $9$ for the reason we do not include mutants. 
+Please refer to Comment $9$ for the reason we do not include mutants.
 \todo{Are we going to have mutants in bean data?}
 % is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure.
 \\ %\textcolor{red}{I do not understand what to be added to Table $1$.}
@@ -352,7 +350,7 @@ The authors do a nice work of calibrating the cameras and measuring noise in the
 However, in page $2$ introduction says that this calibration allows for the explicit correspondence between pixels of any modality.
 The authors rely on this to annotate data in one modality and propagate labels in the other (at least this is what I understand from later on description of methodology).
 However, this is a VERY strong assumption and depends completely on the distance between the cameras, the angles, the distance between object and sensors and the actual object arrangement.
-From our experience even when imaging co-planar plants (such as young Arabidopsis) at a distance of $\sim 70$cm even when the camera sensors are really close to each other (less than $5$cm) some differences in view are there and occlusions are present.
+From our experience even when imaging co-planar plants (such as young Arabidopsis) at a distance of $\sim 70$ cm even when the camera sensors are really close to each other (less than $5$ cm) some differences in view are there and occlusions are present.
 The authors should comment on this and should show as supportive evidence examples of plants at different growth stages in all $4$ modalities in raw and annotated form to show how close this correspondence is matching and how the propagated labels.
 Furthermore, additional supporting evidence could be obtained either by arranging for two external and blind annotators to label some data (different age, different placement in the tray to show the effect of angle) in another modality (e.g., optical) and then measure inter-observer variability.
 Then they can propagate annotations from fluorescence to images of that modality and measure agreement.
@@ -361,7 +359,21 @@ Nevertheless, you should definitely mention this limitation of your work.
 \end{review}
 
 \begin{response}
-\todo{Saif and Xi will work on the label transformation and edit the paper. }
+We expanded our description of the labeling and the propagation to other modalities in the paper.  
+The data labeling is performed in the fluorescence image modality.  
+The infra-red image is from the same camera and so pixel labeling will be identical.  
+The labels are propagated to the color and depth modalities using planar homographies.  
+The homography between the fluorescence image and the color image is calculated by fitting matching features in these modalities, and the homography to the depth image is found by fitting a plane through the $3$D plant points.  
+As the reviewer noted, using these homographies will result in pixel segmentation errors due to parallax for plant regions outside of the modeled planes.  
+We evaluate these errors qualitatively and quantitatively.  
+Figure $6$ illustrates the label propagations from the fluorescence image to the other modalities and from the color image to other modalities with two different line colors.  
+Errors occur where the lines fail to overlap and are due to propagation effects as well as boundary selection variations by the labeler between modalities.  
+We compare the magnitude of these two effects in Table $4$. 
+The performance of label propagation is only slightly worse than the performance of another annotator. 
+Therefore, we propagate the fluorescence labels to other modalities for Arabidopsis plants. 
+As for bean plant, the homograph-based mapping performed poorly due to the large within-plant depth variations. 
+So we only provide the labels for bean plant in fluorescence and IR as they use the same camera. 
+Please refer to Sec. $4.3$ for more details. 
 \end{response}
 
 
@@ -412,8 +424,10 @@ On manual annotation process, did you use an extra annotator or a supervisor?
 
 \begin{response}
 The released label is labeled by one annotator.
-However, we do use extra annotator to label several images and the annotation error between different annotators is evaluated.
-\todo{Results?}
+However, we do use an extra annotator to label several images and the annotation error between different annotators is evaluated.
+As shown in Table $4$, the average annotation similarity in case of {\it{SBD}} score is around $0.847$ for fluorescence and $0.858$ for RGB images. 
+Different annotators have more agreement on the labeling as the plant grows. 
+This is due to the evaluation metric {\it{SBD}}, which favors bigger leaves. 
 \end{response}
 
 
@@ -490,7 +504,8 @@ I think doing one of the two, time permitting, will greatly assist the paper.
 \end{review}
 
 \begin{response}
-\todo{Xi: apply to RGB modality and evaluate the performance with transferred labels. Transferred label is needed!}
+We have applied our algorithm on the RGB images while the groudtruth label is generated via label propagation. 
+The performance on RGB images is shown in Figure $9$ and $10$.  
 \end{response}
 
 
