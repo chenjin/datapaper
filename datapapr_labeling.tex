@@ -190,7 +190,7 @@ Tips locations are saved in TXT files where each line has the following format:
 where leaf ID is an integer number that is consistent with the segmentation label in the PNG file.
 tip$1\_$x and tip$1\_$y represent the coordinates of the outer tip point.
 tip$2\_$x and tip$2\_$y represent the coordinates of the inner tip point.
-Any NAN values in the file indicates an invisible leaf. 
+Any ``nan" value in the file indicates an invisible leaf. 
 
 
 %In addition to the original images and annotation results, we provide another folder named Matlab with all Matlab functions that will be used for mapping between different image modalities and for the purpose of performance evaluation.
@@ -216,11 +216,10 @@ For fair comparison, both supervised learning and unsupervised learning methods 
 The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
 The availability of multiple modalities allows user to design novel experimental setup.
 For example, using RGB and depth modalities for training and RGB for testing can take advantage of additional information during the learning without incurring extra sensor cost during the testing, which can be implemented via either learning with side information~\cite{chen2013boosting}, or transfering learning with missing modality~\cite{ding2014latent}.
-%The evaluation metrics will be discussed in Sec.~\ref{sec:baseline}.
 
 
 \paragraph{Performance Metric}
-To evaluate the performance of leaf segmentation, alignment, tracking, and counting, we use four performance metrics, whose Matlab implementations will be provided along with the data.
+To evaluate the performance of leaf segmentation, alignment, tracking, and counting, we use $4$ performance metrics, whose Matlab implementations will be provided along with the data.
 Three of them are based on the tip-based error, which is defined as the average distance of a pair of estimated leaf tips $\hat{\bm{t}}_{1,2}$ with a pair of labeled leaf tips $ \bm{t}_{1,2}$ normalized by the labeled leaf length:
 \begin {equation}
 e_{la}(\hat{\bm{t}}_{1,2}, \bm{t}_{1,2}) = \frac{||\hat{\bm{t}}_1-{\bm{t}}_1||_2 + ||\hat{\bm{t}}_2-{\bm{t}}_2||_2}{2 ||\bm{t}_1-\bm{t}_2||_2}.
@@ -245,7 +244,7 @@ This is used to measure leaf tracking error.
 
 In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation results and ground truth labels:
 \begin{itemize}
-\item {\it{Symmetric Best Dice (SBD)}}, the symmetric best Dice among all labeled leaves.
+\item {\it{Symmetric Best Dice (SBD)}}, the average symmetric best Dice among all labeled leaves.
 \end{itemize}
 The Matlab function for computing {\it{SBD}} is provided by~\cite{scharr2014annotated}.
 %The instructions on how to use the evaluation functions are included as comments of the function.
