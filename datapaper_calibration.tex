@@ -6,7 +6,7 @@ A planar checkerboard pattern was used to calibrate all three cameras to obtain 
 While the grid pattern is not visible in the depth image, it is nevertheless observed in the reflected IR image whose pixels correspond to the depth pixels.
 This enables the use of Zhang's method~\cite{Zhang2000} to calculate the intrinsic parameters including a $2$-parameter radial distortion of each camera.
 In this process the poses of all three cameras are also calculated relative to the checkerboard.
-The intrinsic and extrinsic parameters are stored as text files, and a Matlab function is provided that reads the parameters and can plot the camera poses as in Fig.~\ref{fig:CameraConfiguration}.
+The intrinsic and extrinsic parameters are stored as text files, and a Matlab function is provided that reads the parameters and can plot the camera poses as shown in Figure~\ref{fig:CameraConfiguration}.
 
 
 \subsubsection{Noise Characterization}
@@ -23,16 +23,16 @@ The depth noise $\varepsilon$ is modeled as the sum of an image dependent term $
 The term $\varepsilon_I$ is a random variable for each pixel with a value that varies between subsequent images taken from a fixed pose of a static scene.
 On the other hand, $\varepsilon_S$ is a random variable for each pixel that models its depth offset, and its value only changes when the scene changes.
 The variance of $\varepsilon_I$ is estimated for each pixel of a fixed scene observed over multiple images.
-In our experiments we observed a flat, uniform albedo surface perpendicular to the camera at a sequence of depths, and for each depth acquired $300$ images.
+In our experiments we observed a flat, uniform albedo surface (\todo{Danial: Please define ``albedo" here as from Comment $38$}) perpendicular to the camera at a sequence of depths, and for each depth acquired $300$ images.
 Object depth, $d$, has a large impact on $\varepsilon_I$.
 For constant depth, we observed that the primary factor affecting the variance is the pixel radius $r$, from the image center.
 Physically we expect this dependence is due to a circularly symmetric illuminating beam closely aligned with the optical axis.
 Based on these observations we model $\sigma_I(d,r)$, the standard deviation of $\varepsilon_I$, as a function of depth and pixel radius.
-From our experiments we build up a lookup table for this as plotted in Fig.~\ref{fig:Noise}.
+From our experiments we build up a lookup table for this as plotted in Figure~\ref{fig:Noise}.
 
 \begin{table*}[t!]
 \begin{center}
-\caption{Summary of Arabidopsis and Bean databases.}
+\caption{Summary of Arabidopsis and Bean databases. The ``$\times n$" represents the number of modalities.}
 \label{tab:stat}
 \begin{tabular}{c|c|c|c|c|c}
 \hline
@@ -41,7 +41,7 @@ Plants & Subjects & Days & Images/Day & Total Images & Annotated Images \\
 \hline
 Arabidopsis & $16$ & $9$ & $15$ & $2,160\times 4$ & $576\times 4$ \\
 \hline
-Bean & $5$ & $5$ & $14$ & $350\times 4$ & $175\times 2$ \\
+Bean & $5$ & $5$ & $13$ & $325\times 4$ & $175\times 2$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -68,7 +68,7 @@ Bean & $1,000\times640$ & $1,000\times640$ & $380\times720$ & $90\times190$ \\
 
 Averaging over repeated images of a scene will not remove all the depth error as there are pixel depth offsets that are constant for images of the same scene.
 We model these with $\varepsilon_S$.
-To estimate its standard deviation $\sigma_S$, we first average over many depth measurement images, in our case $300$, to obtain pixel depth estimates that approximately eliminate the effect of $\varepsilon_I$. Then by calculating true ray depths on a known surface, in our case the observed plane, and further assuming that $\varepsilon_S$ has the same standard deviation for all pixels, $\sigma_S$ is obtained as the standard deviation of the error between averaged depths and known depths. In our experiments we obtained $\sigma_S=6.5mm$ and found that it was insensitive to changes in depth.
+To estimate its standard deviation $\sigma_S$, we first average over many depth measurement images, in our case $300$, to obtain pixel depth estimations that approximately eliminate the effect of $\varepsilon_I$. Then by calculating true ray depths on a known surface, in our case the observed plane, and further assuming that $\varepsilon_S$ has the same standard deviation for all pixels, $\sigma_S$ is obtained as the standard deviation of the error between averaged depths and known depths. In our experiments we obtained $\sigma_S=6.5~mm$ and found that it was insensitive to changes in depth.
 
 The recorded depth images in the data collection are the result of averaging $N=5$ subsequent depth images.
 Assuming independence of $\varepsilon_I$ and $\varepsilon_S$, the variance of pixel depth measurements is given by:
@@ -76,7 +76,7 @@ Assuming independence of $\varepsilon_I$ and $\varepsilon_S$, the variance of pi
 \sigma^2(d,r) = \frac{\sigma_I^2(d,r)}{N} + \sigma_S^2.\label{eq:sigma}
 \end{equation}
 
-There are additional sources of noise not modeled by this.
+There are additional sources of noise that are not modeled by this.
 Object albedo has an impact although this is fairly weak for strong signal reflections.
 Factors with large impact on signal noise include: object specularities, sharp variations in object albedo, mixed-depth pixels on object edges, and cases of very-low signal reflection, all of which can lead to very large variances.
 One of the utilities of having a model for variance is that it can be compared with the measured variance, and the difference used as a cue for portions of the scene that violate our modeling assumptions.

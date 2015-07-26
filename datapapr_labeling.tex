@@ -4,12 +4,12 @@ MSU-PID includes two subsets, one for each plant type: Arabidopsis and bean.
 The statistic information of these two subsets are summarized in Table~\ref{tab:stat}.
 The images were acquired every hour.
 As there is no light at night hours, plants can not be imaged by the fluorescence and RGB color sensors while IR and depth cameras can still perform the capturing during the night.
-In order to make sure that all four modalities are present at each imaging modality, we release the part of images captured only in the day time, which are $15$ images per day for Arabidopsis and $14$ for bean for all four modalities.
+In order to make sure that all four modalities are present at the same time, we release the part of images captured only in the day hours, which are $15$ images per day for Arabidopsis and $13$ for bean for all four modalities.
 
-The two subsets differ in plant image resolutions.
+The two subsets differ in image resolutions.
 As shown in Figure~\ref{fig:fourmodality}, we grow and image a single bean plant while a whole tray of Arabidopsis are grown at the same time.
-Therefore, the resolution of a Arabidopsis plant is much lower than that of a bean plant.
-We manually crop $16$ Arabidopsis plants, which have been captured by all four sensors simultaneously.
+Therefore, the resolution of a Arabidopsis image is much lower than that of a bean image.
+We manually crop $16$ Arabidopsis plants, which have been captured by all three cameras simultaneously.
 Table~\ref{tab:resolution} summaries the image resolution of each plant in all four modalities.
 
 
@@ -47,17 +47,17 @@ In contrary, we chose to image a single bean plant because we anticipate enablin
 
 \subsection{Manual Annotations}
 \label{sec:annotation}
-Part of the database is manually annotated to provide ground truth tip locations, leaf segmentation results, and leaf consistency overtime.
-We use the fluorescence images as the input for labeling because of their simple and uniform background.
+Part of the database is manually annotated to provide groundtruth tip locations, leaf segmentation results, and leaf consistency overtime.
+We use the fluorescence images as the input for labeling because of their clean and uniform background.
 %Tip locations are saved in a TXT file for each frame.
 %Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
 %The same color is used to represent the same leaf over a sequence of frames.
 
 For Arabidopsis images, we label $4$ frames each day.
-While for bean images, we label $7$ frames each day because of their spontaneous and faster leaf movement.
+While for bean images, we label $7$ frames each day because of their spontaneous and fast leaf movement.
 A Matlab GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will also be available to the public.
-A user can open a plant image to label the two tips and annotate each leaf segment.
-The results will be automatically saved once a user moves to the next image.
+A user can open a plant image (``Open") to label the two tips and annotate each leaf segment.
+The results will be automatically saved once a user moves to a previous or next image (``Previous", and ``Next").
 For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
 
 The labeling of the leaf segment (``Leaf Label") is implemented by clicking the boundary of one leaf at each time.
@@ -74,9 +74,9 @@ For visualization, a line connecting each pair of tips will be shown immediately
 Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again immediately after deletion.
 All tips can be deleted by clicking "Clear Tip" and relabel again.
 The ``Show Tip" option is to select whether to show the tips or not. 
-For relabeling of both leaf segments and leaf tips, press ``Restart". 
+For relabeling of both leaf segments and leaf tips on the current image, click ``Restart". 
 
-After the labeling, we visually go through the results and correct inaccurate labels due to human error.
+After the labeling, we visually go through the results and correct inaccurate labels.
 One example of the labeling results for one plant is shown in Figure~\ref{fig:trackExample} $(b)$, where one color is used to represent each specific leaf.
 As we can see during the transition between day $5$ and day $6$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
 % In total, we labeled $5,142$ leaves for fluorescence images. 
@@ -103,7 +103,12 @@ Our experience is that since a noticeable percentage of extracted superpixels co
 \includegraphics[width=.15\textwidth]{Figures/LabelAlignment/day_9_hour_20-seg_depth.png}\\
 ($a$) & ($b$) & ($c$) & ($d$) \\
 \end{tabular}
-\caption{Label propagation between all four modalities ($a$) infra-red, ($b$) fluorescence, ($c$) color and ($d$) depth, of a sample plant in the Arabidopsis collection for day $3$ (top row), day $5$ (middle row), and day $9$ (bottom row).  In the dataset the manual segmentation is performed on the fluorescence images and is outlined here as orange lines propagated to all modalities.  The infra-red image is taken by the same camera and so will have close to exact pixel correspondence.  To assess the segmented pixel propagation to other modalities, we also manually labeled a subset of the color plant images and propagated this segmentation to all modalities (shown in cyan).  Comparing these boundaries in each modality gives a measure of the propagation errors due to parallax, and we provide quantitative analysis in table XXX.  Note that the color and depth images are rotated $90$ degrees.}
+\caption{Label propagation between all four modalities ($a$) IR, ($b$) fluorescence, ($c$) RGB color, and ($d$) depth, of a sample plant in the Arabidopsis collection for day $3$ (top row), day $5$ (middle row), and day $9$ (bottom row).  
+In the dataset the manual segmentation is performed on the fluorescence images and is outlined here as orange lines propagated to all modalities.  
+The IR images are taken by the same camera and so will have almost exact pixel correspondence.  
+To assess the segmented pixel propagation to other modalities, we also manually labeled a subset of the color plant images and propagated this segmentation to all modalities (shown in cyan).  
+Comparing these boundaries in each modality gives a measure of the propagation errors due to parallax, and we provide quantitative analysis in Table~\ref{tab:labelError}.  
+Note that the color and depth images are rotated $90$ degrees.}
 \label{fig:LabelAlignment}
 \end{centering}
 \end{figure*}
@@ -126,29 +131,31 @@ The {\it{SBD}} score is averaged over $3$ plants.}
 \label{tab:labelError}
 \end{table*}
 
-The leaf labeling can be propagated to each of the other modalities from the fluorescence images for the Arabidopsis sequence.  
+The leaf labeling can be propagated to each of the other modalities from the fluorescence images for the Arabidopsis sequences.  
 To do this, we approximate a plant image with a plane, and find homographies that transform the fluorescence images into the other images.  
 This provides a direct mapping of the pixel labels between each modality.
 % and is illustrated in Figure~\ref{fig:LabelAlignment}.
 
 We manually label $3$ images for each of $3$ Arabidopsis plants ($9$ images in total) on fluorescence and RGB modalities. 
-One label propagation results is illustrated in Figure~\ref{fig:LabelAlignment}.
+The labels in each modality is propagated on other modalities. 
+The result of one plant is illustrated in Figure~\ref{fig:LabelAlignment}.
 This mapping will introduce errors due to depth-based parallax.  
-We use {\it{SBD}} score, which will be introduced in Section~\ref{sec:protocol}, to evaluate the similarity between the manual label image and the propagation result. 
+We use {\it{SBD}} score, which will be introduced in Section~\ref{sec:protocol}, to evaluate the similarity between the manual labels and the propagation results. 
 In order to compare the label propagation error with human label error, we ask two different annotators to label the same $9$ images and compute the {\it{SBD}} score. 
 The results are shown in Table~\ref{tab:labelError}.
 
-We can make two conclusion from Table~\ref{tab:labelError}.
+We can make two conclusions from Table~\ref{tab:labelError}.
 First, the similarity for both manual annotation and label propagation increases as the plant grows.
 This is reasonable because {\it{SBD}} depends on the overlap ratio between two leaves, which is in natural to favor big leaves. 
 Second, the performance of label propagation is only slightly worse than the performance of human annotations. 
-Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis plants. 
+Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis sequences. 
 There are two benefits. 
 First, we will save a lot of human labor. 
 Second, the label is consistent for all four modalities. 
 
-In the case of the bean plant, the pixel association between modalities is more difficult as the within-plant depth variations are large.  
-We found a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infra-red and fluorescence images which use the same camera.
+In the case of the bean sequences, the pixel association between modalities is more difficult as the within-plant depth variations are large.  
+We found a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infrared and fluorescence images which use the same camera.
+
 
 \subsection{Name Conventions and File Types}
 We release training and testing sets in two separate folders.
@@ -167,8 +174,8 @@ The files in each subfolder have the following form:
 \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$tips$\_$modality.txt: the labeled tip locations of each modality if available;
 \item plant$\_$ID$\_$day$\_$X$\_$hour$\_$YY$\_$depthSigma.png: the depth standard deviation images;
 \end{itemize}
-where ID indicates the plant subject ID number ($1$ to $16$ for Arabidopsis, $1$ to $5$ for bean), X is an integer indicating the date ($1-9$ for Arabidopsis, $1$ to $5$ for bean), and YY represents the image index within a day ($1-15$ for Arabidopsis, $1$ to $14$ for bean).
-For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
+where ID indicates the plant subject ID number ($1$ to $16$ for Arabidopsis, $1$ to $5$ for bean), X is an integer indicating the date ($1-9$ for Arabidopsis, $1$ to $5$ for bean), and YY represents the hour index within a day ($9-23$ for Arabidopsis, $9-21$ for bean).
+For each combination of day and hour, we provide the original images in all four modalities ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth) in PNG files.
 %\begin{itemize}
 % \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$rgb.png: the original RGB color images;
 % \item plant$\_$XX$\_$day$\_$X$\_$hour$\_$YY$\_$ID$\_$ZZ$\_$fmp.png: the original fluorescence images;
@@ -179,15 +186,15 @@ For each combination of day and hour, we provide four modalities in PNG files ($
 %\end{itemize}
 %where XX indicates the plant type ("AR" or "BE"), X is an integer indicating the date (e.g., $1-9$ for Arabidopsis), YY represents the image index within a day (e.g., $1-16$ for Arabidopsis), and ZZ is the subject (or plant) ID (e.g., $1-5$ for bean).
 %For each combination of day and hour, we provide four modalities in PNG files ($\_$rgb, $\_$fmp, $\_$ir, $\_$depth).
-For annotated images, we have two additional files ($\_$label, $\_$tips) saving the annotation results.
+For annotated modalities, we have two additional files ($\_$label, $\_$tips) saving the annotation results.
 Leaf segmentation results are encoded as indexed PNG files, where each leaf is assigned a unique and consistent leaf ID over time.
-Leaf ID starts from $1$ and continuously increase till the total number of leaves.
+Leaf ID starts from $1$ and continuously increases till the total number of leaves.
 And the background is encoded as $0$.
 Tips locations are saved in TXT files where each line has the following format:
 \begin{itemize}
 \item leaf ID \quad tip1$\_$x \quad tip1$\_$y \quad tip2$\_$x \quad tip2$\_$y
 \end{itemize}
-where leaf ID is an integer number that is consistent with the segmentation label in the PNG file.
+where leaf ID is an integer number that is consistent with the segmentation label in the $\_$label file.
 tip$1\_$x and tip$1\_$y represent the coordinates of the outer tip point.
 tip$2\_$x and tip$2\_$y represent the coordinates of the inner tip point.
 Any ``nan" value in the file indicates an invisible leaf. 
@@ -208,18 +215,19 @@ The total storage of our database is around $380 MB$, which is convenient for do
 \subsection{Experimental Protocols}
 \label{sec:protocol}
 As shown in Table~\ref{tab:database}, MSU-PID can be used for applications such as leaf segmentation, leaf counting, leaf alignment, and leaf tracking.
-To facilitate future research, we separate the database into the training set and the testing set.
+To facilitate future research, we separate the database into training set and testing set.
 $40\%$ of the data is used for training and $60\%$ for testing.
 Specifically, $6$ plants of Arabidopsis and $2$ plants of bean are selected for training.
 %We will provide training and testing data in different folders.
 For fair comparison, both supervised learning and unsupervised learning methods should evaluate their performance on the training and testing sets separately.
+
 The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
 The availability of multiple modalities allows user to design novel experimental setup.
 For example, using RGB and depth modalities for training and RGB for testing can take advantage of additional information during the learning without incurring extra sensor cost during the testing, which can be implemented via either learning with side information~\cite{chen2013boosting}, or transfering learning with missing modality~\cite{ding2014latent}.
 
 
 \paragraph{Performance Metric}
-To evaluate the performance of leaf segmentation, alignment, tracking, and counting, we use $4$ performance metrics, whose Matlab implementations will be provided along with the data.
+To evaluate the performance of leaf segmentation, alignment, tracking, and counting, we use four performance metrics, whose Matlab implementations will be provided along with the data.
 Three of them are based on the tip-based error, which is defined as the average distance of a pair of estimated leaf tips $\hat{\bm{t}}_{1,2}$ with a pair of labeled leaf tips $ \bm{t}_{1,2}$ normalized by the labeled leaf length:
 \begin {equation}
 e_{la}(\hat{\bm{t}}_{1,2}, \bm{t}_{1,2}) = \frac{||\hat{\bm{t}}_1-{\bm{t}}_1||_2 + ||\hat{\bm{t}}_2-{\bm{t}}_2||_2}{2 ||\bm{t}_1-\bm{t}_2||_2}.
@@ -239,10 +247,10 @@ When $\tau$ is large enough, this value is equal to the leaf counting error.
 \item {\it{Landmark Error (LE)}}, the average tip-based errors smaller than $\tau$ of all frame-to-frame correspondent leaves.
 This is used to measure the leaf tip alignment error.
 \item {\it{Tracking Consistency (TC)}}, the percentage of video-to-video correspondent leaves whose tip-based errors are smaller than $\tau$.
-This is used to measure leaf tracking error.
+This is used to measure leaf tracking accuracy.
 \end{itemize}
 
-In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation results and ground truth labels:
+In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation results and groundtruth labels:
 \begin{itemize}
 \item {\it{Symmetric Best Dice (SBD)}}, the average symmetric best Dice among all labeled leaves.
 \end{itemize}
