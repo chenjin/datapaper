@@ -5,8 +5,8 @@ To facilitate future research on this database, we provide a baseline approach a
 
 \subsection{Multi-leaf Segmentation and Tracking Framework}
 We apply our automatic multi-leaf segmentation and tracking framework~\cite{yin2014a,yin2014b} to the testing set of Arabidopsis fluorescence imagery to provide a baseline.
-Note that~\cite{yin2014a,yin2014b} is designed for rosette plants like Arabidopsis. 
-Therefore, it will not be applied to bean plant as it does  not belong to rosette plants. 
+Note that~\cite{yin2014a,yin2014b} is designed for rosette plants like Arabidopsis.
+Therefore, it will not be applied to bean plant as it does  not belong to rosette plants.
 We treat all images in $9$ days as a video from first image on the first day to the last image in the last day.
 As shown in Figure~\ref{fig:methodOverview}, the input of this framework is a plant video and a set of predefined templates with various shapes, scales, and orientations.
 To generate the template set, we first select $12$ templates with different aspect ratios from the labeled images in the training set together with the corresponding tip locations.
@@ -94,6 +94,40 @@ The labeled color for each leaf in the video remains the same during the trackin
 \includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_7.pdf}&
 \includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_8.pdf}&
 \includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_9.pdf}\\
+
+(d) &
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_1}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_2}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_3}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_4}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_5}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_6}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_7}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_8}&
+\includegraphics[width=.09\textwidth]{Figures/trackExample/4_9}\\
+
+(e) &
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_1}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_2}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_3}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_4}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_5}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_6}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_7}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_8}&
+\includegraphics[trim= 160 100 160 60, clip, width=.1\textwidth]{Figures/trackExample/5_9}\\
+
+(f) &
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_1}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_2}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_3}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_4}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_5}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_6}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_7}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_8}&
+\includegraphics[trim= 100 90 120 60, clip, width=.1\textwidth]{Figures/trackExample/6_9}\\
+
 
 & Day 1 & Day 2 & Day 3 & Day 4 & Day 5 & Day 6 & Day 7 & Day 8 & Day 9 \\
 \end{tabular}

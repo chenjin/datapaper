@@ -63,7 +63,7 @@ The labeling of leaf tips is implemented by clicking pairs of points on the imag
 The outer tip is always clicked first before the inner tip.
 For visualization, a line connecting each pair of tips will be shown immediately after clicking the inner tip.
 Inaccurate labels can be deleted by clicking the right button of the mouse near the labeled point and relabeled by clicking the left button again immediately after deletion.
-All tips can be deleted by clicking "Clear Tip" and relabel again. 
+All tips can be deleted by clicking "Clear Tip" and relabel again.
 
 The labeling of the leaf segment is implemented by clicking the boundary of one leaf at each time.
 In order to provide more accuracy labeling, we click very dense points ($\sim20$ points on average) on the boundary.
@@ -71,7 +71,7 @@ The labeled leaf boundary is overlaid on the image for better visualization to g
 Incorrect label can be deleted right after the labeling by clicking ``Clear".
 All leaf labels can be deleted by clicking ``Clear All".
 This process continues until all leaf segments have been annotated.
-Once a leaf is invisible due to occlusion, the label can be skipped by clicking ``Invisible". 
+Once a leaf is invisible due to occlusion, the label can be skipped by clicking ``Invisible".
 After the labeling of one plant, we visually go through the results and correct inaccurate labels.
 One example of the labeling results for one plant is shown in Fig.~\ref{fig:trackExample} $(b)$, where one color is used to represent each specific leaf.
 As we can see during the transition between day $5$ and day $6$, there is one leaf showing up and covering up the leaf underneath, which disappears and will not be annotated later.
@@ -81,8 +81,12 @@ Note that one alternative approach for labeling leaf segments is to directly lab
 Our experience is that since a noticeable percentage of extracted superpixels cover pixels of two neighboring leaves, the extra effort of breaking a super pixel into two makes it a less efficient alternative.
 
 
-\subsection{Label Propagation}
-\textcolor{red}{input by Dr. Morris on how the transformation is done}
+\subsection{Multimodal Annotations}
+The leaf labeling can be propagated to each of the other modalities from the fluorescence images for the Arabidopsis sequence.  To do this we approximate the plants with a plane, and find homographies that transform the fluorescence images into the other images.  This provides a direct mapping of the pixel labels between each modality, and is illustrated in Figure~\ref{fig:LabelAlignment}.
+
+This mapping will introduce errors due to depth-based parallax.  [INCLUDE TABLE AND DESCRIPTION HERE].
+
+In the case of the bean plant, the pixel association between modalities is more difficult as the within-plant depth variations are large.  We found an homography-based mapping performed poorly, and so the manual annotations we supply apply to just the infra-red and fluorescence images which use the same camera.
 
 \begin{figure*}
 \begin{centering}
@@ -107,7 +111,7 @@ Our experience is that since a noticeable percentage of extracted superpixels co
 \end{figure*}
 
 
-%In order to evaluate the performance of label propagation, we use one of our evaluation metric Symmetric Best Dice (SBD), as will describe in Sec.~\ref{sec:protocol}, which is used to evaluate the similarity between two segment masks. 
+%In order to evaluate the performance of label propagation, we use one of our evaluation metric Symmetric Best Dice (SBD), as will describe in Sec.~\ref{sec:protocol}, which is used to evaluate the similarity between two segment masks.
 %Table~\ref{tab:labelError} shows the performance of label propagation vs. the performance of human labels.
 %We compare the label difference between two annotators $L_1$ and $L_2$.
 
@@ -211,15 +215,15 @@ More details can be find in~\cite{yin2015}.
 We define a threshold $\tau$ to operate on the corresponding tip-based errors.
 By varying $\tau$, we compute the first three metrics as follows:
 \begin{itemize}
-\item {\it{Unmatched Leaf Rate (ULR)}}, the percentage of unmatched leaves with respect to the total number of labeled leaves.  
+\item {\it{Unmatched Leaf Rate (ULR)}}, the percentage of unmatched leaves with respect to the total number of labeled leaves.
 This can attribute to two sources.
 The first is miss detections and false alarms.
 The second is matched leaves with tip-based errors larger than $\tau$.
 When $\tau$ is large enough, this value is equal to the leaf counting error.
 \item {\it{Landmark Error (LE)}}, the average tip-based errors smaller than $\tau$ of all frame-to-frame correspondent leaves.
-This is used to measure the leaf tip alignment error. 
+This is used to measure the leaf tip alignment error.
 \item {\it{Tracking Consistency (TC)}}, the percentage of video-to-video correspondent leaves whose tip-based errors are smaller than $\tau$.
-This is used to measure leaf tracking error. 
+This is used to measure leaf tracking error.
 \end{itemize}
 
 In order to evaluate the leaf segmentation accuracy, we adopt an additional metric~\cite{scharr2014annotated} based on the Dice score of estimated segmentation results and ground truth labels:
@@ -242,8 +246,4 @@ The Matlab function for computing {\it{SBD}} is provided by~\cite{scharr2014anno
 %As shown in Fig.~\ref{fig:label}, several super pixels that covers one leaf are first merged together to form a large super pixel.
 %Since the top part of the super pixel covers some of the background and the bottom part covers another small leaf, two lines are drawn on this super pixel to split it.
 %The leaf boundary is overlaid on the image for better visualization to guide the next action.
-%This process continues until all leaves have been annotated.
-
-
-
-
+%This process continues until all leaves have been annotated. 
