@@ -11,17 +11,10 @@ Repeated entry---line 69 of file science.bib
  : %@inproceedings{Barbosa:reid12
  :                               ,
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 123 of file science.bib
- :   
- :   journal={Gustav Fischer Verlag},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Repeated entry---line 208 of file science.bib
  : @article{walter2015plant
  :                         ,
 I'm skipping whatever remains of this entry
-Warning--empty year in johannsenerblichkeit
-Warning--empty journal in johannsenerblichkeit
 Warning--empty institution in scharr2014annotated
 Warning--empty publisher in soderkvist2001computer
-(There were 4 error messages)
+(There were 3 error messages)
