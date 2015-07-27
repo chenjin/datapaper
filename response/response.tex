@@ -201,7 +201,11 @@ As for the other lighting and imaging protocols adopted by the authors (Sec. $3.
 \end{review}
 
 \begin{response}
-\todo{Jin}
+The depth sensor uses a a flash near IR illuminator to obtain depth estimates. 
+The near IR illuminator will not influence the plant growth. 
+The color image does not use any special lighting so it is not harmful as well. 
+The IR and fluorescence images use a saturation light, which will damage the plants only if at high frequency. 
+However, as we are taking images once per hour, the influence is minimal and can be ignored. 
 \end{response}
 
 
@@ -337,7 +341,7 @@ Nevertheless, I recommend the authors for arranging information as in Table $1$.
 \begin{response}
 We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge database only includes independent images without tracking context.
 Please refer to Comment $9$ for the reason we do not include mutants.
-\todo{Are we going to have mutants in bean data?}
+% \todo{Are we going to have mutants in bean data?} We are not going to have mutants in the bean dataset. 
 % is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure.
 \\ %\textcolor{red}{I do not understand what to be added to Table $1$.}
 % \todo{TBD: Dr. Chen, please add some sentences about mutants in bean data. I recall we plan to capture additional bean data sets that have different mutants. Am I right?}
@@ -564,7 +568,8 @@ Collimated ... is a nice special term, but please put in parenthesis the definit
 \end{review}
 
 \begin{response}
-\todo{Jin}
+``Collimated" means to make the light rays parallel. 
+We have added this definition in the paper. 
 \end{response}
 
 
