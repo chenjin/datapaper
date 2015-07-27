@@ -71,7 +71,7 @@ The authors should proofread the document carefully.
 \end{review}
 
 \begin{response}
-We have proofread it very carefully and corrected some typos and grammar errors. 
+We have proofread it very carefully and corrected some typos and grammar errors.
 \end{response}
 
 
@@ -231,7 +231,7 @@ The previous developed leaf alignment, segmentation, and tracking algorithm is d
 The rosette plant structure is used as a prior in the development of the algorithm.
 However, bean plant does not belong to rosette plants.
 Therefore, we did not apply the baseline method to bean plants.
-We have added this statement in the beginning of Sec. $5.1$.
+We have added this statement in the beginning of Sec. $5$.
 \end{response}
 
 
@@ -241,7 +241,7 @@ The conclusions (Sec. $6$) should be expanded.
 \end{review}
 
 \begin{response}
-\todo{will expand after everything finished}
+We have expanded the conclusions. 
 \end{response}
 
 
@@ -264,7 +264,7 @@ To improve clarity of the manuscript, the authors are therefore advised to adher
 \end{review}
 
 \begin{response}
-We have changed the inaccurate annotations to adhere to the SI style conventions. 
+We have changed the inaccurate annotations to adhere to the SI style conventions.
 \end{response}
 
 
@@ -298,7 +298,7 @@ In particular, it is not clear if subscripts $1$ and $2$ refer to inner and oute
 
 \begin{response}
 $t_1$ represents the outer leaf tip and $t_2$ represents the inner leaf tip.
-This representation is the same as the released leaf tip labels as illustrated in the end of the first paragraph in Sec. $4.3$.
+This representation is the same as the released leaf tip labels as illustrated in Sec. $4.4$.
 The equation does not rely on the correspondence of inner or outer tips as long as the estimated tips correspond to the labeled tips.
 \end{response}
 
@@ -359,21 +359,21 @@ Nevertheless, you should definitely mention this limitation of your work.
 \end{review}
 
 \begin{response}
-We expanded our description of the labeling and the propagation to other modalities in the paper.  
-The data labeling is performed in the fluorescence image modality.  
-The infra-red image is from the same camera and so pixel labeling will be identical.  
-The labels are propagated to the color and depth modalities using planar homographies.  
-The homography between the fluorescence image and the color image is calculated by fitting matching features in these modalities, and the homography to the depth image is found by fitting a plane through the $3$D plant points.  
-As the reviewer noted, using these homographies will result in pixel segmentation errors due to parallax for plant regions outside of the modeled planes.  
-We evaluate these errors qualitatively and quantitatively.  
-Figure $6$ illustrates the label propagations from the fluorescence image to the other modalities and from the color image to other modalities with two different line colors.  
-Errors occur where the lines fail to overlap and are due to propagation effects as well as boundary selection variations by the labeler between modalities.  
-We compare the magnitude of these two effects in Table $4$. 
-The performance of label propagation is only slightly worse than the performance of another annotator. 
-Therefore, we propagate the fluorescence labels to other modalities for Arabidopsis plants. 
-As for bean plant, the homograph-based mapping performed poorly due to the large within-plant depth variations. 
-So we only provide the labels for bean plant in fluorescence and IR as they use the same camera. 
-Please refer to Sec. $4.3$ for more details. 
+We add one more section (Sec. $4.3$) in the paper to describe the labeling and the propagation to other modalities. 
+The data labeling is performed in the fluorescence image modality.
+The infrared image is from the same camera and so pixel labeling will be identical.
+The labels are propagated to the RGB color and depth modalities using planar homographies.
+The homography between the fluorescence image and the RGB color image is calculated by fitting matching features in these modalities, and the homography to the depth image is found by fitting a plane through the $3$D plant points.
+As the reviewer noted, using these homographies will result in pixel segmentation errors due to parallax for plant regions outside of the modeled planes.
+We evaluate these errors qualitatively and quantitatively.
+Figure $6$ illustrates the label propagations from the fluorescence image to the other modalities and from the color image to other modalities with two different line colors.
+Errors occur where the lines fail to overlap and are due to propagation effects as well as boundary selection variations by the labeler between modalities.
+We compare the magnitude of these two effects in Table $4$.
+The performance of label propagation is only slightly worse than the performance of another annotator.
+Therefore, we propagate the fluorescence labels to other modalities for Arabidopsis plants.
+As for bean plant, the homograph-based mapping performed poorly due to the large within-plant depth variations.
+So we only provide the labels for bean plant in fluorescence and IR as they use the same camera.
+Please refer to Sec. $4.3$ for more details.
 \end{response}
 
 
@@ -392,14 +392,14 @@ During this short period, no substantial movement or growth were observed.
 
 % Reviewer 2: Q24
 \begin{review}
-Fig. $3$ (a) ... From Fig. $2$ it appears the distance from plant to sensor to be greater than $60$mm ($6$cm) !!! ie., to me it looks close to $60$cm, but either Fig. $3$ has wrong axis range or something else is going on.
+Fig. $3$ (a) ... From Fig. $2$ it appears the distance from plant to sensor to be greater than $60~mm$ ($6~cm$) !!! ie., to me it looks close to $60~cm$, but either Fig. $3$ has wrong axis range or something else is going on.
 Can you please explain/update?
 Also same Fig. $3$, shouldn't the images overlap?
 Why are shown translated?
 \end{review}
 
 \begin{response}
-Yes, the distance to the plant is roughly $620$mm.
+Yes, the distance to the plant is roughly $620~mm$.
 The image planes are plotted not at the plant location, but at a distance proportional to the focal length of each camera.
 We added dashed lines to the figure to make it clearer that these planes do not correspond to the plant depth, and updated the caption to better explain it.
 \end{response}
@@ -425,9 +425,9 @@ On manual annotation process, did you use an extra annotator or a supervisor?
 \begin{response}
 The released label is labeled by one annotator.
 However, we do use an extra annotator to label several images and the annotation error between different annotators is evaluated.
-As shown in Table $4$, the average annotation similarity in case of {\it{SBD}} score is around $0.847$ for fluorescence and $0.858$ for RGB images. 
-Different annotators have more agreement on the labeling as the plant grows. 
-This is due to the evaluation metric {\it{SBD}}, which favors bigger leaves. 
+As shown in Table $4$, the average annotation similarity in case of {\it{SBD}} score is around $0.847$ for fluorescence and $0.858$ for RGB images.
+Different annotators have more agreement on the labeling as the plant grows.
+This is due to the evaluation metric {\it{SBD}}, which favors bigger leaves.
 \end{response}
 
 
@@ -465,7 +465,7 @@ Again going back to the problem of lack of exact $1-1$ correspondence between mo
 \end{review}
 
 \begin{response}
-Please refer to comment $22$.
+Please refer to Comment $22$.
 \end{response}
 
 
@@ -480,6 +480,7 @@ The annotated image is an image the same size as the original image.
 And each pixel is annotated with a number.
 The same number represents the same leaf and $0$ represents the background.
 For overlapping leaves, we can visualize the relative location and annotate accordingly.
+Please refer to Fig. $9 (b)$ for examples of the labeled images.  
 \end{response}
 
 
@@ -504,8 +505,8 @@ I think doing one of the two, time permitting, will greatly assist the paper.
 \end{review}
 
 \begin{response}
-We have applied our algorithm on the RGB images while the groudtruth label is generated via label propagation. 
-The performance on RGB images is shown in Figure $9$ and $10$.  
+We have applied our algorithm on the RGB images while the groudtruth label is generated via label propagation.
+The performance on RGB images is shown in Figure $9$ and $10$.
 \end{response}
 
 
