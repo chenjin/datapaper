@@ -113,7 +113,8 @@ Apparently, this is only partly done for depth at the end of Sec. $2$.
 \end{review}
 
 \begin{response}
-We have inserted a brief explanation with references in the last paragraph of Sec. $2$.
+We have inserted one paragraph with references to describe the motivation on the choice of image modalities. 
+Please refer to the last paragraph of Sec. $2$.
 \end{response}
 
 
@@ -124,8 +125,8 @@ This would help the reader get a better idea of the contrast and the type of inf
 \end{review}
 
 \begin{response}
-We have augmented Figure $1$ by adding one zoom-in view for one Arabidopsis plant.
-Since bean dataset only contains one plant with good view, we do not provide a zoom-in view.
+We have augmented Figure $1$ by adding one row of zoom in view for one Arabidopsis plant.
+Since bean dataset only contains one plant with good view, we do not provide a zoom in view.
 \end{response}
 
 
@@ -148,7 +149,7 @@ The authors should adjust language and/or expand the literature review.
 \end{review}
 
 \begin{response}
-We have adjusted the language by the statement of ``we summarize existing publicly available databases that are most related to our work".
+We have adjusted the language by using the statement of ``we summarize existing publicly available databases that are most related to our work".
 \end{response}
 
 
@@ -159,10 +160,10 @@ Please reformulate.
 \end{review}
 
 \begin{response}
-It is correct that the dataset (Haug and Ostermann, $2014$) is not about single leaves imaged in a constrained environment.
-We still category it in the first type because it does not include leaf segmentation.
+It is correct that the dataset by (Haug and Ostermann, $2014$) is not about single leaves imaged in a constrained environment.
+However, we still category it to the first type because it does not consider leaf segmentation.
 All segmentation tasks are based on plant level.
-We have reformulated this in the second paragraph in Sec. $2$.
+We have reformulated the text in the second paragraph of Sec. $2$.
 \end{response}
 
 
@@ -179,7 +180,7 @@ However, we are using this database to address a fundamental issue with visual p
 The reason this is important is highlighted in other sections, in particular in text we are adding to address Comment $2$ and $4$.
 The inherent challenge is that leaves change in size, position, and shape as they emerge and grow.
 Also they may overlap or be overlapped by other leaves.
-We emphasize more on leaf identification and tracking rather than developing methods/algorithms to define group differences.
+We emphasize more on leaf identification and tracking rather than developing methods/algorithms to define group differences, which is not urgent at this point. 
 We have added one paragraph in Conclusion to better reflect this.
 \end{response}
 
@@ -201,11 +202,11 @@ As for the other lighting and imaging protocols adopted by the authors (Sec. $3.
 \end{review}
 
 \begin{response}
-The depth sensor uses a a flash near IR illuminator to obtain depth estimates. 
-The near IR illuminator will not influence the plant growth. 
-The color image does not use any special lighting so it is not harmful as well. 
-The IR and fluorescence images use a saturation light, which will damage the plants only if at high frequency. 
-However, as we are taking images once per hour, the influence is minimal and can be ignored. 
+The depth sensor uses a a flash near IR illuminator to obtain depth estimates.
+The near IR illuminator will not influence the plant growth.
+The color image does not use any special lighting so it is not harmful as well.
+The IR and fluorescence images use a saturation light, which will damage the plants only if at high frequency.
+However, as we are taking images once per hour, the influence is minimal and can be ignored.
 \end{response}
 
 
@@ -245,7 +246,7 @@ The conclusions (Sec. $6$) should be expanded.
 \end{review}
 
 \begin{response}
-We have expanded the conclusions. 
+We have expanded the conclusions.
 \end{response}
 
 
@@ -341,7 +342,7 @@ Nevertheless, I recommend the authors for arranging information as in Table $1$.
 \begin{response}
 We refer to Scharr et al $2014$ that the Leaf Segmentation Challenge database only includes independent images without tracking context.
 Please refer to Comment $9$ for the reason we do not include mutants.
-% \todo{Are we going to have mutants in bean data?} We are not going to have mutants in the bean dataset. 
+% \todo{Are we going to have mutants in bean data?} We are not going to have mutants in the bean dataset.
 % is that we assume any computer vision algorithms that work on wildtypes should also work well on mutants as they have similar structure.
 \\ %\textcolor{red}{I do not understand what to be added to Table $1$.}
 % \todo{TBD: Dr. Chen, please add some sentences about mutants in bean data. I recall we plan to capture additional bean data sets that have different mutants. Am I right?}
@@ -363,7 +364,7 @@ Nevertheless, you should definitely mention this limitation of your work.
 \end{review}
 
 \begin{response}
-We add one more section (Sec. $4.3$) in the paper to describe the labeling and the propagation to other modalities. 
+We add one more section (Sec. $4.3$) in the paper to describe the labeling and the propagation to other modalities.
 The data labeling is performed in the fluorescence image modality.
 The infrared image is from the same camera and so pixel labeling will be identical.
 The labels are propagated to the RGB color and depth modalities using planar homographies.
@@ -485,7 +486,7 @@ The annotated image is an image the same size as the original image.
 And each pixel is annotated with a number.
 The same number represents the same leaf and $0$ represents the background.
 For overlapping leaves, we can visualize the relative location and annotate accordingly.
-Please refer to Figure $9 (b)$ for examples of the labeled images.  
+Please refer to Figure $9 (b)$ for examples of the labeled images.
 \end{response}
 
 
@@ -569,8 +570,8 @@ Collimated ... is a nice special term, but please put in parenthesis the definit
 \end{review}
 
 \begin{response}
-``Collimated" means to make the light rays parallel. 
-We have added this definition in the paper. 
+``Collimated" means to make the light rays parallel.
+We have added this definition in the paper.
 \end{response}
 
 
