@@ -113,7 +113,7 @@ Apparently, this is only partly done for depth at the end of Sec. $2$.
 \end{review}
 
 \begin{response}
-We have inserted one paragraph with references to describe the motivation on the choice of image modalities. 
+We have inserted one paragraph with references to describe the motivation on the choice of image modalities.
 Please refer to the last paragraph of Sec. $2$.
 \end{response}
 
@@ -180,7 +180,7 @@ However, we are using this database to address a fundamental issue with visual p
 The reason this is important is highlighted in other sections, in particular in text we are adding to address Comment $2$ and $4$.
 The inherent challenge is that leaves change in size, position, and shape as they emerge and grow.
 Also they may overlap or be overlapped by other leaves.
-We emphasize more on leaf identification and tracking rather than developing methods/algorithms to define group differences, which is not urgent at this point. 
+We emphasize more on leaf identification and tracking rather than developing methods/algorithms to define group differences, which is not urgent at this point.
 We have added one paragraph in Conclusion to better reflect this.
 \end{response}
 
@@ -212,7 +212,7 @@ However, as we are taking images once per hour, the influence is minimal and can
 
 % Reviewer 1: Q12
 \begin{review}
-At the end of the first paragraph of Sec. $4.4$, p. $8$, the authors envision a use of the multiple modalities in their dataset in which algorithms are developed to handle missing modalities.
+At the end of the second paragraph of Sec. $4.5$, the authors envision a use of the multiple modalities in their dataset in which algorithms are developed to handle missing modalities.
 Briefly presenting a use case scenario or citing relevant works may help clarify the importance of this point.
 \end{review}
 
@@ -252,7 +252,7 @@ We have expanded the conclusions.
 
 % Reviewer 1: Q15
 \begin{review}
-The acronym "MSU-PID" should be clearly defined when it first appears in text (p. $2$, line $51$)
+The acronym "MSU-PID" should be clearly defined when it first appears in text.
 \end{review}
 
 \begin{response}
@@ -304,7 +304,7 @@ In particular, it is not clear if subscripts $1$ and $2$ refer to inner and oute
 \begin{response}
 $t_1$ represents the outer leaf tip and $t_2$ represents the inner leaf tip.
 This representation is the same as the released leaf tip labels as illustrated in Sec. $4.4$.
-The equation does not rely on the correspondence of inner or outer tips as long as the estimated tips correspond to the labeled tips.
+%The equation does not rely on the correspondence of inner or outer tips as long as the estimated tips correspond to the labeled tips.
 \end{response}
 
 
@@ -376,7 +376,7 @@ Errors occur where the lines fail to overlap and are due to propagation effects 
 We compare the magnitude of these two effects in Table $4$.
 The performance of label propagation is only slightly worse than the performance of another annotator.
 Therefore, we propagate the fluorescence labels to other modalities for Arabidopsis plants.
-As for bean plant, the homograph-based mapping performed poorly due to the large within-plant depth variations.
+As for bean plant, the homography-based mapping performed poorly due to the large within-plant depth variations.
 So we only provide the labels for bean plant in fluorescence and IR as they use the same camera.
 Since the labeling tool will be provided together with the database, we expect the interested users to manually label the RGB and depth modalities for the bean plants.
 Please refer to Sec. $4.3$ for more details.
@@ -419,7 +419,7 @@ This limitation should be mentioned.
 \end{review}
 
 \begin{response}
-We added one paragraph in the end of Sec. $4.1$ to address the trade-off between image resolution and experiment throughput.
+We have added one paragraph in the end of Sec. $4.1$ to address the trade-off between image resolution and experiment throughput.
 \end{response}
 
 
@@ -448,8 +448,8 @@ I applaud your comment on the difficulty of merging super-pixel results, but I w
 Our annotation is not interactive.
 It is totally based on user input without any computer feedback except for visualization.
 Leaf label is implemented by clicking several points along the boundary of the leaf.
-Tip label is implemented by clicking the outer and inner tip points respectively.
-We did explore other options for labeling and found this simple naive way worked the best.
+Tip label is implemented by clicking the outer and inner tips respectively.
+We did explore other options for labeling and found that this simple naive way worked the best.
 \end{response}
 
 
@@ -503,7 +503,7 @@ However, it is hard to estimate which leaf occludes which from the annotations.
 
 % Reviewer 2: Q32
 \begin{review}
-The authors test an algorithm (developed by them) on the fluorescence part of the data.
+The authors test an algorithm on the fluorescence part of the data.
 Granted this algorithm is presented elsewhere on the same data.
 I was wondering if the authors can either a) use the same algorithm on one of the other modalities, and how it would perform (assuming ground truth labeling obtained via propagation)?
 OR b) if they can apply another benchmark method even from the broad CV literature on one of the CV problems considered in another modality.
@@ -581,8 +581,8 @@ Please also define object albedo again to broaden readership.
 \end{review}
 
 \begin{response}
-Albedo is the ratio of reflected light to incident light. 
-We have added this definition to the paper. 
+Albedo is the ratio of reflected light to incident light.
+We have added this definition to the paper.
 \end{response}
 
 
