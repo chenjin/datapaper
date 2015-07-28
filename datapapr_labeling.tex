@@ -104,9 +104,9 @@ Our experience is that since a noticeable percentage of extracted superpixels co
 ($a$) & ($b$) & ($c$) & ($d$) \\
 \end{tabular}
 \caption{Label propagation between all four modalities ($a$) IR, ($b$) fluorescence, ($c$) RGB color, and ($d$) depth, of a sample plant in the Arabidopsis collection for day $3$ (top row), day $5$ (middle row), and day $9$ (bottom row).  
-In the dataset the manual segmentation is performed on the fluorescence images and is outlined here as orange lines propagated to all modalities.  
-The IR images are taken by the same camera and so will have almost exact pixel correspondence.  
-To assess the segmented pixel propagation to other modalities, we also manually labeled a subset of the color plant images and propagated this segmentation to all modalities (shown in cyan).  
+In the dataset the manual segmentation is performed on the fluorescence images and is outlined here as orange lines propagated to all modalities (i.e., the orange lines in (b) are manual labels while these in other three modalities are propagated labels).  
+The IR images are taken by the same camera and so will have exact pixel correspondence.  
+To assess the segmented pixel propagation to other modalities, we also manually labeled a subset of the color plant images (shown as cyan in (c)) and propagated this label to other three modalities (i.e., the cyan in (a,b,d) are propagated labels). 
 Comparing these boundaries in each modality gives a measure of the propagation errors due to parallax, and we provide quantitative analysis in Table~\ref{tab:labelError}.  
 Note that the color and depth images are rotated $90$ degrees.}
 \label{fig:LabelAlignment}
@@ -131,30 +131,27 @@ The {\it{SBD}} score is averaged over $3$ plants.}
 \label{tab:labelError}
 \end{table*}
 
-The leaf labeling can be propagated to each of the other modalities from the fluorescence images for the Arabidopsis sequences.  
-To do this, we approximate a plant image with a plane, and find homographies that transform the fluorescence images into the other images.  
+The leaf labeling can be propagated from the fluorescence images to each of the other modalities for the Arabidopsis sequences.  
+To do this, we approximate a plant image with a plane, and estimate homographies that transform the fluorescence images into the images in other modalities.  
 This provides a direct mapping of the pixel labels between each modality.
 % and is illustrated in Figure~\ref{fig:LabelAlignment}.
 
-We manually label $3$ images for each of $3$ Arabidopsis plants ($9$ images in total) on fluorescence and RGB modalities. 
+To quantify the precision of the label propagation, we manually label $3$ images for each of $3$ Arabidopsis plants ($9$ images in total) on fluorescence and RGB modalities. 
 The labels in each modality is propagated on other modalities. 
 The result of one plant is illustrated in Figure~\ref{fig:LabelAlignment}.
 This mapping will introduce errors due to depth-based parallax.  
-We use {\it{SBD}} score, which will be introduced in Section~\ref{sec:protocol}, to evaluate the similarity between the manual labels and the propagation results. 
-In order to compare the label propagation error with human label error, we ask two different annotators to label the same $9$ images and compute the {\it{SBD}} score. 
+We use {\it{SBD}} score, which will be introduced in Section~\ref{sec:protocol}, to evaluate the similarity between the manual labels and the propagated labels. 
+In order to compute the inter-annotators variability, we ask two different annotators to label the same $9$ images and compute the {\it{SBD}} score. 
 The results are shown in Table~\ref{tab:labelError}.
 
 We can make two conclusions from Table~\ref{tab:labelError}.
 First, the similarity for both manual annotation and label propagation increases as the plant grows.
-This is reasonable because {\it{SBD}} depends on the overlap ratio between two leaves, which is in natural to favor big leaves. 
+This is expected because {\it{SBD}} depends on the overlap ratio between two leaves, which inherently favors larger leaves. 
 Second, the performance of label propagation is only slightly worse than the performance of human annotations. 
-Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis sequences. 
-There are two benefits. 
-First, we will save a lot of human labor. 
-Second, the label is consistent for all four modalities. 
+Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis sequences, which not only saves laborious human labor, but also provides consistent labels for all four modalities. 
 
 In the case of the bean sequences, the pixel association between modalities is more difficult as the within-plant depth variations are large.  
-We found a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infrared and fluorescence images which use the same camera.
+We found that a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infrared and fluorescence images that use the same camera.
 
 
 \subsection{Name Conventions and File Types}
