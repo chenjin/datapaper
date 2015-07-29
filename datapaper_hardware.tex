@@ -28,16 +28,9 @@ As with chlorophyll {\it a} fluorescence, images were captured in the absence of
 
 \subsubsection{RGB Color and Depth Images} %This section describes characterizes the data from this sensor, particularly the depth data.
 The RGB color and depth images were collected using a Creative Senz3D sensor~\cite{nguyen2015vietnamese}.
-The sensor contains both a $1,280 \times 720$ color camera directed parallel to, and separated by roughly $25~mm$ from, a depth camera which has a resolution of $320\times240$ pixels.
-The depth sensor uses a flash near IR illuminator and measures the time-of-flight~\cite{Hansard2013} of the beam at each pixel to obtain depth estimates along with an IR reflectance at each pixel.
+The sensor contains both a $1,280 \times 720$ color camera directed parallel to, and separated by roughly $25~mm$ from, a depth camera which has a resolution of $320\times240$ pixels.  The color images are JPEG-compressed coming out of the sensor and so have block artefacts.  The depth sensor uses a flash near IR illuminator and measures the time-of-flight of the beam at each pixel to obtain depth estimates at each pixel~\cite{Hansard2013}.
 
-There is a number of limitations to the depth sensor that becomes the sources of depth errors.
-The primary measurement limitation on the range-to-target is the strength of the reflected beam.
-As a result, dark, matt surfaces are measured reliably only at a close range on the order of $20$ or $30~cm$.
-Highly reflective surfaces also pose problems with direct reflections leading to saturation and highly unreliable depths.
-In addition reflective surfaces at grazing angles are less reliably measured since little signal is reflected.
-Fortunately the primary goal of the depth measurements are to obtain leaf depths, and plants provide good, roughly Lambertian, reflections of IR~\cite{Chelle2006219}.
-Thus the depth pixels that are most reliable and are of most use are those that fall on plant foliage.
+The depth sensor is limited largely by the strength of the signal returned.  Low-reflectivity surfaces, such as the foam under the plant leaves, are accurate only at a close range (on the order of $20$ or $30~cm$).  On the other hand, specular and highly reflective objects, such metal and plastic surfaces in the growth chamber, can saturate the sensor pixels leading to unreliable depths for those pixels.  Fortunately the primary goal of the depth sensor is to obtain leaf pixel depths, and plants provide good, roughly Lambertian, reflections of IR~\cite{Chelle2006219}.  As a result the most useful and reliable depth pixels that those that fall on plant foliage, and we usually ignore non-foliage pixel depths.
 
 % For one-column wide figures use
 \begin{figure}
