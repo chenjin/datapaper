@@ -22,7 +22,7 @@ Finally, we generate $2,880$ leaf templates for each modality.
 
 
 For plant segmentation, we use simple thresholding process and edge detection to generate an image mask and edge map.
-The best threshold is learnt from the training set, which is done by tuning the threshold in a certain range and find the best one by evaluating the overlap of the segmented masks with the groundtruth label masks.
+The best threshold is learnt from the training set, which is done by tuning the threshold in a certain range and find the best one by evaluating the overlap of the segmented masks with the ground truth label masks.
 The edge map and mask are used in the alignment and tracking optimization.
 
 First, we find the best location of each template in the edge map that has the minimal CM distance, which will result in an over-completed set of leaf candidates from all templates.
