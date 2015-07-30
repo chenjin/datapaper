@@ -40,9 +40,10 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 %\end{centering}
 %\end{figure*}
 
-It is often argued which is the best setting due to the trade-off between the image resolution and the throughput of phenotyping experiments.
-We chose to image a whole tray of Arabidopsis at lower resolution rather than an individual at higher resolution, because it better reflects high-throughput protocols, which in practice allows direct comparison of multiple genotypes in the same experiment.
-In contrary, we chose to image a single bean plant because we anticipate enabling development of $3$D plant canopy reconstruction algorithms for bush plants.
+%It is often argued which is the best setting due to the trade-off between the image resolution and the throughput of phenotyping experiments.
+The trade-off between image resolution and sample throughput is a common conundrum with designing visual phenotyping experiments. 
+We chose to image a whole tray of Arabidopsis at lower resolution rather than an individual at higher resolution, because it better reflects high-throughput protocols, which in practice allow direct comparison of multiple genotypes in the same experiment.
+In contrast, we chose to image a single bean plant because we anticipate enabling development of $3$D plant canopy reconstruction algorithms for bushy plants.
 
 
 \subsection{Manual Annotations}
@@ -53,18 +54,17 @@ We use the fluorescence images as the input for labeling because of their clean 
 %Leaf segmentation results are stored in a PNG image for each frame with one color for each leaf.
 %The same color is used to represent the same leaf over a sequence of frames.
 
-For Arabidopsis images, we label $4$ frames each day.
-While for bean images, we label $7$ frames each day because of their spontaneous and fast leaf movement.
-A Matlab GUI interface is developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will also be available to the public.
+For Arabidopsis images, we labeled $4$ frames per day.
+While for bean images, we labeled $7$ frames per day due to the plant's fast and spontaneous leaf movements. 
+A Matlab GUI interface was developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will be available to the public.
 A user can open a plant image (``Open") to label the two tips and annotate each leaf segment.
 The results will be automatically saved once a user moves to a previous or next image (``Previous", and ``Next").
 For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
 
 The labeling of the leaf segment (``Leaf Label") is implemented by clicking the boundary of one leaf at each time.
-In order to provide more accuracy labeling, we click very dense points ($\sim20$ points on average for each leaf) on the boundary.
+In order to provide more accurate labeling, a fairly high point density ($\sim20$ points on average) is typically used to define the boundary for each leaf. .
 The labeled leaf boundary is overlaid on the image for better visualization to guide the next action.
-Incorrect label can be deleted right after the labeling by clicking ``Clear".
-All leaf labels can be deleted by clicking ``Clear All".
+An incorrect label can be deleted right after the labeling by clicking ``Clear", or all leaf labels can be deleted by clicking ``Clear All".
 This process continues until all leaf segments have been annotated.
 Once a leaf is invisible due to occlusion, the label can be skipped by clicking ``Invisible".
 
@@ -148,7 +148,9 @@ We can make two conclusions from Table~\ref{tab:labelError}.
 First, the similarity for both manual annotation and label propagation increases as the plant grows.
 This is expected because {\it{SBD}} depends on the overlap ratio between two leaves, which inherently favors larger leaves.
 Second, the performance of label propagation is only slightly worse than the performance of human annotations.
-Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis sequences, which not only saves laborious human labor, but also provides consistent labels for all four modalities.
+Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis sequences.
+There are two benefits: $1)$ it decreases the need for manual label; $2)$ labeling is consistent for all four modalities. 
+%, which not only saves laborious human labor, but also provides consistent labels for all four modalities.
 
 In the case of the bean sequences, the pixel association between modalities is more difficult as the within-plant depth variations are large.
 We found that a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infrared and fluorescence images that use the same camera.

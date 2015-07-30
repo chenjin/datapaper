@@ -202,11 +202,13 @@ As for the other lighting and imaging protocols adopted by the authors (Sec. $3.
 \end{review}
 
 \begin{response}
-The depth sensor uses a a flash near IR illuminator to obtain depth estimates.
-The near IR illuminator will not influence the plant growth.
-The color image does not use any special lighting so it is not harmful as well.
-The IR and fluorescence images use a saturation light, which will damage the plants only if at high frequency.
-However, as we are taking images once per hour, the influence is minimal and can be ignored.
+RGB images are collected without additional light sources and only when the growth illumination is turned on, while the distance measurements uses a near IR ($\sim900~nm$) light sources.  
+These modalities should not influence photosynthesis, growth or development.  
+Both IR imaging and chlorophyll fluorescence imaging collect data during a very short dark interval when the growth light is electronically shuttered ($\sim100~microseconds/image$).  
+This should have minimal impact on photosynthesis and presumably growth.  
+Two saturating light flashes ($300~msec$ duration) in rapid succession ($\sim600~msec$ apart) are used during chlorophyll fluorescence imaging.  
+At high frequency ($4$ or more image sets per hour), this modality can be damaging to photosynthesis and growth, especially at low growth light intensities when photoprotection is minimally induced.  
+We have limited image collection to $1$ data set per hour.
 \end{response}
 
 
@@ -570,7 +572,7 @@ Collimated ... is a nice special term, but please put in parenthesis the definit
 \end{review}
 
 \begin{response}
-``Collimated" means to make the light rays parallel.
+``Collimated" means to make the light rays parallel in order to minimize dispersion of light.
 We have added this definition in the paper.
 \end{response}
 
