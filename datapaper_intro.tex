@@ -42,12 +42,12 @@ While many factors can be assessed quantitatively, which is essential for high-t
 
 
 % Jeff corrected
-The complex interaction between genotype and environment determines how plants will develop physiologically (from the biochemical level to structural morphology), which ultimately influences field performance, for example resource acquisition, resource partitioning and seed yield.  
-In order to understand the genetic basis for these economically important parameters, it is essential to quantitatively assess plant phenotypes and then identify the latent relationships between genotype and environmental factors.  
-Plant visual phenotyping has been performed by farmers and breeders for more than $5,000$ years to develop plant lines with desirable traits.  
-This traditional method is based on experience and intuition and is both labor intense and time-consuming~\cite{johannsenerblichkeit}.  
-Recent progress in imaging sensor, robotics and automation technologies has recently led to the rapid development of highly-automated, non-destructive, high-throughput methods for visual phenotyping ~\cite{furbank2011phenomics,kramer2015plant}.  
-The intent of modern plant visual phenotyping is to accelerate the collection, analysis and categorization visual (e.g. morphology, size) and spectral (e.g. chlorophyll fluorescence, chlorophyll content, water content, leaf temperature) data sets in order to identify and quantify specific plant traits, especially those related to plant performance. 
+The complex interaction between genotype and environment determines how plants will develop physiologically (from the biochemical level to structural morphology), which ultimately influences field performance, for example resource acquisition, resource partitioning and seed yield.
+In order to understand the genetic basis for these economically important parameters, it is essential to quantitatively assess plant phenotypes and then identify the latent relationships between genotype and environmental factors.
+Plant visual phenotyping has been performed by farmers and breeders for more than $5,000$ years to develop plant lines with desirable traits.
+This traditional method is based on experience and intuition and is both labor intense and time-consuming~\cite{johannsenerblichkeit}.
+Recent progress in imaging sensor, robotics and automation technologies has recently led to the rapid development of highly-automated, non-destructive, high-throughput methods for visual phenotyping ~\cite{furbank2011phenomics,kramer2015plant}.
+The intent of modern plant visual phenotyping is to accelerate the collection, analysis and categorization visual (e.g. morphology, size) and spectral (e.g. chlorophyll fluorescence, chlorophyll content, water content, leaf temperature) data sets in order to identify and quantify specific plant traits, especially those related to plant performance.
 This interdisciplinary field requires scientists and engineers to not only develop or employ various image sensors platforms to collect under relevant conditions, but also design advance algorithms for the automated processing and analysis of image data.
 
 %Plants develop through a complex interaction between genotype and environment.
@@ -98,9 +98,9 @@ Leafsnap & \multirow{2}{*}{RGB} & \multirow{2}{*}{LC} & \multirow{2}{*}{USA tree
 ~\cite{kumar2012leafsnap} & & & & & & \\ \hline
 Crop/weed & \multirow{2}{*}{RGB} & \multirow{2}{*}{Weed detection} & \multirow{2}{*}{Crop/weed} & \multirow{2}{*}{$2$} & \multirow{2}{*}{$60$} & \multirow{2}{*}{$60$} \\
 ~\cite{haug2014crop} & & & & & & \\ \hline
-LSC & \multirow{2}{*}{RGB} & \multirow{2}{*}{LS, LO} & Arabidopsis & $43$ & $6,287$ & $201$ \\ \cline{4-7}
-~\cite{haug2014crop} & & & Tobacco & $80$ & $165,120$ & $83$ \\ \hline
-\multirow{2}{*}{MSU-PID} & fluorescence, & LS, LO, & Arabidopsis & $16$ & $2,160\times 4$ & $576\times 4$ \\ \cline{4-7}
+LSC & \multirow{2}{*}{RGB} & \multirow{2}{*}{LS, LO, LT\tnote{b}} & Arabidopsis & $43$ & $6,287$ & $201$ \\ \cline{4-7}
+~\cite{scharr2014annotated} & & & Tobacco & $80$ & $165,120$ & $83$ \\ \hline
+\multirow{2}{*}{MSU-PID} & fluorescence, & LS, LO & Arabidopsis & $16$ & $2,160\times 4$ & $576\times 4$ \\ \cline{4-7}
 & IR, RGB, depth & LA, LT & Bean & $5$ & $325\times 4$ & $175\times 2$ \\ \hline
 \hline
 \end{tabular}
@@ -108,6 +108,7 @@ LSC & \multirow{2}{*}{RGB} & \multirow{2}{*}{LS, LO} & Arabidopsis & $43$ & $6,2
 \begin{tablenotes}
 \footnotesize
 \item[a] The abbreviation in ``Applications'' column is defined as Leaf Classification (LC), Leaf Segmentation (LS), Leaf Counting (LO), Leaf Alignment (LA), and Leaf Tracking (LT).
+\item[b] The data collected in ~\cite{scharr2014annotated} does have temporal images which will allow leaf tracking. However, the dataset that they release does not include any temporal information.
 \end{tablenotes}
 \end{threeparttable}
 \label{tab:database}
@@ -116,7 +117,8 @@ LSC & \multirow{2}{*}{RGB} & \multirow{2}{*}{LS, LO} & Arabidopsis & $43$ & $6,2
 Due to diverse variations of leaf shape, appearance, layout, growth and movement, plant image analysis is a non-trivial computer vision task~\cite{Minervini2015}.
 In order to develop advanced computer vision algorithms, image databases that are well representative of this application domain is highly important.
 In fact, computer vision research lives on and advances with databases, as evidenced by the successful databases in the field (e.g., FERET~\cite{Phillips2000} and LFW~\cite{LFW}).
-However, the publicly available databases for plant phenotyping are still very limited, with the only exception of LSC database~\cite{scharr2014annotated}, which, nevertheless, has its own limitations on the type of images (RGB only) and is only suitable for a small set of plant image analysis applications.
+However, the publicly available databases for plant phenotyping are still very limited, with the only exception of LSC database~\cite{scharr2014annotated}, which, nevertheless, has its own limitations on the type of images (RGB only) and not having released data related to tracking (although the authors claim in~\cite{scharr2014annotated} that such data is available.)
+% is only suitable for a small set of plant image analysis applications.
 
 
 To facilitate future research on plant image analysis, as well as remedy the limitation of existing databases in the field, this paper presents a newly collected multi-modality Plant Imagery Database through an interdisciplinary effort at Michigan State University (MSU), which is termed ``MSU-PID''.
