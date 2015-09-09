@@ -1,0 +1,155 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[top=1in,bottom=1in,left=1in,right=1in]{geometry}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{bm}
+\usepackage[usenames]{color}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{textcomp}
+\usepackage{times}
+\usepackage{url}
+\usepackage{xr}
+
+%\externaldocument{../debris}
+
+\newcommand{\eg}{e.g.}
+\newcommand{\ie}{i.e.}
+\newcommand{\etal}{et~al.~}
+\newcommand{\vs}{vs.~}
+\newcommand{\cf}{cf.~}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\green}{\color{green}}
+\newcommand{\resp}{\textcolor{Blue}}
+\renewcommand{\thefigure}{R-\arabic{figure}}
+
+
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
+\newcounter{reviewcounter}
+\setcounter{reviewcounter}{1}
+
+\newenvironment{review}
+{\noindent {\bf Comment~\arabic{reviewcounter}}:\addtocounter{reviewcounter}{1}\itshape}
+{\vspace{0.8em}}
+
+\newenvironment{response}
+{\noindent {\bf Response}: \color{black}}
+{\color{black} \vspace{1.6em}}
+
+\title{Response letter on MVAP-D-15-00159R1, \\"Multi-modality Imagery Database for Plant Phenotyping"}
+
+\begin{document}
+\date{}
+\maketitle
+
+
+{We thank the Guest Editors and two reviewers for providing feedback and the decision.
+Here we prepare the response to the comments and indicate the changes we have made in this revision. 
+}
+\\
+
+\begin{tabular*}{\textwidth}{c}
+\hline
+\end{tabular*}
+
+
+% Comment 1
+\begin{review}
+In Table $1$, I believe LSC has wrong reference.  
+It should be [Scharr et al., $2014$] and not [Haug and Osterman, $2014$].
+\end{review}
+
+\begin{response}
+We have corrected the wrong reference. 
+\end{response}
+
+
+% Comment 2
+\begin{review}
+ Also in Table $1$, according to [Scharr et al., $2014$], the data they collected appear to handle at least also Leaf Tracking (maybe also leaf alignment). 
+ So the table should be corrected. 
+ While, from my understanding, the LSC dataset did not make those available (ie., where not released), from their paper it is clear that this was done. 
+ I believe it is best you are explicit on that rather than rely on reader's interpretation.
+\end{review}
+
+\begin{response}
+We have added ``leaf tracking'' to LSC dataset in Table $1$ with a footnote indicating that the temporal data is not available. 
+However, the dataset does not include labels which enables leaf alignment task. 
+\end{response}
+
+
+% Comment 3
+\begin{review}
+Having said the above, you could potentially edit the part on page $3$, first col, lines $20$ to $24$ to read something along the lines ``with the only exception of LSC database [Scharr et al., $2014$], which has the limitation of including a single modality (RGB only) and not having released with the LSC $2014$, data related to tracking and alignment (although in [Scharr et al., $2014$], the authors claim that such data is available)''
+\end{review}
+
+\begin{response}
+We have changed the corresponding text to: ``with the only exception of LSC database [Scharr et al., $2014$], which, nevertheless, has its own limitations on the type of images (RGB only) and not having released data related to tracking (although the authors claim in [Scharr et al., $2014$] that such data is available).''
+\end{response}
+
+
+% Comment 4
+\begin{review}
+Possibly also the text on page $4$, first col, line $25$ to $34$, should be corrected to reflect the comment that [Scharr et al., $2014$] does in fact has data for other vision tasks but they were not included in the LSC. 
+This should be clear to the reader, to reflect what is stated in the report.
+\end{review}
+
+\begin{response}
+We have change the corresponding text to ``The provided manual labels allow the evaluation of leaf segmentation and leaf counting. 
+Although it is claimed that they have collected data for leaf tracking, it has not been included in the current LSC dataset''
+\end{response}
+
+
+% Comment 5
+\begin{review}
+Thank you for your clarification on the Figure $3$a, but i still believe that there is an error on the units of the z axis. 
+It shows that cameras are at $60~mm$, but it should $620~mm$ according to your response and caption.
+\end{review}
+
+\begin{response}
+We have changed the caption slightly to clarify the confusion. 
+``The distance to the target bean plant is roughly $620~mm$ in this example. 
+For clarity the image planes are plotted not at actual target depth, where they would overlap, but at depths proportional to their focal lengths.''
+\end{response}
+
+
+% Comment 6
+\begin{review}
+Based on how you made the annotations, I still do not think you can create a single pixel boundary between leaves (at best it will be two pixel thick).
+\end{review}
+
+\begin{response}
+We annotate each leaf separately. 
+For those overlapping leaves, it is possible that we can still get a single pixel boundary if we happen to annotate the same points on the boundary. 
+However, it is also likely that they will not share the boundary during annotation. 
+So it will be two boundaries for each leaf and they can be connected or not. 
+This is an approximation of the boundary and we think the error made by not a single pixel boundary between leaves can be ignored. 
+\end{response}
+
+
+% Comment 7
+\begin{review}
+Maybe my comment on interaction was not clear. 
+Completely interactive in my book means totally with human interaction (not - automated). 
+I was asking if you believe that some interactive segmentation algorithms can help.
+\end{review}
+
+\begin{response}
+Thanks for the clarification. 
+We believe that there are some interactive segmentation algorithms, level set for example, can help on the segmentation. 
+However, we did not explore the possible segmentation algorithms. 
+Instead, we used totally human interaction because it was very accurate and end up without too much labor. 
+\end{response}
+
+
+
+
+
+\end{document}
