@@ -16,7 +16,7 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 \begin{figure*}
 \centering
 \includegraphics[width=.90\textwidth]{Figures/labeling}\\
-\caption{Leaf labeling process, including tip labels and leaf segmentation annotation.}
+\caption{Leaf annotation process, including leaf tip and leaf segment labels.}
 \label{fig:label}
 \end{figure*}
 
@@ -41,7 +41,7 @@ Table~\ref{tab:resolution} summaries the image resolution of each plant in all f
 %\end{figure*}
 
 %It is often argued which is the best setting due to the trade-off between the image resolution and the throughput of phenotyping experiments.
-The trade-off between image resolution and sample throughput is a common conundrum with designing visual phenotyping experiments. 
+The trade-off between image resolution and sample throughput is a common conundrum with designing visual phenotyping experiments.
 We chose to image a whole tray of Arabidopsis at lower resolution rather than an individual at higher resolution, because it better reflects high-throughput protocols, which in practice allow direct comparison of multiple genotypes in the same experiment.
 In contrast, we chose to image a single bean plant because we anticipate enabling development of $3$D plant canopy reconstruction algorithms for bushy plants.
 
@@ -55,11 +55,12 @@ We use the fluorescence images as the input for labeling because of their clean 
 %The same color is used to represent the same leaf over a sequence of frames.
 
 For Arabidopsis images, we labeled $4$ frames per day.
-While for bean images, we labeled $7$ frames per day due to the plant's fast and spontaneous leaf movements. 
-A Matlab GUI interface was developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will be available to the public.
+While for bean images, we labeled $7$ frames per day due to the plant's fast and spontaneous leaf movements.
+A Matlab GUI interface was developed for leaf labeling, as shown in Figure~\ref{fig:label}, which will be released to the public.
 A user can open a plant image (``Open") to label the two tips and annotate each leaf segment.
 The results will be automatically saved once a user moves to a previous or next image (``Previous", and ``Next").
 For consistent annotation of the same leaf over time, we show a number on the center of each leaf indicating the order of labeling from the previous frame.
+The users should follow the order to label leaves. 
 
 The labeling of the leaf segment (``Leaf Label") is implemented by clicking the boundary of one leaf at each time.
 In order to provide more accurate labeling, a fairly high point density ($\sim20$ points on average) is typically used to define the boundary for each leaf. .
@@ -113,24 +114,6 @@ Note that the color and depth images are rotated $90$ degrees.}
 \end{centering}
 \end{figure*}
 
-
-\begin{table*}[t]
-\centering
-\caption{Human label performance vs. label propagation performance.
-$L_1$ and $L_2$ are the manual label results from two annotators, and $L_t$ is the propagated results.
-The {\it{SBD}} score is averaged over $3$ plants.}
-\begin{tabular}{c|c|c|c|c|c|c}
-\hline
-    & \multicolumn{3}{c|}{fluorescence modality} & \multicolumn{3}{c}{RGB modality}\\ \hline
-    & $L_1$ vs. $L_1$ & $L_1$ vs. $L_2$  & $L_1$ vs. $L_t$ & $L_1$ vs. $L_1$ & $L_1$ vs. $L_2$ & $L_1$ vs. $L_t$ \\ \hline
-   day$\_3\_$hour$\_23$ & $1$ & $0.808$ & $0.804$ & $1$ & $0.827$ & $0.802$ \\ \hline
-   day$\_5\_$hour$\_23$ & $1$ & $0.830$ & $0.836$ & $1$ & $0.871$ & $0.837$ \\ \hline
-   day$\_9\_$hour$\_20$ & $1$ & $0.903$ & $0.886$ & $1$ & $0.877$ & $0.789$ \\ \hline
-                   average &          $1$ & $0.847$ & $0.842$ & $1$ & $0.858$ & $0.809$ \\ \hline
-\end{tabular}
-\label{tab:labelError}
-\end{table*}
-
 The leaf labeling can be propagated from the fluorescence images to each of the other modalities for the Arabidopsis sequences.
 To do this, we approximate a plant image with a plane, and estimate homographies that transform the fluorescence images into the images in other modalities.
 This provides a direct mapping of the pixel labels between each modality.
@@ -146,11 +129,29 @@ The results are shown in Table~\ref{tab:labelError}.
 
 We can make two conclusions from Table~\ref{tab:labelError}.
 First, the similarity for both manual annotation and label propagation increases as the plant grows.
-This is expected because {\it{SBD}} depends on the overlap ratio between two leaves, which inherently favors larger leaves.
+This is expected because {\it{SBD}} depends on the overlap ratio between two leaves, which inherently favors large leaves.
 Second, the performance of label propagation is only slightly worse than the performance of human annotations.
 Therefore, we use label propagation to provide the labels for all four modalities for Arabidopsis sequences.
-There are two benefits: $1)$ it decreases the need for manual label; $2)$ labeling is consistent for all four modalities. 
+There are two benefits: $1)$ it decreases the need for manual label; $2)$ labeling is consistent for all four modalities.
 %, which not only saves laborious human labor, but also provides consistent labels for all four modalities.
+
+\begin{table}[h]
+\centering
+\caption{Human label performance vs. label propagation performance.
+$L_1$ and $L_2$ are the manual label results from two annotators, and $L_t$ is the propagated results.
+The {\it{SBD}} score is averaged over $3$ plants.}
+\begin{tabular}{c|c|c|c|c}
+\hline
+    & \multicolumn{2}{c|}{fluorescence} & \multicolumn{2}{c}{RGB}\\ \hline
+    & $L_1$ vs. $L_2$  & $L_1$ vs. $L_t$ & $L_1$ vs. $L_2$ & $L_1$ vs. $L_t$ \\ \hline
+   day$\_3$ & $0.808$ & $0.804$ & $0.827$ & $0.802$ \\ \hline
+   day$\_5$ & $0.830$ & $0.836$ & $0.871$ & $0.837$ \\ \hline
+   day$\_9$ & $0.903$ & $0.886$ & $0.877$ & $0.789$ \\ \hline
+    average &   $0.847$ & $0.842$ & $0.858$ & $0.809$ \\ \hline
+\end{tabular}
+\label{tab:labelError}
+\end{table}
+
 
 In the case of the bean sequences, the pixel association between modalities is more difficult as the within-plant depth variations are large.
 We found that a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infrared and fluorescence images that use the same camera.

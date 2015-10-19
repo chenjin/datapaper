@@ -2,23 +2,23 @@
 \label{sec:baseline}
 
 To facilitate future research on this database, we apply our automatic multi-leaf segmentation, alignment, and tracking framework~\cite{yin2014a,yin2014b} to the testing set of Arabidopsis imagery to provide a baseline.
-Specifically, we apply it on fluorescence and RGB modalities. 
+Specifically, we apply it on fluorescence and RGB modalities.
 Our work is motivated by Chamfer Matching (CM) technique~\cite{barrow1977parametric}, which is used to align two edge maps.
 We extend it to simultaneously align multiple overlapping objects.
 
 Note that~\cite{yin2014a,yin2014b} is designed for rosette plants like Arabidopsis.
 Therefore, it will not be applied to bean imagery as it does not belong to rosette plant.
-%In addition, we also apply it on the RGB modality and use the propagated labels for evaluation. 
+%In addition, we also apply it on the RGB modality and use the propagated labels for evaluation.
 
 \subsection{Multi-leaf Segmentation and Tracking Framework}
 As shown in Figure~\ref{fig:methodOverview}, the input of this framework is a plant video and a set of predefined templates with various shapes, scales, and orientations.
 We treat all images in $9$ days as a video from first image on the first day to the last image on the last day.
 To generate the template set, we first select $12$ templates with different aspect ratios from the labeled images in the training set together with the corresponding tip locations.
 For each template, we scale it to $10$ different sizes in order to cover the entire range of leaf sizes in the database.
-The scales for fluorescence images and RGB images are different due to the different image resolutions. 
+The scales for fluorescence images and RGB images are different due to the different image resolutions.
 For each scale template, we rotate every $15^{\circ}$ to generate $24$ templates at different orientations.
-Tip locations will be scaled and rotated accordingly.
-Finally, we generate $2,880$ leaf templates for each modality. 
+Tip locations are scaled and rotated accordingly.
+Finally, we generate $2,880$ leaf templates for each modality.
 
 
 For plant segmentation, we use simple thresholding process and edge detection to generate an image mask and edge map.
@@ -31,7 +31,7 @@ Third, we apply multi-leaf tracking~\cite{yin2014b} approach, which is based on 
 
 In the tracking process, we delete a leaf when it becomes too small.
 A new leaf is generated when there is a relatively large portion of the mask that has not been covered by current leaf candidates.
-For each frame of the video, we can generate a label image with each leaf being labeled with one color and the tip locations for each estimated leaf.
+For each frame of the video, we can generate the tip locations for each estimated leaf and a label image with each leaf being labeled with one color.
 The labeled color for each leaf in the video remains the same during the tracking process.
 
 
@@ -148,15 +148,15 @@ The labeled color for each leaf in the video remains the same during the trackin
 
 \subsection{Performance and Analysis}
 We apply our algorithm to all frames of each video and evaluate the performance on labeled frames.
-Figure~\ref{fig:alignResult} shows some examples of leaf alignment results on the last frame of each video. 
+Figure~\ref{fig:alignResult} shows some examples of leaf alignment results on the last frame of each video.
 Our framework works very well on segmenting large leaves with no overlap to neighbor leaves.
 For overlapping leaves, it becomes more challenging as the edges in the overlapping area are more difficult to be detected.
 However, when the overlapping leaves are further away from the center, they will have a higher chance to be detected as shown in Figure~\ref{fig:alignResult} $(c)$.
 When the overlapping leaves are close to the center, smaller leaves will be covered by larger leaves as shown in Figure~\ref{fig:alignResult} $(a), (d), (e)$.
 
 %Leaf alignment provides the leaf candidates for tracking over time.
-Figure~\ref{fig:trackExample} shows the leaf tracking result of one Arabidopsis video in both fluorescence and RGB modalities. 
-We can see the high quality leaf label propagation results on this video. 
+Figure~\ref{fig:trackExample} shows the leaf tracking result of one Arabidopsis video in both fluorescence and RGB modalities.
+We can see the high quality leaf label propagation results on this video.
 The leaf template transformation works well for most of the leaves.
 As plant grows, younger leaves may grow faster than older leaves and occlude the older leaves.
 As shown in Figure~\ref{fig:trackExample} (b),(e), purple leaf replaces the red leaf at day $6$.
@@ -172,15 +172,15 @@ As $\tau$ keeps increasing, {\it{ULR}} approaches a constant value, which is the
 {\it{TC}} increases as $\tau$ increases as more leaves are being considered as correctly tracked leaves.
 Note that {\it{TC}} is influenced by the length of frames evaluated for each video.
 As the longer frames we evaluate, the higher chance tracking will fail.
-Our method can detect $87\%$ and track $50\%$ of all labeled leaves with less than $20\%$ average tip-based errors on fluorescence images. 
+Our method can detect $87\%$ and track $50\%$ of all labeled leaves with less than $20\%$ average tip-based errors on fluorescence images.
 
 We generate a label image for each frame based on the leaf segmentation results and compute the {\it{SBD}} score for each labeled image.
-The average {\it{SBD}} is $0.61$ for fluorescence images and $0.57$ for RGB images. 
+The average {\it{SBD}} is $0.61$ for fluorescence images and $0.57$ for RGB images.
 
 Overall, the performance on fluorescence images is better than the performance on RGB images.
-This is due to two reasons. 
-First, the resolution of RGB images is much lower than that of fluorescence images, which will results in the miss detection of small leaves, and more severe leaf occlusions. 
-Second, the label propagation causes some error, which is inevitable with the label homography-based mapping. 
+This is due to two reasons.
+First, the resolution of RGB images is much lower than that of fluorescence images, which will results in more miss detections of small leaves, and more severe leaf occlusions.
+Second, the label propagation causes some error, which is inevitable with the label homography-based mapping.
 
 
 
