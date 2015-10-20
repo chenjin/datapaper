@@ -7,7 +7,7 @@ Our work is motivated by Chamfer Matching (CM) technique~\cite{barrow1977paramet
 We extend it to simultaneously align multiple overlapping objects.
 
 Note that~\cite{yin2014a,yin2014b} is designed for rosette plants like Arabidopsis.
-Therefore, it will not be applied to bean imagery as it does not belong to rosette plant.
+Therefore, it will not be applied to bean imagery, as it does not belong to rosette plant.
 %In addition, we also apply it on the RGB modality and use the propagated labels for evaluation.
 
 \subsection{Multi-leaf Segmentation and Tracking Framework}
@@ -86,15 +86,15 @@ The labeled color for each leaf in the video remains the same during the trackin
 \includegraphics[trim= 100 100 150 10, clip, width=.1\textwidth]{Figures/trackExample/2_8}&
 \includegraphics[trim= 100 100 150 10, clip, width=.1\textwidth]{Figures/trackExample/2_9}\\
 (c) &
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_1.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_2.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_3.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_4.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_5.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_6.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_7.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_8.pdf}&
-\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_9.pdf}\\
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_1.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_2.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_3.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_4.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_5.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_6.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_7.png}&
+\includegraphics[trim= 100 70 120 10, clip, width=.1\textwidth]{Figures/trackExample/3_8.png}&
+\includegraphics[trim= 100 70 120 10,  clip, width=.1\textwidth]{Figures/trackExample/3_9.png}\\
 
 (d) &
 \includegraphics[width=.09\textwidth]{Figures/trackExample/4_1}&
@@ -162,7 +162,7 @@ As plant grows, younger leaves may grow faster than older leaves and occlude the
 As shown in Figure~\ref{fig:trackExample} (b),(e), purple leaf replaces the red leaf at day $6$.
 %Our backward tracking algorithm tracks leaves from the last frame to the first frame.
 The two leaves are still being considered as one leaf (ID $8$) in day $4$ and day $3$ (Figure~\ref{fig:trackExample} (c)).
-Leaf $8$ in day $1$ and $2$ is a leaf ID switch w.r.t.~the purple ground truth leaf and will not be considered as a consistently tracked leaf (Figure~\ref{fig:trackExample} (c)).
+Leaf $8$ in day $1$ and $2$ is a leaf ID switch w.r.t. the purple ground truth leaf and will not be considered as a consistently tracked leaf (Figure~\ref{fig:trackExample} (c)).
 However, they are still evaluated as well aligned and segmented leaves.
 
 For quantitative evaluation, we vary $\tau$ from $0$ to $1$ and generate the first three evaluation metrics, as shown in Figure~\ref{fig:performance}.
@@ -181,6 +181,7 @@ Overall, the performance on fluorescence images is better than the performance o
 This is due to two reasons.
 First, the resolution of RGB images is much lower than that of fluorescence images, which will results in more miss detections of small leaves, and more severe leaf occlusions.
 Second, the label propagation causes some error, which is inevitable with the label homography-based mapping.
+
 
 
 
