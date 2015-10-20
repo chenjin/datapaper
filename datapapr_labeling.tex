@@ -135,7 +135,7 @@ Therefore, we use label propagation to provide the labels for all four modalitie
 There are two benefits: $1)$ it decreases the need for manual label; $2)$ labeling is consistent for all four modalities.
 %, which not only saves laborious human labor, but also provides consistent labels for all four modalities.
 
-\begin{table}[h]
+\begin{table}[t!]
 \centering
 \caption{Human label performance vs. label propagation performance.
 $L_1$ and $L_2$ are the manual label results from two annotators, and $L_t$ is the propagated results.
@@ -153,7 +153,7 @@ The {\it{SBD}} score is averaged over $3$ plants.}
 \end{table}
 
 
-In the case of the bean sequences, the pixel association between modalities is more difficult as the within-plant depth variations are large.
+In the case of the bean imagery, the pixel association between modalities is more difficult as the within-plant depth variations are large.
 We found that a homograph-based mapping performed poorly, and so the manual annotations we supply apply to just the infrared and fluorescence images that use the same camera.
 
 
@@ -223,7 +223,7 @@ For fair comparison, both supervised learning and unsupervised learning methods 
 
 The user may decide to utilize one or multiple modalities of the plant imagery for training and testing respectively.
 The availability of multiple modalities allows user to design novel experimental setup.
-For example, using RGB and depth modalities for training and RGB for testing can take advantage of additional information during the learning without incurring extra sensor cost during the testing, which can be implemented via either learning with side information~\cite{chen2013boosting}, or transfering learning with missing modality~\cite{ding2014latent}.
+For example, using RGB and depth modalities for training and RGB for testing can take advantage of additional information during the learning without incurring extra sensor cost during the testing, which can be implemented via either learning with side information~\cite{chen2013boosting}, or transfering learning with missing modality~\cite{ding2014latent,Chen2013b}.
 
 
 \paragraph{Performance Metric}
